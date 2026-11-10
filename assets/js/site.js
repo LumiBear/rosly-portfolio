@@ -51,9 +51,9 @@
     if (bits.length) tl.from(bits, { y: 26, opacity: 0, filter: 'blur(12px)', duration: 1.2, stagger: 0.08, clearProps: 'filter' }, 0.1);
     const art = document.querySelector('[data-hero-art]');
     if (art) {
-      tl.from(art.querySelectorAll('.gfolder__back, .gfolder__tab'), { y: 60, opacity: 0, duration: 1.3 }, 0.2)
+      tl.fromTo(art.querySelectorAll('.gfolder__back, .gfolder__tab'), { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.3, clearProps: 'transform,opacity' }, 0.2)
         .from(art.querySelectorAll('.blobs b'), { scale: 0.2, opacity: 0, duration: 1.8, stagger: 0.1, ease: 'expo.out' }, 0.3)
-        .from(art.querySelector('.gfolder__front'), { y: 80, opacity: 0, duration: 1.3 }, 0.45)
+        .fromTo(art.querySelector('.gfolder__front'), { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.3, clearProps: 'transform,opacity' }, 0.45)
         .from(art.querySelectorAll('.sparkles i'), { scale: 0, duration: 0.9, stagger: 0.06, ease: 'back.out(3)' }, 1.0);
       const orb = art.querySelector('.hero__orb, .about__photo');
       if (orb) tl.from(orb, { y: -50, scale: 0.85, opacity: 0, filter: 'blur(16px)', duration: 1.4, clearProps: 'filter' }, 0.6);
