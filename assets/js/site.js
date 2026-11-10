@@ -49,7 +49,11 @@
     const words = document.querySelectorAll('.hero__word');
     if (words.length) {
       tl.from(words, { yPercent: 105, duration: 1.4, stagger: 0.09 }, 0.1);
-      tl.from('.polaroid[data-drag]', { y: 120, rotate: 18, opacity: 0, duration: 1.6 }, 0.35);
+      tl.from('.strip', { y: -140, rotate: -24, opacity: 0, duration: 1.6 }, 0.25);
+      tl.from('.board--hero .band', { scaleX: 0, transformOrigin: 'left center', duration: 1.3, ease: 'expo.inOut', stagger: 0.1 }, 0.1);
+      tl.from('.deco--charms', { y: -30, opacity: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)' }, 1.0);
+      tl.from('.sticker--year', { scale: 0, rotate: -60, duration: 1, ease: 'back.out(2)' }, 1.1);
+      tl.from('.board--hero .deco--clip', { y: -60, opacity: 0, duration: 0.9 }, 0.7);
     }
     const title = document.querySelector('.cs__title, .about__title');
     if (title && !reduced) {
@@ -104,7 +108,10 @@
       const frame = fig.querySelector('.fig__frame');
       const im = frame.querySelector('img');
       const cap = fig.querySelector('figcaption');
+      const btn = fig.querySelector('.fig__btn');
       const tl = gsap.timeline({ scrollTrigger: { trigger: fig, start: 'top 86%', once: true } });
+      tl.from(btn, { y: 60, rotate: gsap.utils.random(-6, 6), opacity: 0, duration: 1.1, ease: EXPO, clearProps: 'transform,opacity,rotate' }, 0);
+      fig.querySelectorAll('.tape').forEach((t, k) => tl.from(t, { scaleX: 0, opacity: 0, duration: .5, ease: 'power3.out' }, 0.55 + k * 0.12));
       tl.fromTo(frame, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'expo.inOut' })
         .fromTo(im, { scale: 1.18, yPercent: 6 }, { scale: 1, yPercent: 0, duration: 1.6, ease: EXPO, clearProps: 'transform' }, 0.1);
       if (cap) tl.from(cap, { opacity: 0, y: 10, duration: 0.8, ease: EXPO }, 0.7);
@@ -143,7 +150,7 @@
       scaleY: () => (mobile.matches ? 1 : 1), ease: 'none',
       scrollTrigger: {
         trigger: content, start: 'top 55%', end: 'bottom 60%', scrub: 0.4,
-        onUpdate: (st) => gsap.set(fill, mobile.matches ? { scaleX: st.progress, scaleY: 1 } : { scaleY: st.progress, scaleX: 1 }),
+        onUpdate: (st) => gsap.set(fill, { scaleX: st.progress, scaleY: 1 }),
       },
     });
 
@@ -174,63 +181,53 @@
     links.forEach((a) => a.addEventListener('click', (e) => {
       e.preventDefault();
       const target = document.getElementById(a.dataset.stepLink);
-      const offset = -(parseInt(getComputedStyle(root).getPropertyValue('--head-h')) + (mobile.matches ? 70 : 24));
+      const offset = -(parseInt(getComputedStyle(root).getPropertyValue('--head-h')) + (mobile.matches ? 90 : 24));
       scrollTo(target, offset);
       history.replaceState(null, '', '#' + a.dataset.stepLink);
     }));
   }
 
-  /* ───────── home: cursor preview on the work index ───────── */
+  /* ───────── home: folders slide onto the desk ───────── */
   function workPreview() {
-    const box = document.querySelector('.cursor-preview');
-    if (!box || !fine) return;
-    const im = box.querySelector('img');
-    const xTo = gsap.quickTo(box, 'x', { duration: 0.6, ease: 'power3' });
-    const yTo = gsap.quickTo(box, 'y', { duration: 0.6, ease: 'power3' });
-    const rTo = gsap.quickTo(box, 'rotate', { duration: 0.8, ease: 'power3' });
-    let px = 0;
-    window.addEventListener('pointermove', (e) => {
-      xTo(e.clientX); yTo(e.clientY);
-      rTo(gsap.utils.clamp(-8, 8, (e.clientX - px) * 0.4));
-      px = e.clientX;
-    }, { passive: true });
-    document.querySelectorAll('.work__link[data-preview]').forEach((a) => {
-      a.addEventListener('pointerenter', () => {
-        if (im.getAttribute('src') !== a.dataset.preview) {
-          im.src = a.dataset.preview;
-          gsap.fromTo(im, { scale: 1.2 }, { scale: 1, duration: 0.9, ease: EXPO });
-        }
-        box.classList.add('is-on');
-      });
-      a.addEventListener('pointerleave', () => box.classList.remove('is-on'));
+    if (reduced) return;
+    gsap.utils.toArray('.folder').forEach((f, i) => {
+      gsap.from(f, { y: 90, rotate: i % 2 ? 3 : -3, opacity: 0, duration: 1.2, ease: EXPO,
+        scrollTrigger: { trigger: f, start: 'top 92%', once: true } });
+      const paper = f.querySelector('.folder__paper');
+      if (paper) gsap.from(paper, { yPercent: 40, duration: 1.4, ease: EXPO, delay: 0.25, scrollTrigger: { trigger: f, start: 'top 92%', once: true } });
     });
-    // stagger the rows in
-    gsap.from('.work__item', { y: 40, opacity: 0, duration: 1.1, ease: EXPO, stagger: 0.07, scrollTrigger: { trigger: '.work__list', start: 'top 85%', once: true } });
   }
 
-  /* ───────── home: draggable polaroid ───────── */
+  /* ───────── draggable keepsakes (photo strip, ID badge) ───────── */
   function polaroid() {
-    const p = document.querySelector('.polaroid[data-drag]');
-    if (!p) return;
-    let sx, sy, ox = 0, oy = 0, dragging = false, last = 0;
-    p.addEventListener('pointerdown', (e) => {
-      dragging = true; p.setPointerCapture(e.pointerId); p.classList.add('is-dragging');
-      sx = e.clientX - ox; sy = e.clientY - oy; last = e.clientX;
-      gsap.to(p, { scale: 1.04, duration: 0.3, ease: 'power3' });
+    document.querySelectorAll('[data-drag]').forEach((p) => {
+      const badge = p.classList.contains('idbadge');
+      let sx, sy, ox = 0, oy = 0, dragging = false, last = 0;
+      p.addEventListener('pointerdown', (e) => {
+        dragging = true; p.setPointerCapture(e.pointerId); p.classList.add('is-dragging');
+        sx = e.clientX - ox; sy = e.clientY - oy; last = e.clientX;
+        gsap.to(p, { scale: 1.03, duration: 0.3, ease: 'power3' });
+      });
+      p.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        const vx = e.clientX - last; last = e.clientX;
+        if (badge) {
+          // a badge on a lanyard swings instead of travelling
+          gsap.to(p, { rotate: gsap.utils.clamp(-25, 25, (e.clientX - sx) * 0.15), duration: 0.4, ease: 'power3', transformOrigin: '50% 0%' });
+          return;
+        }
+        ox = e.clientX - sx; oy = e.clientY - sy;
+        gsap.to(p, { x: ox, y: oy, rotate: gsap.utils.clamp(-20, 20, vx * 1.2), duration: 0.35, ease: 'power3' });
+      });
+      const up = () => {
+        if (!dragging) return;
+        dragging = false; p.classList.remove('is-dragging');
+        gsap.to(p, { rotate: 0, scale: 1, duration: badge ? 2 : 1.2, ease: badge ? 'elastic.out(1, 0.25)' : 'elastic.out(1, 0.6)' });
+      };
+      p.addEventListener('pointerup', up); p.addEventListener('pointercancel', up);
+      p.addEventListener('dblclick', () => { ox = oy = 0; gsap.to(p, { x: 0, y: 0, rotate: 0, duration: 1, ease: EXPO }); });
+      if (badge && !reduced) gsap.fromTo(p, { rotate: -9 }, { rotate: 0, duration: 2.6, ease: 'elastic.out(1, 0.2)', delay: 0.3, transformOrigin: '50% 0%' });
     });
-    p.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      ox = e.clientX - sx; oy = e.clientY - sy;
-      const vx = e.clientX - last; last = e.clientX;
-      gsap.to(p, { x: ox, y: oy, rotate: gsap.utils.clamp(-20, 20, vx * 1.2), duration: 0.35, ease: 'power3' });
-    });
-    const up = () => {
-      if (!dragging) return;
-      dragging = false; p.classList.remove('is-dragging');
-      gsap.to(p, { rotate: 0, scale: 1, duration: 1.2, ease: 'elastic.out(1, 0.6)' });
-    };
-    p.addEventListener('pointerup', up); p.addEventListener('pointercancel', up);
-    p.addEventListener('dblclick', () => { ox = oy = 0; gsap.to(p, { x: 0, y: 0, rotate: 0, duration: 1, ease: EXPO }); });
   }
 
   /* ───────── clock ───────── */
