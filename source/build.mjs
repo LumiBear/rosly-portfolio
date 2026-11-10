@@ -173,7 +173,6 @@ function shell({ title, desc, body, page, current, ogImage = '/assets/img/home/f
 <meta property="og:image" content="${ogImage}">
 <meta name="theme-color" content="#EDE6DA">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/bodoni-moda-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/silkscreen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -200,44 +199,49 @@ ${dialogs()}
 
 /* ───────── home ───────── */
 function home() {
-  const rows = projects.map((p, i) => `<li class="folder${p.inProgress ? ' is-wip' : ''}" style="--tab:${(i % 4) * 19}%">
+  const files = projects.map((p, i) => `<li class="folder" style="--tilt:${[-1.2, 1, 0.8, -0.9][i % 4]}deg">
     <a class="folder__link" href="/work/${p.slug}/">
       <span class="folder__tab"><span class="pixel">${String(i + 1).padStart(2, '0')}</span> ${p.title}</span>
       <span class="folder__back" aria-hidden="true"></span>
-      <span class="folder__paper">${img(p.cover, { sizes: '(min-width: 900px) 40vw, 90vw', alt: '' })}</span>
+      <span class="folder__paper" aria-hidden="true">${img(p.cover, { sizes: '(min-width: 900px) 34vw, 80vw', alt: '' })}</span>
       <span class="folder__front">
         <img class="folder__clip" src="/assets/deco/paperclip.svg" alt="" aria-hidden="true">
-        <span class="folder__label">
-          <span class="pixel folder__kind">${p.kind}${p.inProgress ? ' · IN PROGRESS' : ''}</span>
-          <span class="folder__title" style="view-transition-name: t-${p.slug}">${p.title}</span>
-          <span class="folder__desc">${p.kicker}</span>
-        </span>
-        <span class="folder__open">Open file ${icon('arrow')}</span>
-        <span class="stamp" aria-hidden="true">${p.year}</span>
+        <span class="pixel folder__kind">${p.kind}${p.inProgress ? ' · in progress' : ''}</span>
+        <span class="folder__title" style="view-transition-name: t-${p.slug}">${p.title}</span>
+        <span class="folder__desc">${p.kicker}</span>
+        <span class="folder__row"><span class="folder__open">Open file ${icon('arrow')}</span><span class="stamp">${p.inProgress ? 'WIP' : p.year}</span></span>
       </span>
     </a>
   </li>`).join('');
 
   const body = `
 <section class="hero">
-  <div class="board board--hero">
-    <span class="band band--pink" aria-hidden="true"></span>
-    <span class="band band--brown" aria-hidden="true"></span>
-    <img class="deco deco--charms" src="/assets/deco/charms.svg" alt="" aria-hidden="true">
-    <img class="deco deco--clip" src="/assets/deco/binder-clip.svg" alt="" aria-hidden="true">
+  <div class="ofolder">
+    <div class="ofolder__panel ofolder__panel--l" aria-hidden="true"></div>
+    <div class="ofolder__panel ofolder__panel--r" aria-hidden="true"></div>
+    <span class="ofolder__crease" aria-hidden="true"></span>
+
     <div class="strip" data-drag aria-label="Photo strip of Rosly">
-      <img class="strip__lace" src="/assets/deco/lace.svg" alt="" aria-hidden="true">
+      <img class="strip__clip" src="/assets/deco/paperclip.svg" alt="" aria-hidden="true">
       <img class="strip__photos" src="/assets/img/home/strip.webp" width="644" height="1540" alt="Rosly Tavarez, three photo-booth frames" fetchpriority="high">
-      <img class="strip__bow" src="/assets/deco/bow.svg" alt="" aria-hidden="true">
     </div>
-    <div class="hero__title">
-      <p class="caps-spaced hero__first" data-hero="meta">ROSLY</p>
-      <h1 class="hero__script" aria-label="Rosly Tavarez"><span class="hero__line"><span class="hero__word">Tavarez</span></span></h1>
-      <p class="caps-spaced hero__sub" data-hero="tag">UX DESIGN PORTFOLIO</p>
+
+    <div class="lined" aria-hidden="true">
+      <span class="gingham gingham--a"></span>
+      <span class="gingham gingham--b"></span>
+      <span class="lined__sheet"></span>
+      <img class="lined__pin" src="/assets/deco/pushpin.svg" alt="">
     </div>
-    <span class="sticker sticker--year" aria-hidden="true">2<span>★</span>26</span>
-    <p class="hero__clock pixel">DENTON, TX · <time data-clock>--:--</time></p>
+    <img class="deco ofolder__seal" src="/assets/deco/seal.svg" alt="" aria-hidden="true">
+    <img class="deco ofolder__star" src="/assets/deco/star-metal.svg" alt="" aria-hidden="true">
+
+    <h1 class="wordmark" aria-label="Rosly Tavarez, portfolio">
+      <span class="wordmark__pixel" data-hero="meta">Port</span><span class="wordmark__script"><span class="hero__line"><span class="hero__word">folio</span></span></span>
+    </h1>
+    <p class="namelabel" data-hero="tag"><span>Rosly Tavarez</span><span class="pixel">UX Designer · UNT</span></p>
+    <p class="hero__clock pixel">Denton, TX · <time data-clock>--:--</time></p>
   </div>
+
   <div class="hero__notes">
     <div class="note-card" data-hero="now">
       <img class="deco deco--pin" src="/assets/deco/paperclip.svg" alt="" aria-hidden="true">
@@ -246,7 +250,7 @@ function home() {
       <p class="typewriter note-card__sign">— Rosly</p>
     </div>
     <div class="now-card" data-hero="now">
-      <p class="pixel">CURRENTLY</p>
+      <p class="pixel">Currently</p>
       <ul>
         <li>Union Arts Associate at UNT</li>
         <li>Adobe Student Ambassador</li>
@@ -259,29 +263,20 @@ function home() {
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="work__head">
     <h2 id="work-h" class="mixed-title"><span class="script">Case</span><span class="pixel-xl">FILES</span></h2>
-    <p class="work__count typewriter">${projects.length} folders · click one to open</p>
+    <p class="work__count typewriter">${projects.length} folders · hover to peek inside</p>
   </div>
-  <ol class="folders">${rows}
-    <li class="folder is-soon" style="--tab:${(projects.length % 4) * 19}%">
-      <div class="folder__link">
-        <span class="folder__tab"><span class="pixel">${String(projects.length + 1).padStart(2, '0')}</span> ${inProgressExtra.title}</span>
-        <span class="folder__back" aria-hidden="true"></span>
-        <span class="folder__front">
-          <span class="folder__label">
-            <span class="pixel folder__kind">COMING SOON</span>
-            <span class="folder__title">${inProgressExtra.title}</span>
-            <span class="folder__desc">${inProgressExtra.kicker}. ${inProgressExtra.note}</span>
-          </span>
-          <span class="stamp stamp--draft" aria-hidden="true">DRAFT</span>
-        </span>
-      </div>
-    </li>
-  </ol>
+  <ol class="folders">${files}</ol>
+  <div class="soon">
+    <span class="soon__tape" aria-hidden="true"></span>
+    <p class="pixel">Coming soon · ${inProgressExtra.year}</p>
+    <p class="soon__title">${inProgressExtra.title}</p>
+    <p class="soon__desc">${inProgressExtra.kicker}. ${inProgressExtra.note}</p>
+  </div>
 </section>
 
 <section class="intro-strip">
   <div class="torn">
-    <p class="pixel">A LITTLE ABOUT ME</p>
+    <p class="pixel">A little about me</p>
     <p class="intro-strip__text" data-reveal="lines">I study UX design and advertising at UNT, and I’m drawn to problems where feelings get in the way: the blank page, the cluttered feed, the chore nobody admits to skipping.</p>
     <a class="arrowlink" href="/about/">Read my file ${icon('arrow')}</a>
   </div>
