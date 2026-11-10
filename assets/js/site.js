@@ -11,6 +11,7 @@
   if (!hasGsap) { root.classList.add('reveal-ready'); return; }
   const { gsap } = window;
   gsap.registerPlugin(ScrollTrigger, SplitText, Flip);
+  gsap.config({ nullTargetWarn: false });
   const EXPO = 'expo.out';
 
   /* ───────── smooth scroll ───────── */
