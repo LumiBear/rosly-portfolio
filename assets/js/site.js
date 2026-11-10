@@ -46,20 +46,23 @@
   /* ───────── page intro ───────── */
   function intro() {
     const tl = gsap.timeline({ defaults: { ease: EXPO } });
-    const words = document.querySelectorAll('.hero__word');
-    if (words.length) {
-      tl.from(words, { yPercent: 105, duration: 1.4, stagger: 0.09 }, 0.1);
-      tl.from('.strip', { y: -140, rotate: -24, opacity: 0, duration: 1.6 }, 0.25);
-      tl.from('.board--hero .band', { scaleX: 0, transformOrigin: 'left center', duration: 1.3, ease: 'expo.inOut', stagger: 0.1 }, 0.1);
-      tl.from('.deco--charms', { y: -30, opacity: 0, duration: 1.2, ease: 'elastic.out(1, 0.5)' }, 1.0);
-      tl.from('.sticker--year', { scale: 0, rotate: -60, duration: 1, ease: 'back.out(2)' }, 1.1);
-      tl.from('.board--hero .deco--clip', { y: -60, opacity: 0, duration: 0.9 }, 0.7);
+    if (document.querySelector('.ofolder')) {
+      tl.from('.ofolder__panel--l', { rotateY: 70, transformOrigin: '100% 50%', transformPerspective: 1600, opacity: 0, duration: 1.4, ease: 'expo.out' }, 0)
+        .from('.ofolder__panel--r', { rotateY: -70, transformOrigin: '0% 50%', transformPerspective: 1600, opacity: 0, duration: 1.4, ease: 'expo.out' }, 0)
+        .from('.lined', { y: -80, rotate: -12, opacity: 0, duration: 1.2 }, 0.35)
+        .from('.gingham', { scaleX: 0, transformOrigin: 'left center', duration: 0.9, ease: 'power3.out', stagger: 0.12 }, 0.8)
+        .from('.lined__pin', { y: -60, opacity: 0, duration: 0.7, ease: 'back.out(2.2)' }, 1.0)
+        .from('.strip', { y: -120, rotate: -22, opacity: 0, duration: 1.4 }, 0.45)
+        .from('.ofolder__seal', { scale: 0, rotate: -90, duration: 0.9, ease: 'back.out(2)' }, 1.15)
+        .from('.ofolder__star', { scale: 0, rotate: 120, duration: 1, ease: 'back.out(2)' }, 1.25)
+        .from('.wordmark__pixel', { y: 40, opacity: 0, duration: 1 }, 0.7)
+        .from('.hero__word', { yPercent: 40, opacity: 0, duration: 1.3 }, 0.85)
+        .from('.namelabel', { y: 20, opacity: 0, duration: 0.8 }, 1.2);
     }
     const title = document.querySelector('.cs__title, .about__title');
     if (title && !reduced) {
       const split = SplitText.create(title, { type: 'words,chars', charsClass: 'ch' });
-      gsap.set(title, { overflow: 'hidden', paddingBottom: '.08em' });
-      tl.from(split.chars, { yPercent: 110, duration: 1.2, stagger: 0.025 }, crossDocVT ? 0.25 : 0.1);
+      tl.from(split.chars, { yPercent: 35, opacity: 0, duration: 1.1, stagger: 0.025, onComplete: () => split.revert() }, crossDocVT ? 0.25 : 0.1);
     }
     const heroBits = document.querySelectorAll('[data-hero]');
     if (heroBits.length) tl.from(heroBits, { y: 24, opacity: 0, duration: 1.1, stagger: 0.08 }, 0.35);
@@ -76,11 +79,12 @@
     // Masked line rise for display type and lead paragraphs
     document.querySelectorAll('[data-reveal="lines"]').forEach((el) => {
       SplitText.create(el, {
-        type: 'lines', mask: 'lines', linesClass: 'ln', autoSplit: true,
+        type: 'lines', mask: 'lines', linesClass: 'ln',
         onSplit(self) {
           return gsap.from(self.lines, {
             yPercent: 105, duration: 1.15, ease: EXPO, stagger: 0.09,
             scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+            onComplete: () => self.revert(),
           });
         },
       });
@@ -189,13 +193,12 @@
 
   /* ───────── home: folders slide onto the desk ───────── */
   function workPreview() {
-    if (reduced) return;
-    gsap.utils.toArray('.folder').forEach((f, i) => {
-      gsap.from(f, { y: 90, rotate: i % 2 ? 3 : -3, opacity: 0, duration: 1.2, ease: EXPO,
-        scrollTrigger: { trigger: f, start: 'top 92%', once: true } });
-      const paper = f.querySelector('.folder__paper');
-      if (paper) gsap.from(paper, { yPercent: 40, duration: 1.4, ease: EXPO, delay: 0.25, scrollTrigger: { trigger: f, start: 'top 92%', once: true } });
-    });
+    const folders = gsap.utils.toArray('.folder');
+    if (!folders.length) return;
+    if (!reduced) folders.forEach((f, i) => gsap.from(f, { y: 80, rotate: i % 2 ? 4 : -4, opacity: 0, duration: 1.2, ease: EXPO, delay: (i % 2) * 0.12,
+      scrollTrigger: { trigger: f, start: 'top 92%', once: true } }));
+    // Touch screens can't hover: open each folder as it passes the middle of the screen
+    if (!fine) folders.forEach((f) => ScrollTrigger.create({ trigger: f, start: 'top 60%', end: 'bottom 40%', toggleClass: 'is-peek' }));
   }
 
   /* ───────── draggable keepsakes (photo strip, ID badge) ───────── */
