@@ -49,7 +49,7 @@ function sparkles(n = 6, seed = 1) {
 
 function figure(id, caption = '', { cls = '' } = {}) {
   const m = meta[id];
-  return `<figure class="fig ${cls}" data-reveal="fig">
+  return `<figure class="fig ${cls}" data-reveal="fig" style="--ar:${(m.w / m.h).toFixed(4)}">
   <button class="fig__btn" type="button" data-view data-title="${esc(strip(caption)) || 'Image'}" data-pages="/assets/img/${m.full}" data-download="${dlName(id)}" data-dl-href="/assets/img/${m.full}" aria-label="Open image full size: ${esc(strip(caption))}">
     <span class="fig__frame" style="aspect-ratio:${m.w}/${m.h}">${img(id, { alt: strip(caption) })}</span>
     <span class="fig__hint" aria-hidden="true">${icon('expand')}</span>
@@ -320,7 +320,6 @@ function caseStudy(p) {
 <section class="more" aria-labelledby="more-h">
   <div class="more__head">
     <h2 id="more-h" class="h-section" data-reveal="rise">Read more of my case studies</h2>
-    <div class="more__nav"><button class="chip" type="button" data-more="-1" aria-label="Previous">${icon('back')}</button><button class="chip" type="button" data-more="1" aria-label="Next">${icon('arrow')}</button></div>
   </div>
   <ul class="more__list">${more}</ul>
 </section>`;
@@ -363,7 +362,7 @@ function aboutPage() {
   <div class="about__sec about__cols" data-reveal="stagger">
     <div class="glass card"><h2>Education</h2><p><b>${about.education.school}</b><br>${about.education.degree}<br><span class="muted">${about.education.when}</span></p><p class="label">Honors</p><ul>${about.honors.map((h) => `<li>${h}</li>`).join('')}</ul></div>
     <div class="glass card"><h2>Toolbox</h2><ul class="chips">${about.toolbox.map((t) => `<li class="chip">${t}</li>`).join('')}</ul><p class="label">Certifications</p><ul>${about.certifications.map((c) => `<li>${c}</li>`).join('')}</ul></div>
-    <div class="glass card"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul><p class="label">Off the clock</p><p class="muted">More about me coming soon.</p></div>
+    <div class="glass card"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul></div>
   </div>
 </section>`;
   return shell({ title: 'About · Rosly Tavarez', desc: about.intro, body, page: 'about', current: 'about' });

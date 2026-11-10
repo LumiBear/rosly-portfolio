@@ -5,7 +5,6 @@ export const person = {
   role: 'UX designer',
   email: 'roslytav@gmail.com',
   linkedin: 'https://www.linkedin.com/in/roslytavarez',
-  location: 'Denton, Texas',
   tagline:
     'I turn research, brand insight, and complex moments into intuitive digital experiences people genuinely enjoy using.',
   signoff: 'Big ideas, made useful.',
@@ -413,7 +412,7 @@ export const about = {
     { org: 'Kickstart Marketing Lab Foundation', role: 'UX Design Intern', when: 'Mar – Jun 2026', points: ['Led a full website redesign end to end while managing stakeholder communication.', 'Delivered design documentation and ran handoff meetings for the incoming team.', 'Restructured information architecture and visual design for a scalable final product.'] },
     { org: 'L’Oréal Brandstorm 2026', role: 'UX Designer & Coordinator', when: 'Jan – Mar 2026', points: ['Synthesized 75+ participant responses into product requirements and concept iterations.', 'Delivered a live concept pitch to L’Oréal industry judges.'] },
   ],
-  roles: ['Adobe Student Ambassador', 'Student Assistant, UNT Dining Services'],
+  roles: ['Adobe Student Ambassador'],
   education: { school: 'University of North Texas', degree: 'BFA, UX Design · Advertising minor', when: 'Expected May 2029' },
   honors: ['President’s List, 4.0 GPA (Spring 2026)', 'UNT Excellence Scholarship (2025)', 'Voertman-Ardoin Scholarship in Art (2026–27)'],
   toolbox: ['Figma', 'Framer', 'Miro / FigJam', 'Adobe Illustrator', 'Photoshop', 'InDesign', 'Blender', 'HTML / CSS'],
