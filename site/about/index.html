@@ -8,39 +8,55 @@
 <meta property="og:title" content="About · Rosly Tavarez">
 <meta property="og:description" content="I’m a UX designer studying for a BFA in UX Design at the University of North Texas, with an advertising minor. I specialize in accessible, visually driven experiences across web, mobile, and brand, and I’m happiest when research turns a messy, emotional problem into something that feels simple.">
 <meta property="og:image" content="../assets/img/home/full/portrait.jpg">
-<meta name="theme-color" content="#F2F1EE">
+<meta name="theme-color" content="#EDE6DA">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/bodoni-moda-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/pinyon-script-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/silkscreen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/site.css?v=mwb13ubt">
+<link rel="stylesheet" href="../assets/css/site.css?v=mwb4cte9">
 <script>(function(d){var h=d.documentElement;h.classList.add('js');try{if(!('onpagereveal' in window)&&sessionStorage.getItem('pt')){h.classList.add('is-entering')}}catch(e){}setTimeout(function(){h.classList.add('reveal-ready');h.classList.remove('is-entering')},3000)})(document);</script>
 <script defer src="../assets/vendor/gsap.min.js"></script>
 <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
 <script defer src="../assets/vendor/SplitText.min.js"></script>
 <script defer src="../assets/vendor/Flip.min.js"></script>
 <script defer src="../assets/vendor/lenis.min.js"></script>
-<script defer src="../assets/js/site.js?v=mwb13ubt"></script>
+<script defer src="../assets/js/site.js?v=mwb4cte9"></script>
 </head>
 <body class="page-about">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-head">
-  <a class="mark" href="../" aria-label="Rosly Tavarez, home"><span class="mark__script">Rosly</span><span class="mark__name">Tavarez</span></a>
+  <a class="mark" href="../" aria-label="Rosly Tavarez, home"><span class="mark__script">Rosly</span><span class="mark__name">TAVAREZ</span></a>
   <nav class="site-nav" aria-label="Primary">
-    <a href="../#work" >Work</a>
-    <a href="../about/" aria-current="page">About</a>
-    <button type="button" data-view data-title="Résumé" data-pages="../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../files/RoslyTavarez_Resume.pdf">Résumé</button>
-    <button type="button" data-contact>Contact</button>
+    <a class="pill" href="../#work" >Work</a>
+    <a class="pill" href="../about/" aria-current="page">About</a>
+    <button class="pill" type="button" data-view data-title="Résumé" data-pages="../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../files/RoslyTavarez_Resume.pdf">Résumé</button>
+    <button class="pill pill--pink" type="button" data-contact>Contact</button>
   </nav>
 </header>
 <main id="main">
 
 <section class="about">
   <div class="about__head">
-    <p class="cs__kicker" data-hero="meta">About me</p>
-    <h1 class="about__title">Hi, I’m Rosly.</h1>
+    <h1 class="about__title mixed-title"><span class="script">About</span><span class="pixel-xl">ME</span></h1>
   </div>
   <div class="about__grid">
-    <figure class="about__photo polaroid polaroid--still"><img class="" src="../assets/img/home/portrait.webp" width="1600" height="1348" alt="Rosly Tavarez" fetchpriority="high" decoding="async" sizes="(min-width: 900px) 30vw, 80vw"></figure>
+    <div class="idbadge" data-drag>
+      <span class="idbadge__lanyard" aria-hidden="true"></span>
+      <span class="idbadge__clip" aria-hidden="true"></span>
+      <div class="idbadge__card">
+        <div class="idbadge__head"><span class="pixel">UNT · 2029</span><span class="idbadge__logo">PORT-<em>folio</em></span></div>
+        <div class="idbadge__body">
+          <span class="idbadge__photo"><img class="" src="../assets/img/home/portrait.webp" width="1600" height="1348" alt="Rosly Tavarez" fetchpriority="high" decoding="async" sizes="160px"></span>
+          <dl class="typewriter">
+            <div><dt>Name</dt><dd class="script">Rosly Tavarez</dd></div>
+            <div><dt>Occupation</dt><dd>UX Designer</dd></div>
+            <div><dt>Based in</dt><dd>Denton, TX</dd></div>
+          </dl>
+        </div>
+        <div class="idbadge__foot"><span class="idbadge__stars" aria-hidden="true">★ ★ ★ ★ ★</span><span class="barcode" aria-hidden="true"></span></div>
+      </div>
+    </div>
     <div class="about__text">
       <p class="lead" data-reveal="lines">I’m a UX designer studying for a BFA in UX Design at the University of North Texas, with an advertising minor. I specialize in accessible, visually driven experiences across web, mobile, and brand, and I’m happiest when research turns a messy, emotional problem into something that feels simple.</p>
       <p data-reveal="rise">My background is in fine art, which is probably why I care as much about how something feels as how it works. I’ve designed for a campus gallery, a nonprofit marketing lab, and an international L’Oréal competition, and I keep coming back to the same question: what’s really stopping someone in this moment?</p><p data-reveal="rise">I’m bilingual in English and Spanish, and I’m currently looking for UX and product design internships for summer 2027, plus part-time work during the school year.</p>
@@ -53,43 +69,47 @@
   </div>
 
   <div class="about__sec">
-    <h2 data-reveal="lines">Experience</h2>
+    <h2 class="mixed-title"><span class="script">Work</span><span class="pixel-xl">HISTORY</span></h2>
     <ol class="xp"><li class="xp__item" data-reveal="rise">
-      <p class="xp__when">Jan 2026 – Present</p>
+      <p class="xp__when pixel">Jan 2026 – Present</p>
       <div><h3>Union Arts Associate</h3><p class="xp__org">University of North Texas</p><ul><li>Raised student event attendance 10% with targeted visual promotion for 5+ live campus events.</li><li>Improved the gallery experience for 100+ daily visitors by applying visual hierarchy to exhibition layouts.</li><li>Led hands-on design workshops that translate technical concepts into clear lessons.</li></ul></div>
     </li><li class="xp__item" data-reveal="rise">
-      <p class="xp__when">Mar – Jun 2026</p>
+      <p class="xp__when pixel">Mar – Jun 2026</p>
       <div><h3>UX Design Intern</h3><p class="xp__org">Kickstart Marketing Lab Foundation</p><ul><li>Led a full website redesign end to end while managing stakeholder communication.</li><li>Delivered design documentation and ran handoff meetings for the incoming team.</li><li>Restructured information architecture and visual design for a scalable final product.</li></ul></div>
     </li><li class="xp__item" data-reveal="rise">
-      <p class="xp__when">Jan – Mar 2026</p>
+      <p class="xp__when pixel">Jan – Mar 2026</p>
       <div><h3>UX Designer & Coordinator</h3><p class="xp__org">L’Oréal Brandstorm 2026</p><ul><li>Synthesized 75+ participant responses into product requirements and concept iterations.</li><li>Delivered a live concept pitch to L’Oréal industry judges.</li></ul></div>
     </li>
-    <li class="xp__item" data-reveal="rise"><p class="xp__when">Also</p><div><h3>Adobe Student Ambassador · Student Assistant, UNT Dining Services</h3></div></li>
+    <li class="xp__item" data-reveal="rise"><p class="xp__when pixel">ALSO</p><div><h3>Adobe Student Ambassador · Student Assistant, UNT Dining Services</h3></div></li>
     </ol>
   </div>
 
   <div class="about__sec about__cols">
-    <div data-reveal="stagger"><h2>Education</h2><p><b>University of North Texas</b><br>BFA, UX Design · Advertising minor<br><span class="muted">Expected May 2029</span></p><h3 class="about__sub">Honors</h3><ul><li>President’s List, 4.0 GPA (Spring 2026)</li><li>UNT Excellence Scholarship (2025)</li><li>Voertman-Ardoin Scholarship in Art (2026–27)</li></ul></div>
-    <div data-reveal="stagger"><h2>Toolbox</h2><ul class="chips"><li>Figma</li><li>Framer</li><li>Miro / FigJam</li><li>Adobe Illustrator</li><li>Photoshop</li><li>InDesign</li><li>Blender</li><li>HTML / CSS</li></ul><h3 class="about__sub">Certifications</h3><ul><li>IBM Enterprise Design Thinking Practitioner (2026)</li><li>UX Research at Scale: Surveys, Analytics, Online Testing (2026)</li><li>Figma: Designing with Variables and Conditionals (2026)</li><li>Adobe Illustrator (2024)</li></ul></div>
-    <div data-reveal="stagger"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul><h3 class="about__sub">Off the clock</h3><p class="muted">More about me coming soon.</p></div>
+    <div class="paper-card" data-reveal="stagger"><h2>Education</h2><p><b>University of North Texas</b><br>BFA, UX Design · Advertising minor<br><span class="muted">Expected May 2029</span></p><h3 class="about__sub pixel">HONORS</h3><ul><li>President’s List, 4.0 GPA (Spring 2026)</li><li>UNT Excellence Scholarship (2025)</li><li>Voertman-Ardoin Scholarship in Art (2026–27)</li></ul></div>
+    <div class="paper-card paper-card--pink" data-reveal="stagger"><h2>Toolbox</h2><ul class="chips"><li>Figma</li><li>Framer</li><li>Miro / FigJam</li><li>Adobe Illustrator</li><li>Photoshop</li><li>InDesign</li><li>Blender</li><li>HTML / CSS</li></ul><h3 class="about__sub pixel">CERTIFICATIONS</h3><ul><li>IBM Enterprise Design Thinking Practitioner (2026)</li><li>UX Research at Scale: Surveys, Analytics, Online Testing (2026)</li><li>Figma: Designing with Variables and Conditionals (2026)</li><li>Adobe Illustrator (2024)</li></ul></div>
+    <div class="paper-card" data-reveal="stagger"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul><h3 class="about__sub pixel">OFF THE CLOCK</h3><p class="muted">More about me coming soon.</p></div>
   </div>
 </section>
 </main>
 <footer class="site-foot">
-  <div class="site-foot__top">
-    <p class="site-foot__big" data-reveal="lines">Big ideas, made useful.</p>
-    <a class="site-foot__mail" href="mailto:roslytav@gmail.com">roslytav@gmail.com</a>
-  </div>
-  <nav class="site-foot__nav" aria-label="Footer">
-    <a href="../">Home</a>
-    <a href="../about/">About me</a>
-    <button type="button" data-view data-title="Résumé" data-pages="../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../files/RoslyTavarez_Resume.pdf">Resume</button>
-    <button type="button" data-contact>Contact</button>
-  </nav>
-  <div class="site-foot__base">
-    <span>© 2026 Rosly Tavarez</span>
-    <span>Designed with curiosity in Denton, Texas</span>
-    <button type="button" class="totop" data-top>Back to top ↑</button>
+  <div class="board board--foot">
+    <span class="band band--pink" aria-hidden="true"></span><span class="band band--brown" aria-hidden="true"></span>
+    <img class="deco deco--clip" src="../assets/deco/binder-clip.svg" alt="" aria-hidden="true">
+    <div class="site-foot__top">
+      <p class="site-foot__big" data-reveal="rise"><span class="caps-spaced">BIG IDEAS,</span><span class="script">made useful</span></p>
+      <a class="site-foot__mail" href="mailto:roslytav@gmail.com">roslytav@gmail.com</a>
+    </div>
+    <nav class="site-foot__nav" aria-label="Footer">
+      <a href="../">Home</a>
+      <a href="../about/">About me</a>
+      <button type="button" data-view data-title="Résumé" data-pages="../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../files/RoslyTavarez_Resume.pdf">Resume</button>
+      <button type="button" data-contact>Contact</button>
+    </nav>
+    <div class="site-foot__base">
+      <span>© 2026 Rosly Tavarez</span>
+      <span>Designed with curiosity in Denton, Texas</span>
+      <button type="button" class="totop" data-top>Back to top ↑</button>
+    </div>
   </div>
 </footer>
 <dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
