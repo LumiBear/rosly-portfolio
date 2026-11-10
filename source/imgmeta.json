@@ -1,0 +1,242 @@
+{
+"home/portrait": {
+"w": 1600,
+"h": 1348,
+"full": "home/full/portrait.jpg"
+},
+"canvas/cover": {
+"w": 1600,
+"h": 900,
+"full": "canvas/full/cover.jpg"
+},
+"canvas/hero-angle": {
+"w": 1280,
+"h": 720,
+"full": "canvas/full/hero-angle.png"
+},
+"canvas/journey": {
+"w": 1540,
+"h": 1041,
+"full": "canvas/full/journey.png"
+},
+"canvas/low-points": {
+"w": 1600,
+"h": 900,
+"full": "canvas/full/low-points.jpg"
+},
+"canvas/pillars": {
+"w": 1600,
+"h": 900,
+"full": "canvas/full/pillars.jpg"
+},
+"canvas/science": {
+"w": 1600,
+"h": 900,
+"full": "canvas/full/science.jpg"
+},
+"canvas/walkthrough": {
+"w": 1600,
+"h": 900,
+"full": "canvas/full/walkthrough.jpg"
+},
+"canvas/dashboard": {
+"w": 1152,
+"h": 820,
+"full": "canvas/full/dashboard.png"
+},
+"canvas/focus-plan": {
+"w": 1008,
+"h": 717,
+"full": "canvas/full/focus-plan.png"
+},
+"canvas/screens": {
+"w": 1586,
+"h": 1600,
+"full": "canvas/full/screens.png"
+},
+"canvas/flow-overview": {
+"w": 1600,
+"h": 792,
+"full": "canvas/full/flow-overview.jpg"
+},
+"closet/cover": {
+"w": 1600,
+"h": 1175,
+"full": "closet/full/cover.jpg"
+},
+"closet/mock-boots": {
+"w": 896,
+"h": 1200,
+"full": "closet/full/mock-boots.jpg"
+},
+"closet/mock-hand": {
+"w": 896,
+"h": 1200,
+"full": "closet/full/mock-hand.jpg"
+},
+"closet/home": {
+"w": 543,
+"h": 1600,
+"full": "closet/full/home.png"
+},
+"closet/product": {
+"w": 635,
+"h": 1600,
+"full": "closet/full/product.png"
+},
+"closet/listing": {
+"w": 706,
+"h": 1600,
+"full": "closet/full/listing.png"
+},
+"closet/seller": {
+"w": 509,
+"h": 1600,
+"full": "closet/full/seller.png"
+},
+"froth/cover": {
+"w": 1280,
+"h": 1399,
+"full": "froth/full/cover.png"
+},
+"froth/old-site": {
+"w": 1400,
+"h": 798,
+"full": "froth/full/old-site.png"
+},
+"froth/logo": {
+"w": 419,
+"h": 271,
+"full": "froth/full/logo.png"
+},
+"froth/palette": {
+"w": 1400,
+"h": 538,
+"full": "froth/full/palette.png"
+},
+"froth/moodboard": {
+"w": 1600,
+"h": 519,
+"full": "froth/full/moodboard.jpg"
+},
+"froth/type-study": {
+"w": 636,
+"h": 312,
+"full": "froth/full/type-study.png"
+},
+"froth/drink-1": {
+"w": 1274,
+"h": 1600,
+"full": "froth/full/drink-1.jpg"
+},
+"froth/drink-2": {
+"w": 1009,
+"h": 1600,
+"full": "froth/full/drink-2.jpg"
+},
+"froth/drink-3": {
+"w": 1040,
+"h": 1600,
+"full": "froth/full/drink-3.jpg"
+},
+"froth/home": {
+"w": 1280,
+"h": 1399,
+"full": "froth/full/home.png"
+},
+"froth/menu": {
+"w": 1279,
+"h": 1396,
+"full": "froth/full/menu.png"
+},
+"froth/work-with-us": {
+"w": 1290,
+"h": 1396,
+"full": "froth/full/work-with-us.png"
+},
+"froth/icons": {
+"w": 1600,
+"h": 683,
+"full": "froth/full/icons.png"
+},
+"reverdi/cover": {
+"w": 1600,
+"h": 900,
+"full": "reverdi/full/cover.jpg"
+},
+"reverdi/problem": {
+"w": 1600,
+"h": 900,
+"full": "reverdi/full/problem.jpg"
+},
+"reverdi/solution": {
+"w": 1600,
+"h": 900,
+"full": "reverdi/full/solution.jpg"
+},
+"reverdi/data": {
+"w": 1600,
+"h": 900,
+"full": "reverdi/full/data.jpg"
+},
+"reverdi/whiteboard": {
+"w": 1170,
+"h": 1100,
+"full": "reverdi/full/whiteboard.jpg"
+},
+"reverdi/survey": {
+"w": 1170,
+"h": 1440,
+"full": "reverdi/full/survey.jpg"
+},
+"reverdi/render": {
+"w": 1170,
+"h": 873,
+"full": "reverdi/full/render.jpg"
+},
+"choretap/cover": {
+"w": 1600,
+"h": 1000,
+"full": "choretap/full/cover.png"
+},
+"choretap/landing": {
+"w": 739,
+"h": 1600,
+"full": "choretap/full/landing.png"
+},
+"choretap/signup": {
+"w": 739,
+"h": 1600,
+"full": "choretap/full/signup.png"
+},
+"choretap/icon": {
+"w": 512,
+"h": 512,
+"full": "choretap/full/icon.png"
+},
+"choretap/ref-1": {
+"w": 736,
+"h": 736,
+"full": "choretap/full/ref-1.jpg"
+},
+"choretap/ref-2": {
+"w": 735,
+"h": 919,
+"full": "choretap/full/ref-2.jpg"
+},
+"choretap/ref-3": {
+"w": 404,
+"h": 316,
+"full": "choretap/full/ref-3.jpg"
+},
+"choretap/ref-4": {
+"w": 736,
+"h": 552,
+"full": "choretap/full/ref-4.jpg"
+},
+"choretap/ref-5": {
+"w": 735,
+"h": 869,
+"full": "choretap/full/ref-5.jpg"
+}
+}
