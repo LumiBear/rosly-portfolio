@@ -46,99 +46,52 @@
   /* ───────── page intro ───────── */
   function intro() {
     const tl = gsap.timeline({ defaults: { ease: EXPO } });
-    if (document.querySelector('.ofolder')) {
-      tl.from('.ofolder__panel--l', { rotateY: 70, transformOrigin: '100% 50%', transformPerspective: 1600, opacity: 0, duration: 1.4, ease: 'expo.out' }, 0)
-        .from('.ofolder__panel--r', { rotateY: -70, transformOrigin: '0% 50%', transformPerspective: 1600, opacity: 0, duration: 1.4, ease: 'expo.out' }, 0)
-        .from('.lined', { y: -80, rotate: -12, opacity: 0, duration: 1.2 }, 0.35)
-        .from('.gingham', { scaleX: 0, transformOrigin: 'left center', duration: 0.9, ease: 'power3.out', stagger: 0.12 }, 0.8)
-        .from('.lined__pin', { y: -60, opacity: 0, duration: 0.7, ease: 'back.out(2.2)' }, 1.0)
-        .from('.strip', { y: -120, rotate: -22, opacity: 0, duration: 1.4 }, 0.45)
-        .from('.ofolder__seal', { scale: 0, rotate: -90, duration: 0.9, ease: 'back.out(2)' }, 1.15)
-        .from('.ofolder__star', { scale: 0, rotate: 120, duration: 1, ease: 'back.out(2)' }, 1.25)
-        .from('.wordmark__pixel', { y: 40, opacity: 0, duration: 1 }, 0.7)
-        .from('.hero__word', { yPercent: 40, opacity: 0, duration: 1.3 }, 0.85)
-        .from('.namelabel', { y: 20, opacity: 0, duration: 0.8 }, 1.2);
+    const bits = document.querySelectorAll('[data-hero]');
+    if (bits.length) tl.from(bits, { y: 26, opacity: 0, filter: 'blur(12px)', duration: 1.2, stagger: 0.08, clearProps: 'filter' }, 0.1);
+    const art = document.querySelector('[data-hero-art]');
+    if (art) {
+      tl.from(art.querySelectorAll('.gfolder__back, .gfolder__tab'), { y: 60, opacity: 0, duration: 1.3 }, 0.2)
+        .from(art.querySelectorAll('.blobs b'), { scale: 0.2, opacity: 0, duration: 1.8, stagger: 0.1, ease: 'expo.out' }, 0.3)
+        .from(art.querySelector('.gfolder__front'), { y: 80, opacity: 0, duration: 1.3 }, 0.45)
+        .from(art.querySelectorAll('.sparkles i'), { scale: 0, duration: 0.9, stagger: 0.06, ease: 'back.out(3)' }, 1.0);
+      const orb = art.querySelector('.hero__orb, .about__photo');
+      if (orb) tl.from(orb, { y: -50, scale: 0.85, opacity: 0, filter: 'blur(16px)', duration: 1.4, clearProps: 'filter' }, 0.6);
     }
     const title = document.querySelector('.cs__title, .about__title');
     if (title && !reduced) {
-      const split = SplitText.create(title, { type: 'words,chars', charsClass: 'ch' });
-      tl.from(split.chars, { yPercent: 35, opacity: 0, duration: 1.1, stagger: 0.025, onComplete: () => split.revert() }, crossDocVT ? 0.25 : 0.1);
+      const split = SplitText.create(title, { type: 'words,chars' });
+      tl.from(split.chars, { yPercent: 30, opacity: 0, filter: 'blur(8px)', duration: 1.1, stagger: 0.02, onComplete: () => split.revert() }, crossDocVT ? 0.25 : 0.1);
     }
-    const heroBits = document.querySelectorAll('[data-hero]');
-    if (heroBits.length) tl.from(heroBits, { y: 24, opacity: 0, duration: 1.1, stagger: 0.08 }, 0.35);
-    const cover = document.querySelector('.fig--cover .fig__frame');
-    if (cover) {
-      tl.fromTo(cover, { clipPath: 'inset(18% 8% 0% 8%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.6, ease: 'expo.inOut' }, 0.3);
-      tl.fromTo(cover.querySelector('img'), { scale: 1.25 }, { scale: 1, duration: 1.9, ease: 'expo.inOut' }, 0.3);
-    }
+    const cover = document.querySelector('.fig--cover .fig__btn');
+    if (cover) tl.from(cover, { y: 60, opacity: 0, filter: 'blur(14px)', duration: 1.4, clearProps: 'filter' }, 0.5);
     return tl;
   }
 
   /* ───────── scroll reveals ───────── */
   function reveals() {
-    // Masked line rise for display type and lead paragraphs
-    document.querySelectorAll('[data-reveal="lines"]').forEach((el) => {
-      SplitText.create(el, {
-        type: 'lines', mask: 'lines', linesClass: 'ln',
-        onSplit(self) {
-          return gsap.from(self.lines, {
-            yPercent: 105, duration: 1.15, ease: EXPO, stagger: 0.09,
-            scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-            onComplete: () => self.revert(),
-          });
-        },
-      });
-    });
-
-    // Paragraphs: a soft wipe from the top edge plus a short rise
+    // Everything comes into focus: a short rise out of a blur
     gsap.utils.toArray('[data-reveal="rise"]').forEach((el) => {
-      gsap.fromTo(el, { y: 26, opacity: 0, clipPath: 'inset(0% 0% 100% 0%)' }, {
-        y: 0, opacity: 1, clipPath: 'inset(0% 0% -10% 0%)', duration: 1.1, ease: EXPO,
+      gsap.fromTo(el, { y: 28, opacity: 0, filter: 'blur(10px)' }, {
+        y: 0, opacity: 1, filter: 'blur(0px)', duration: 1.1, ease: EXPO, clearProps: 'filter',
         scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-        onComplete: () => gsap.set(el, { clearProps: 'clipPath' }),
       });
     });
-
-    // Groups: children step in one after another
     gsap.utils.toArray('[data-reveal="stagger"]').forEach((el) => {
-      gsap.fromTo(el.children, { y: 34, opacity: 0 }, {
-        y: 0, opacity: 1, duration: 1, ease: EXPO, stagger: 0.08,
+      gsap.fromTo(el.children, { y: 34, opacity: 0, filter: 'blur(8px)' }, {
+        y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: EXPO, stagger: 0.08, clearProps: 'filter',
         scrollTrigger: { trigger: el, start: 'top 88%', once: true },
       });
     });
-
-    // Figures: vertical wipe with the image settling inside the mask
-    gsap.utils.toArray('.fig[data-reveal="wipe"]').forEach((fig) => {
-      const frame = fig.querySelector('.fig__frame');
-      const im = frame.querySelector('img');
-      const cap = fig.querySelector('figcaption');
-      const btn = fig.querySelector('.fig__btn');
-      const tl = gsap.timeline({ scrollTrigger: { trigger: fig, start: 'top 86%', once: true } });
-      tl.from(btn, { y: 60, rotate: gsap.utils.random(-6, 6), opacity: 0, duration: 1.1, ease: EXPO, clearProps: 'transform,opacity,rotate' }, 0);
-      fig.querySelectorAll('.tape').forEach((t, k) => tl.from(t, { scaleX: 0, opacity: 0, duration: .5, ease: 'power3.out' }, 0.55 + k * 0.12));
-      tl.fromTo(frame, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.3, ease: 'expo.inOut' })
-        .fromTo(im, { scale: 1.18, yPercent: 6 }, { scale: 1, yPercent: 0, duration: 1.6, ease: EXPO, clearProps: 'transform' }, 0.1);
-      if (cap) tl.from(cap, { opacity: 0, y: 10, duration: 0.8, ease: EXPO }, 0.7);
+    // Images de-frost as they arrive
+    gsap.utils.toArray('[data-reveal="fig"]').forEach((fig) => {
+      if (fig.classList.contains('fig--cover')) return;
+      const im = fig.querySelector('img');
+      const tl = gsap.timeline({ scrollTrigger: { trigger: fig, start: 'top 88%', once: true } });
+      tl.fromTo(fig, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: EXPO })
+        .fromTo(im, { filter: 'blur(18px)', scale: 1.08 }, { filter: 'blur(0px)', scale: 1, duration: 1.4, ease: EXPO, clearProps: 'filter,transform' }, 0);
     });
-
-    // Mood board: pieces drop onto the table
-    gsap.utils.toArray('.fig[data-reveal="scatter"]').forEach((fig, i) => {
-      const frame = fig.querySelector('.fig__frame');
-      gsap.fromTo(frame, { y: 80, rotate: gsap.utils.random(-10, 10), opacity: 0 }, {
-        y: 0, rotate: 0, opacity: 1, duration: 1.3, ease: EXPO, delay: (i % 5) * 0.08,
-        scrollTrigger: { trigger: fig.closest('.mood'), start: 'top 80%', once: true },
-      });
-    });
-
-    // Cover drifts a touch as you scroll past it
-    const cover = document.querySelector('.fig--cover .fig__frame img');
-    if (cover && !reduced) {
-      gsap.to(cover, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: cover, start: 'top top', end: 'bottom top', scrub: true } });
-    }
-
-    // Footer sign-off
     const foot = document.querySelector('.site-foot__nav');
-    if (foot) gsap.from(foot.children, { y: 30, opacity: 0, stagger: 0.06, duration: 1, ease: EXPO, scrollTrigger: { trigger: foot, start: 'top 95%', once: true } });
+    if (foot) gsap.from(foot.children, { y: 20, opacity: 0, stagger: 0.05, duration: 0.9, ease: EXPO, scrollTrigger: { trigger: foot, start: 'top 96%', once: true } });
   }
 
   /* ───────── case-study timeline ───────── */
@@ -193,45 +146,27 @@
 
   /* ───────── home: folders slide onto the desk ───────── */
   function workPreview() {
-    const folders = gsap.utils.toArray('.folder');
-    if (!folders.length) return;
-    if (!reduced) folders.forEach((f, i) => gsap.from(f, { y: 80, rotate: i % 2 ? 4 : -4, opacity: 0, duration: 1.2, ease: EXPO, delay: (i % 2) * 0.12,
-      scrollTrigger: { trigger: f, start: 'top 92%', once: true } }));
-    // Touch screens can't hover: open each folder as it passes the middle of the screen
-    if (!fine) folders.forEach((f) => ScrollTrigger.create({ trigger: f, start: 'top 60%', end: 'bottom 40%', toggleClass: 'is-peek' }));
-  }
-
-  /* ───────── draggable keepsakes (photo strip, ID badge) ───────── */
-  function polaroid() {
-    document.querySelectorAll('[data-drag]').forEach((p) => {
-      const badge = p.classList.contains('idbadge');
-      let sx, sy, ox = 0, oy = 0, dragging = false, last = 0;
-      p.addEventListener('pointerdown', (e) => {
-        dragging = true; p.setPointerCapture(e.pointerId); p.classList.add('is-dragging');
-        sx = e.clientX - ox; sy = e.clientY - oy; last = e.clientX;
-        gsap.to(p, { scale: 1.03, duration: 0.3, ease: 'power3' });
-      });
+    const posters = gsap.utils.toArray('.poster');
+    if (!posters.length) return;
+    if (!reduced) posters.forEach((p, i) => gsap.from(p, { y: 70, opacity: 0, filter: 'blur(12px)', duration: 1.2, ease: EXPO, delay: (i % 2) * 0.1, clearProps: 'filter',
+      scrollTrigger: { trigger: p, start: 'top 92%', once: true } }));
+    // Touch screens can't hover: the folder opens as it passes the middle of the screen
+    if (!fine) posters.forEach((p) => ScrollTrigger.create({ trigger: p, start: 'top 55%', end: 'bottom 45%', toggleClass: 'is-peek' }));
+    // Glass follows the pointer a little, like light moving across it
+    if (fine && !reduced) posters.forEach((p) => {
+      const front = p.querySelector('.gfolder__front');
+      const blobs = p.querySelector('.gfolder .blobs');
       p.addEventListener('pointermove', (e) => {
-        if (!dragging) return;
-        const vx = e.clientX - last; last = e.clientX;
-        if (badge) {
-          // a badge on a lanyard swings instead of travelling
-          gsap.to(p, { rotate: gsap.utils.clamp(-25, 25, (e.clientX - sx) * 0.15), duration: 0.4, ease: 'power3', transformOrigin: '50% 0%' });
-          return;
-        }
-        ox = e.clientX - sx; oy = e.clientY - sy;
-        gsap.to(p, { x: ox, y: oy, rotate: gsap.utils.clamp(-20, 20, vx * 1.2), duration: 0.35, ease: 'power3' });
+        const r = p.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        gsap.to(blobs, { x: x * 30, y: y * 24, duration: 1, ease: 'power3' });
+        gsap.to(front, { '--gx': `${(x + 0.5) * 100}%`, '--gy': `${(y + 0.5) * 100}%`, duration: 0.6 });
       });
-      const up = () => {
-        if (!dragging) return;
-        dragging = false; p.classList.remove('is-dragging');
-        gsap.to(p, { rotate: 0, scale: 1, duration: badge ? 2 : 1.2, ease: badge ? 'elastic.out(1, 0.25)' : 'elastic.out(1, 0.6)' });
-      };
-      p.addEventListener('pointerup', up); p.addEventListener('pointercancel', up);
-      p.addEventListener('dblclick', () => { ox = oy = 0; gsap.to(p, { x: 0, y: 0, rotate: 0, duration: 1, ease: EXPO }); });
-      if (badge && !reduced) gsap.fromTo(p, { rotate: -9 }, { rotate: 0, duration: 2.6, ease: 'elastic.out(1, 0.2)', delay: 0.3, transformOrigin: '50% 0%' });
+      p.addEventListener('pointerleave', () => gsap.to(blobs, { x: 0, y: 0, duration: 1.2, ease: 'power3' }));
     });
   }
+
+  function polaroid() {}
 
   /* ───────── clock ───────── */
   function clock() {
@@ -374,7 +309,7 @@
   if (!crossDocVT && !reduced) {
     if (root.classList.contains('is-entering')) {
       root.classList.remove('is-entering');
-      gsap.fromTo(curtain, { yPercent: 0, visibility: 'visible' }, { yPercent: -100, duration: 0.9, ease: 'expo.inOut', delay: 0.05, onComplete: () => gsap.set(curtain, { visibility: 'hidden' }) });
+      gsap.fromTo(curtain, { opacity: 1, visibility: 'visible' }, { opacity: 0, duration: 0.8, ease: 'power2.out', delay: 0.05, onComplete: () => gsap.set(curtain, { visibility: 'hidden' }) });
       try { sessionStorage.removeItem('pt'); } catch (_) { /* ignore */ }
     }
     document.addEventListener('click', (e) => {
@@ -386,9 +321,9 @@
       if (url.pathname === location.pathname && url.hash) return;
       e.preventDefault();
       try { sessionStorage.setItem('pt', '1'); } catch (_) { /* ignore */ }
-      gsap.fromTo(curtain, { yPercent: 100, visibility: 'visible' }, { yPercent: 0, duration: 0.6, ease: 'expo.inOut', onComplete: () => { location.href = url.href; } });
+      gsap.fromTo(curtain, { opacity: 0, visibility: 'visible' }, { opacity: 1, duration: 0.45, ease: 'expo.inOut', onComplete: () => { location.href = url.href; } });
     });
-    window.addEventListener('pageshow', (e) => { if (e.persisted) gsap.set(curtain, { yPercent: 100, visibility: 'hidden' }); });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) gsap.set(curtain, { opacity: 0, visibility: 'hidden' }); });
   }
 
   // When arriving at /#work from another page, land on the section smoothly.
