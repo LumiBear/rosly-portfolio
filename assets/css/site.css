@@ -495,15 +495,15 @@ html.js.reveal-ready .hero__word, html.js.reveal-ready .cs__title { visibility: 
   .pill { padding: 8px 10px; font-size: 10px; }
   .site-nav a[href$="#work"] { display: none; }
   .mark__name { display: none; }
-  .board--hero { min-height: 640px; }
-  .strip { left: 8%; top: 8%; width: 34vw; max-width: 170px; }
-  .hero__title { left: 6%; right: 6%; top: auto; bottom: 14%; }
+  .board--hero { min-height: 720px; }
+  .strip { left: 7%; top: 6%; width: min(30vw, 140px); }
+  .hero__title { left: 6%; right: 6%; top: auto; bottom: 7%; }
   .hero__script { font-size: clamp(86px, 25vw, 150px); margin-left: .2em; }
-  .board--hero .band--pink { top: 52%; }
-  .board--hero .band--brown { top: calc(52% + 20px); }
-  .deco--charms { left: 44%; top: calc(52% + 6px); width: 170px; }
+  .board--hero .band--pink { top: 46%; }
+  .board--hero .band--brown { top: calc(46% + 20px); }
+  .deco--charms { left: 46%; top: calc(46% + 6px); width: 170px; }
   .sticker--year { left: auto; right: 8%; top: 12%; bottom: auto; }
-  .hero__clock { bottom: 4%; }
+  .hero__clock { display: none; }
   .hero__notes { grid-template-columns: 1fr; margin: -30px 3% 0; }
   .now-card { margin-top: 0; }
   .folder { --h: auto; }
