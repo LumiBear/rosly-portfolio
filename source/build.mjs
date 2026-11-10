@@ -82,11 +82,11 @@ function blocks(list) {
       case 'figures': return `<div class="figrow figrow--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption)).join('')}</div>`;
       case 'phones': return `<div class="phones phones--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption, { cls: 'fig--phone' })).join('')}</div>`;
       case 'moodboard': return `<div class="mood"><div class="mood__grid">${b.items.map((id) => figure(id, '', { cls: 'fig--mood' })).join('')}</div><p class="caption">${b.caption}</p></div>`;
-      case 'stats': return `<dl class="stats" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat glass"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
-      case 'facts': return `<dl class="facts" data-reveal="stagger">${b.items.map(([k, v]) => `<div class="glass"><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
+      case 'stats': return `<dl class="stats" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
+      case 'facts': return `<dl class="facts" data-reveal="stagger">${b.items.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
       case 'list': return `<ul class="list" data-reveal="stagger">${b.items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
       case 'columns': return `<div class="cols" data-reveal="stagger">${b.items.map((c) => `<div class="col glass"><h4>${c.h}</h4><ul>${c.list.map((i) => `<li>${i}</li>`).join('')}</ul></div>`).join('')}</div>`;
-      case 'personas': return `<div class="personas" data-reveal="stagger">${b.items.map((p) => `<article class="persona glass"><span class="persona__orb" aria-hidden="true"></span><p class="label">${p.tag}</p><h4>${p.name}</h4><p>${p.body}</p></article>`).join('')}</div>`;
+      case 'personas': return `<div class="personas" data-reveal="stagger">${b.items.map((p) => `<article class="persona"><p class="label">${p.tag}</p><h4>${p.name}</h4><p>${p.body}</p></article>`).join('')}</div>`;
       case 'quote': return `<blockquote class="quote" data-reveal="rise"><p>“${b.text}”</p><footer>${b.by}</footer></blockquote>`;
       case 'palette': return `<ul class="palette" data-reveal="stagger">${b.items.map(([hex, name]) => `<li><span class="swatch" style="--c:${hex}"></span><span class="palette__name">${name}</span><code>${hex}</code></li>`).join('')}</ul>`;
       case 'file': return fileCard(b);
@@ -117,7 +117,7 @@ function footer() {
   return `<footer class="site-foot" style="${tint('home')}">
   <div class="site-foot__card">
     <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
-    <div class="site-foot__glass glass glass--strong">${sparkles(7, 11)}
+    <div class="site-foot__glass glass glass--strong">
       <p class="site-foot__big" data-reveal="rise">${person.signoff}</p>
       <a class="site-foot__mail" href="mailto:${person.email}">${person.email}</a>
     </div>
@@ -130,7 +130,6 @@ function footer() {
   </nav>
   <div class="site-foot__base">
     <span>© 2026 Rosly Tavarez</span>
-    <span>Designed with curiosity in Denton, Texas</span>
     <button type="button" class="totop" data-top>Back to top ↑</button>
   </div>
 </footer>`;
@@ -162,7 +161,6 @@ function dialogs() {
         <li><span class="contact__k">Email</span><a href="mailto:${person.email}">${person.email}</a><button type="button" class="chip copy" data-copy="${person.email}">${icon('copy')}<span>Copy</span></button></li>
         <li><span class="contact__k">LinkedIn</span><a href="${person.linkedin}" target="_blank" rel="noopener">linkedin.com/in/roslytavarez ${icon('out')}</a></li>
         <li><span class="contact__k">Résumé</span><button type="button" class="linklike" ${resumeAttrs}>View or download PDF</button></li>
-        <li><span class="contact__k">Based in</span><span>${person.location}</span></li>
       </ul>
     </div>
   </div>
@@ -234,29 +232,25 @@ function home() {
   const body = `
 <section class="hero" style="${tint('home')}">
   <div class="hero__text">
-    <p class="label" data-hero>UX design portfolio · 2026</p>
+    <p class="label" data-hero>UX designer</p>
     <h1 class="hero__name" data-hero>Rosly<br>Tavarez</h1>
     <p class="hero__tag" data-hero>${person.tagline}</p>
     <div class="hero__cta" data-hero>
       <a class="btn" href="#work">See the work ${icon('arrow')}</a>
       <button class="btn btn--glass" type="button" ${resumeAttrs}>Résumé</button>
     </div>
-    <ul class="hero__now" data-hero>
-      <li>Union Arts Associate at UNT</li>
-      <li>Adobe Student Ambassador</li>
-      <li class="is-open">Open to summer 2027 internships</li>
-    </ul>
+    <p class="hero__now" data-hero>Currently Union Arts Associate at UNT and an Adobe Student Ambassador. Looking for summer 2027 internships.</p>
   </div>
   <div class="hero__art" data-hero-art>
     <span class="hero__orb"><img src="/assets/img/home/portrait.webp" width="${meta['home/portrait'].w}" height="${meta['home/portrait'].h}" alt="Rosly Tavarez" fetchpriority="high"></span>
-    ${glassFolder('home', { label: 'Portfolio', seed: 2, inner: `<span class="hero__clock">Denton, TX · <time data-clock>--:--</time></span>` })}
+    ${glassFolder('home', { label: 'Portfolio', seed: 2 })}
   </div>
 </section>
 
 <section class="work" id="work" aria-labelledby="work-h">
   <div class="work__head">
     <h2 id="work-h" class="h-section" data-reveal="rise">Selected work</h2>
-    <p class="work__count">${projects.length} case studies · hover a folder to look inside</p>
+    <p class="work__count">${projects.length} case studies</p>
   </div>
   <ol class="posters">${cards}</ol>
   <div class="soon glass" data-reveal="rise">
@@ -351,8 +345,8 @@ function aboutPage() {
     </div>
     <div class="about__art" data-hero-art>
       <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
-      <span class="about__photo">${img('home/portrait', { eager: true, sizes: '(min-width: 900px) 34vw, 80vw', alt: 'Rosly Tavarez' })}</span>
-      <span class="about__glass glass" aria-hidden="true">${sparkles(6, 21)}<span class="gfolder__label">UX Designer · UNT ’29</span></span>
+      <span class="about__photo">${img('about/street', { eager: true, sizes: '(min-width: 900px) 34vw, 80vw', alt: 'Rosly Tavarez' })}</span>
+      <span class="about__caption"><span class="about__caption-name">Rosly Tavarez</span><span class="about__caption-role">UX Designer · UNT ’29</span></span>
     </div>
   </div>
 
