@@ -14,6 +14,7 @@ const TINT = {
   reverdi: ['#FFE0A3', '#F0A23A'],
   choretap: ['#FFC2D9', '#6FA8FF'],
   home: ['#A9CBFF', '#3F7FF2'],
+  hero: ['#F3C6DA', '#B9658F'],
 };
 const tint = (k) => `--t1:${TINT[k][0]};--t2:${TINT[k][1]}`;
 
@@ -230,7 +231,7 @@ function home() {
   </li>`).join('');
 
   const body = `
-<section class="hero" style="${tint('home')}">
+<section class="hero" style="${tint('hero')}">
   <div class="hero__text">
     <p class="label" data-hero>UX designer</p>
     <h1 class="hero__name" data-hero>Rosly<br>Tavarez</h1>
@@ -243,7 +244,7 @@ function home() {
   </div>
   <div class="hero__art" data-hero-art>
     <span class="hero__orb"><img src="/assets/img/home/portrait.webp" width="${meta['home/portrait'].w}" height="${meta['home/portrait'].h}" alt="Rosly Tavarez" fetchpriority="high"></span>
-    ${glassFolder('home', { label: 'Portfolio', seed: 2 })}
+    ${glassFolder('hero', { label: 'Portfolio', seed: 2 })}
   </div>
 </section>
 
