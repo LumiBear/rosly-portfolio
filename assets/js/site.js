@@ -333,11 +333,63 @@
     if (w) setTimeout(() => scrollTo(w, -40), 350);
   }
 
+
+  /* ───────── glass cursor + sparkle trail ───────── */
+  function cursorGlass() {
+    if (!fine || reduced) return;
+    const mk = (cls) => {
+      const d = document.createElement('div');
+      d.className = cls; d.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(d); return d;
+    };
+    const lens = mk('lens');
+    const layer = mk('trail');
+    // modal dialogs live in the top layer, so carry the effect inside whichever one is open
+    const home = (el) => { if (el.parentNode !== document.body) document.body.appendChild(el); };
+    document.querySelectorAll('dialog').forEach((d) => new MutationObserver(() => {
+      if (d.open) { d.appendChild(layer); d.appendChild(lens); } else { home(layer); home(lens); }
+    }).observe(d, { attributes: true, attributeFilter: ['open'] }));
+
+    const pos = { x: -200, y: -200 };
+    const setX = gsap.quickTo(lens, 'x', { duration: 0.45, ease: 'power3' });
+    const setY = gsap.quickTo(lens, 'y', { duration: 0.45, ease: 'power3' });
+    let seen = false, lx = 0, ly = 0, acc = 0;
+    const star = (x, y, big) => {
+      const i = document.createElement('i');
+      const sz = (big ? 11 : 7) + Math.random() * 9;
+      i.style.cssText = `left:${x}px;top:${y}px;width:${sz}px`;
+      layer.appendChild(i);
+      gsap.fromTo(i, { scale: 0, rotate: Math.random() * 60, opacity: 1 },
+        { scale: 1, duration: 0.25, ease: 'back.out(3)' });
+      gsap.to(i, { x: (Math.random() - .5) * 46, y: 22 + Math.random() * 38, rotate: '+=90', opacity: 0, scale: 0.2,
+        duration: 0.9 + Math.random() * 0.5, delay: 0.15, ease: 'power2.in', onComplete: () => i.remove() });
+    };
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      pos.x = e.clientX; pos.y = e.clientY;
+      if (!seen) { seen = true; gsap.set(lens, { x: pos.x, y: pos.y }); lx = pos.x; ly = pos.y; lens.classList.add('on'); }
+      setX(pos.x); setY(pos.y);
+      acc += Math.hypot(pos.x - lx, pos.y - ly); lx = pos.x; ly = pos.y;
+      if (acc > 26) { acc = 0; star(pos.x, pos.y, false); }
+    }, { passive: true });
+    window.addEventListener('pointerdown', (e) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      for (let k = 0; k < 7; k++) star(e.clientX, e.clientY, true);
+      lens.classList.add('press');
+    });
+    window.addEventListener('pointerup', () => lens.classList.remove('press'));
+    document.addEventListener('pointerleave', () => lens.classList.remove('on'));
+    document.addEventListener('pointerenter', () => seen && lens.classList.add('on'));
+    document.addEventListener('pointerover', (e) => {
+      lens.classList.toggle('hot', !!e.target.closest('a, button, summary, [role="button"], .gfolder, .poster'));
+    });
+  }
+
   /* ───────── boot ───────── */
   const start = () => {
     if (!reduced) { intro(); reveals(); }
     root.classList.add('reveal-ready');
-    timeline(); workPreview(); polaroid(); clock();
+    timeline(); workPreview(); polaroid(); clock(); cursorGlass();
     ScrollTrigger.refresh();
   };
   if (document.fonts && document.fonts.ready) {

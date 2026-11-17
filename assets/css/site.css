@@ -412,3 +412,21 @@ html.js.reveal-ready .cs__title { visibility: visible; }
   ::view-transition-old(root), ::view-transition-new(root), ::view-transition-group(*) { animation: none !important; }
   html.js [data-reveal], html.js [data-reveal] > *, html.js .cs__title { visibility: visible !important; }
 }
+
+
+/* ───────── glass cursor + sparkle trail (fine pointers only) ───────── */
+.lens, .trail { position: fixed; margin: 0; padding: 0; overflow: visible; pointer-events: none; width: 0; height: 0; left: 0; top: 0; z-index: 2147483647; }
+.lens::before { content: ''; position: absolute; left: -30px; top: -30px; width: 60px; height: 60px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 26%, rgba(255,255,255,.75), rgba(255,255,255,.18) 58%, rgba(185,101,143,.10));
+  border: 1.5px solid rgba(255,255,255,.95);
+  box-shadow: 0 14px 30px -10px rgba(60,40,80,.38), 0 0 0 1px rgba(60,40,80,.07), inset 0 2px 3px rgba(255,255,255,.95), inset 0 -8px 16px rgba(185,101,143,.14);
+  -webkit-backdrop-filter: blur(9px) saturate(170%); backdrop-filter: blur(9px) saturate(170%);
+  opacity: 0; transform: scale(.4); transition: opacity .35s, transform .5s var(--e-out, cubic-bezier(.16,1,.3,1)); }
+.lens.on::before { opacity: 1; transform: scale(1); }
+.lens.hot::before { transform: scale(1.55); background: radial-gradient(circle at 32% 28%, rgba(255,255,255,.4), rgba(255,255,255,.08) 66%); }
+.lens.press::before { transform: scale(.8); }
+.trail i { position: absolute; aspect-ratio: 1; margin: -.5em 0 0 -.5em; transform-origin: 50% 50%; background: #fff;
+  filter: drop-shadow(0 0 3px rgba(255,255,255,1)) drop-shadow(0 0 6px rgba(185,101,143,.7));
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.trail i { margin: 0; translate: -50% -50%; }
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) { .lens, .trail { display: none !important; } }
