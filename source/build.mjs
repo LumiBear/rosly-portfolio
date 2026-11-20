@@ -175,13 +175,15 @@ function shell({ title, desc, body, page, current, ogImage = '/assets/img/home/f
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(title)}</title>
+<title>My Portfolio!</title>
 <meta name="description" content="${esc(desc)}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="${ogImage}">
 <meta name="theme-color" content="#F3F5F7">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="preload" href="/assets/fonts/unbounded-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/site.css?v=${VERSION}">
