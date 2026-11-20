@@ -351,8 +351,8 @@
     }).observe(d, { attributes: true, attributeFilter: ['open'] }));
 
     const pos = { x: -200, y: -200 };
-    const setX = gsap.quickTo(lens, 'x', { duration: 0.45, ease: 'power3' });
-    const setY = gsap.quickTo(lens, 'y', { duration: 0.45, ease: 'power3' });
+    const setX = gsap.quickTo(lens, 'x', { duration: 0.2, ease: 'power3' });
+    const setY = gsap.quickTo(lens, 'y', { duration: 0.2, ease: 'power3' });
     let seen = false, lx = 0, ly = 0, acc = 0;
     const star = (x, y, big) => {
       const i = document.createElement('i');
@@ -367,7 +367,7 @@
     window.addEventListener('pointermove', (e) => {
       if (e.pointerType && e.pointerType !== 'mouse') return;
       pos.x = e.clientX; pos.y = e.clientY;
-      if (!seen) { seen = true; gsap.set(lens, { x: pos.x, y: pos.y }); lx = pos.x; ly = pos.y; lens.classList.add('on'); }
+      if (!seen) { seen = true; gsap.set(lens, { x: pos.x, y: pos.y }); lx = pos.x; ly = pos.y; lens.classList.add('on'); root.classList.add('lens-on'); }
       setX(pos.x); setY(pos.y);
       acc += Math.hypot(pos.x - lx, pos.y - ly); lx = pos.x; ly = pos.y;
       if (acc > 26) { acc = 0; star(pos.x, pos.y, false); }
