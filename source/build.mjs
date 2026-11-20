@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { person, projects, inProgressExtra, about } from './content.mjs';
 
-const OUT = process.env.OUT || new URL('../site', import.meta.url).pathname;
+const OUT = '/home/claude/site';
 const meta = JSON.parse(fs.readFileSync(new URL('./imgmeta.json', import.meta.url)));
 const VERSION = Date.now().toString(36);
 
@@ -115,7 +115,7 @@ function header(current) {
 }
 
 function footer() {
-  return `<footer class="site-foot" style="${tint('home')}">
+  return `<footer class="site-foot" style="${tint('hero')}">
   <div class="site-foot__card">
     <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
     <div class="site-foot__glass glass glass--strong">
@@ -151,7 +151,7 @@ function dialogs() {
   </div>
 </dialog>
 <dialog class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="contact__panel" style="${tint('home')}">
+  <div class="contact__panel" style="${tint('hero')}">
     <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
     <div class="contact__glass glass glass--strong">
       <button class="btn-close" type="button" data-contact-close aria-label="Close">×</button>
