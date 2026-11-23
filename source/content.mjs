@@ -424,14 +424,57 @@ export const play = {
     'Case studies are where I solve problems for people. This is where I play: type experiments, posters, and small projects I build for the fun of it.',
   design: {
     title: 'Graphic design',
-    text: 'A typography series built from a funny Craigslist post. I pushed one word, MUNCH, through rough, ruffled and clean letterforms, then let the ad copy for Mr. Pigglesworth’s Garden Service crowd in around it.',
-    items: [
-      ['play/munch-1', 'Ruffled MUNCH, black on white'],
-      ['play/munch-2', 'The same type inverted, white on black'],
-      ['play/munch-3', 'Clean, oversized letterforms cropped by the edge'],
-      ['play/munch-4', 'Ad copy set inside circles that cut through the type'],
-      ['play/munch-5', 'Ruffled type with the full ad copy as a text column'],
-      ['play/munch-6', 'Circles knocked out of the type, no copy'],
+    text: 'Brand identity, posters, social and product graphics. These are projects I designed on my own, outside my UX case studies.',
+    projects: [
+      {
+        title: 'Guppy Nailz',
+        kind: 'Brand identity · Social · Print',
+        text: 'Launch brand for a small nail business, built around the owners’ love for their cat Guppy and a cute scrapbook theme. Includes an Instagram post, a poster, instructions card and business cards.',
+        imgs: [['play/guppynailz', 'Guppy Nailz logo, Instagram post and instructions card']],
+      },
+      {
+        title: 'White Tiger',
+        kind: 'Infographic · Poster',
+        text: 'An infographic on the idolization of the exotic white tiger, made to draw a parallel in life while raising awareness.',
+        imgs: [['play/white-tiger', 'The White Tiger infographic and title treatment']],
+      },
+      {
+        title: 'DaintyDeskCo',
+        kind: 'Product marketing',
+        text: 'Etsy listing images, feature graphics and a shop banner for a small shop that sells K-pop Notion planners.',
+        imgs: [['play/daintydeskco', 'Kpop Life Planner listing images and shop banner']],
+      },
+      {
+        title: 'Bloom & Root',
+        kind: 'Logo · Brand identity',
+        text: 'A solo logo project for an emerging plant-based café in Austin, Texas. The brief asked for something fresh and approachable, not clinical or preachy, so I paired a forest-green and warm-sand palette with Etna and Quicksand.',
+        imgs: [['play/bloom-root', 'Bloom & Root logo, color palette, typography and brand vibe']],
+      },
+      {
+        title: 'Poster concepts',
+        kind: 'Poster · Campaign',
+        text: 'Two posters. On the left, an unofficial student concept for a cherry cola lip tint, not affiliated with Fwee. On the right, an awareness poster that points people to the 988 Suicide & Crisis Lifeline.',
+        imgs: [['play/cherry-cola', 'Cherry Cola lip tint poster concept'], ['play/heavy-poster', 'Awareness poster with the 988 Suicide & Crisis Lifeline']],
+      },
+      {
+        title: 'Froth',
+        kind: 'Website design',
+        text: 'A website redesign pitch for a local coffee shop, aimed at college students. Home, menu and Work with us pages.',
+        imgs: [['play/froth-web', 'Froth home, community and menu pages']],
+      },
+      {
+        title: 'MUNCH',
+        kind: 'Typography · Poster series',
+        text: 'A typography series built from a funny Craigslist post. I pushed one word, MUNCH, through rough, ruffled and clean letterforms, then let the ad copy for Mr. Pigglesworth’s Garden Service crowd in around it.',
+        imgs: [
+          ['play/munch-1', 'Ruffled MUNCH, black on white'],
+          ['play/munch-2', 'The same type inverted, white on black'],
+          ['play/munch-3', 'Clean, oversized letterforms cropped by the edge'],
+          ['play/munch-4', 'Ad copy set inside circles that cut through the type'],
+          ['play/munch-5', 'Ruffled type with the full ad copy as a text column'],
+          ['play/munch-6', 'Circles knocked out of the type, no copy'],
+        ],
+      },
     ],
   },
   quests: [

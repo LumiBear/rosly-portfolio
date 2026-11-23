@@ -377,7 +377,10 @@ function aboutPage() {
 /* ───────── play / side quests ───────── */
 function playPage() {
   const d = play.design;
-  const gallery = d.items.map(([id, cap]) => figure(id, cap)).join('');
+  const projs = d.projects.map((p) => `<article class="dproj" data-reveal="rise">
+      <div class="dproj__text"><p class="label">${p.kind}</p><h3>${p.title}</h3><p>${p.text}</p></div>
+      <div class="gallery gallery--${p.imgs.length > 3 ? 'grid' : p.imgs.length}">${p.imgs.map(([id, cap]) => figure(id, cap)).join('')}</div>
+    </article>`).join('');
   const quests = play.quests.map((q) => `<article class="glass card quest" data-reveal="rise">
       <p class="label">${q.status}</p>
       <h3>${q.title}</h3>
@@ -392,7 +395,7 @@ function playPage() {
   <div class="about__sec">
     <h2 class="h-section" data-reveal="rise">${d.title}</h2>
     <p class="play__text" data-reveal="rise">${d.text}</p>
-    <div class="gallery">${gallery}</div>
+    <div class="dprojs">${projs}</div>
   </div>
 
   <div class="about__sec">
