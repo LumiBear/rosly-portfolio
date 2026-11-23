@@ -421,17 +421,16 @@ export const about = {
 
 export const play = {
   intro:
-    'Case studies are where I solve problems for people. This is where I play: type experiments, posters, and small projects I build for the fun of it.',
+    'Case studies are where I solve problems for people. This is where I play: posters, brand work, and small projects I build for the fun of it.',
   design: {
     title: 'Graphic design',
     text: 'Brand identity, posters, social and product graphics. These are projects I designed on my own, outside my UX case studies.',
     projects: [
       {
         title: 'Guppy Nailz',
-        kind: 'Brand identity · Social · Print',
-        text: 'Launch brand for a small nail business, built around the owners’ love for their cat Guppy and a cute scrapbook theme. Includes a logo and brand sheet, a three-slide Instagram carousel (restock, how to order, how to pick up) and a poster with tear-off QR tabs.',
+        kind: 'Social · Print',
+        text: 'Launch brand for a small nail business, built around the owners’ love for their cat Guppy and a cute scrapbook theme. Includes a three-slide Instagram carousel (restock, how to order, how to pick up) and a poster with tear-off QR tabs.',
         imgs: [
-          ['play/guppynailz', 'Brand sheet: logo, instructions card and “Get to know me” post'],
           ['play/guppy-ig-1', 'Instagram carousel 1 of 3: restock announcement'],
           ['play/guppy-ig-2', 'Instagram carousel 2 of 3: how to order'],
           ['play/guppy-ig-3', 'Instagram carousel 3 of 3: how to pick up, and payment methods'],
@@ -457,29 +456,16 @@ export const play = {
         imgs: [['play/bloom-root', 'Bloom & Root logo, color palette, typography and brand vibe']],
       },
       {
-        title: 'Poster concepts',
-        kind: 'Poster · Campaign',
-        text: 'Two posters. On the left, an unofficial student concept for a cherry cola lip tint, not affiliated with Fwee. On the right, an awareness poster that points people to the 988 Suicide & Crisis Lifeline.',
-        imgs: [['play/cherry-cola', 'Cherry Cola lip tint poster concept'], ['play/heavy-poster', 'Awareness poster with the 988 Suicide & Crisis Lifeline']],
+        title: 'Heavy?',
+        kind: 'Poster · Awareness',
+        text: 'An awareness poster that points people to the 988 Suicide & Crisis Lifeline.',
+        imgs: [['play/heavy-poster', 'Awareness poster with the 988 Suicide & Crisis Lifeline']],
       },
       {
         title: 'Froth',
         kind: 'Website design',
         text: 'A website redesign pitch for a local coffee shop, aimed at college students. Home, menu and Work with us pages.',
         imgs: [['play/froth-web', 'Froth home, community and menu pages']],
-      },
-      {
-        title: 'MUNCH',
-        kind: 'Typography · Poster series',
-        text: 'A typography series built from a funny Craigslist post. I pushed one word, MUNCH, through rough, ruffled and clean letterforms, then let the ad copy for Mr. Pigglesworth’s Garden Service crowd in around it.',
-        imgs: [
-          ['play/munch-1', 'Ruffled MUNCH, black on white'],
-          ['play/munch-2', 'The same type inverted, white on black'],
-          ['play/munch-3', 'Clean, oversized letterforms cropped by the edge'],
-          ['play/munch-4', 'Ad copy set inside circles that cut through the type'],
-          ['play/munch-5', 'Ruffled type with the full ad copy as a text column'],
-          ['play/munch-6', 'Circles knocked out of the type, no copy'],
-        ],
       },
     ],
   },

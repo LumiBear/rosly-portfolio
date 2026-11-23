@@ -418,7 +418,7 @@ function playPage() {
     <div class="quests">${quests}</div>
   </div>
 </section>`;
-  return shell({ title: 'Play · Rosly Tavarez', desc: play.intro, body, page: 'about', current: 'play', ogImage: '/assets/img/play/full/munch-4.jpg' });
+  return shell({ title: 'Play · Rosly Tavarez', desc: play.intro, body, page: 'about', current: 'play', ogImage: '/assets/img/play/full/guppy-poster.jpg' });
 }
 
 function notFound() {
