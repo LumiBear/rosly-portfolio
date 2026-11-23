@@ -218,13 +218,13 @@ export const projects = [
     title: 'ReVerdi',
     kicker: 'L’Oréal Brandstorm 2026 · A regenerative fragrance for YSL Beauty',
     summary:
-      'A personalized perfume kit that turns invasive plant species into custom scent, developed with Team Cree for L’Oréal Brandstorm 2026 and pitched live to L’Oréal judges.',
+      'A personalized perfume kit that turns invasive plant species into custom scent, developed with Team Cré for L’Oréal Brandstorm 2026 and pitched live to L’Oréal judges.',
     year: '2026',
     kind: 'Service & product concept',
     tags: ['Survey research', 'Concept development', 'Pitch'],
     role: 'UX designer & coordinator',
     timeline: 'Jan – Mar 2026',
-    team: 'Team Cree (L’Oréal Brandstorm)',
+    team: 'Team Cré (L’Oréal Brandstorm)',
     tools: 'Google Forms, Blender, Canva',
     cover: 'reverdi/cover',
     file: { pdf: 'TeamCree_ReVerdi_Brandstorm2026.pdf', pages: 3, label: 'ReVerdi pitch deck (PDF)' },
@@ -233,7 +233,7 @@ export const projects = [
         id: 'overview', step: 'Overview', title: 'Craft the future of luxury fragrance.',
         blocks: [
           { t: 'lead', text: 'L’Oréal Brandstorm is an international innovation competition for students. The 2026 mission, set with L’Oréal Luxe, asked teams to invent new fragrance products and experiences powered by creativity, technology, and bespoke service.' },
-          { t: 'p', text: 'As UX designer and coordinator for Team Cree, I organized our research, turned survey results into product requirements, and shaped the concept into a pitch we delivered live to L’Oréal industry judges, placing competitively against university teams nationwide.' },
+          { t: 'p', text: 'As UX designer and coordinator for Team Cré, I organized our research, turned survey results into product requirements, and shaped the concept into a pitch we delivered live to L’Oréal industry judges, placing competitively against university teams nationwide.' },
           { t: 'facts', items: [['Brand', 'YSL Beauty (L’Oréal Luxe)'], ['Concept', 'ReVerdi, a stewardship-based personalized perfume kit'], ['Validation', '75 survey respondents']] },
         ],
       },
@@ -284,7 +284,7 @@ export const projects = [
         id: 'pitch', step: 'Pitch', title: 'Research into a story judges could follow.',
         blocks: [
           { t: 'p', text: 'My last job was turning months of notes and 75 survey responses into a narrative that fit the time limit: the problem, the opportunity for L’Oréal, how ReVerdi works, and the evidence that people want it. We delivered the pitch live to L’Oréal industry judges.' },
-          { t: 'file', pdf: 'TeamCree_ReVerdi_Brandstorm2026.pdf', pages: 3, title: 'ReVerdi pitch deck', note: '3 slides · PDF · Team Cree' },
+          { t: 'file', pdf: 'TeamCree_ReVerdi_Brandstorm2026.pdf', pages: 3, title: 'ReVerdi pitch deck', note: '3 slides · PDF · Team Cré' },
         ],
       },
       {
