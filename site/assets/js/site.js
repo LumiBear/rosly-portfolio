@@ -437,11 +437,96 @@
     });
   }
 
+  /* ───────── bubble pop mini-game ───────── */
+  function popGame() {
+    const root = document.querySelector('[data-pop]');
+    if (!root) return;
+    const $ = (q) => root.querySelector(q);
+    const arena = $('[data-arena]'), overlay = $('[data-overlay]');
+    const scoreEl = $('[data-score]'), timeEl = $('[data-time]'), bestEl = $('[data-best]');
+    const title = $('[data-title]'), sub = $('[data-sub]'), startBtn = $('[data-start]');
+    const DUR = 20;
+    const hues = [['#FFC2D9', '#F07BA8'], ['#A9CBFF', '#5C93F2'], ['#CDEFE6', '#4BB8A3'], ['#FFE0A3', '#F0A23A'], ['#D9CCFA', '#8C76E0']];
+    let running = false, score = 0, left = DUR, last = 0, spawnIn = 0, raf = 0, bubs = [], best = 0;
+    try { best = +localStorage.getItem('rosly-pop-best') || 0; } catch (e) {}
+    bestEl.textContent = best;
+
+    function spawn() {
+      const w = arena.clientWidth, h = arena.clientHeight;
+      const star = Math.random() < 0.12;
+      const size = star ? 46 : 36 + Math.random() * 44;
+      const [a, b] = hues[(Math.random() * hues.length) | 0];
+      const el = document.createElement('span');
+      el.className = 'bub' + (star ? ' bub--star' : '');
+      el.style.cssText = `width:${size}px;height:${size}px;--a:${a};--b:${b}`;
+      const p = { el, x: Math.random() * (w - size), y: h + 4, size, star, ph: Math.random() * 6.28,
+        v: (star ? 170 : 60 + Math.random() * 70) * (1 + ((DUR - left) / DUR) * 0.7) };
+      el.style.transform = `translate3d(${p.x}px,${p.y}px,0)`;
+      el.addEventListener('pointerdown', (e) => { e.preventDefault(); pop(p); });
+      arena.appendChild(el);
+      bubs.push(p);
+    }
+    function burst(p) {
+      const cx = p.x + p.size / 2, cy = p.y + p.size / 2;
+      for (let i = 0; i < (p.star ? 10 : 6); i++) {
+        const s = document.createElement('i');
+        s.className = 'spk';
+        const ang = (i / 6) * 6.283 + Math.random(), d = 30 + Math.random() * 40;
+        s.style.cssText = `left:${cx}px;top:${cy}px;--dx:${Math.cos(ang) * d}px;--dy:${Math.sin(ang) * d}px`;
+        s.addEventListener('animationend', () => s.remove());
+        arena.appendChild(s);
+      }
+      const f = document.createElement('b');
+      f.className = 'plus'; f.textContent = p.star ? '+5' : '+1';
+      f.style.cssText = `left:${cx}px;top:${cy}px`;
+      f.addEventListener('animationend', () => f.remove());
+      arena.appendChild(f);
+    }
+    function pop(p) {
+      if (!running || p.dead) return;
+      p.dead = true; score += p.star ? 5 : 1; scoreEl.textContent = score;
+      burst(p); p.el.remove();
+    }
+    function frame(t) {
+      if (!running) return;
+      const dt = Math.min((t - last) / 1000, 0.05); last = t;
+      left -= dt; timeEl.textContent = Math.max(0, Math.ceil(left));
+      spawnIn -= dt;
+      if (spawnIn <= 0) { spawn(); spawnIn = 0.5 - 0.28 * ((DUR - left) / DUR); }
+      bubs = bubs.filter((p) => {
+        if (p.dead) return false;
+        p.y -= p.v * dt; p.ph += dt * 2.2;
+        p.el.style.transform = `translate3d(${p.x + Math.sin(p.ph) * 10}px,${p.y}px,0)`;
+        if (p.y < -p.size - 6) { p.el.remove(); return false; }
+        return true;
+      });
+      if (left <= 0) return finish();
+      raf = requestAnimationFrame(frame);
+    }
+    function start() {
+      bubs.forEach((p) => p.el.remove()); bubs = [];
+      score = 0; left = DUR; spawnIn = 0; scoreEl.textContent = 0; timeEl.textContent = DUR;
+      overlay.classList.add('is-off'); running = true; last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+    function finish() {
+      running = false; cancelAnimationFrame(raf);
+      bubs.forEach((p) => p.el.remove()); bubs = [];
+      const fresh = score > best && score > 0;
+      if (fresh) { best = score; bestEl.textContent = best; try { localStorage.setItem('rosly-pop-best', best); } catch (e) {} }
+      title.textContent = score + (score === 1 ? ' pop' : ' pops');
+      sub.textContent = fresh ? 'New best! ' + (score >= 40 ? 'Certified sparkle collector.' : 'Nice popping.') : score >= 40 ? 'Certified sparkle collector.' : score >= 20 ? 'Nice popping.' : 'Warm-up round. Go again?';
+      startBtn.textContent = 'Play again';
+      overlay.classList.remove('is-off');
+    }
+    startBtn.addEventListener('click', start);
+  }
+
   /* ───────── boot ───────── */
   const start = () => {
     if (!reduced) { intro(); reveals(); }
     root.classList.add('reveal-ready');
-    timeline(); workPreview(); polaroid(); clock(); cursorGlass(); folders();
+    timeline(); workPreview(); polaroid(); clock(); cursorGlass(); folders(); popGame();
     ScrollTrigger.refresh();
   };
   if (document.fonts && document.fonts.ready) {

@@ -417,6 +417,25 @@ function playPage() {
     <h2 class="h-section" data-reveal="rise">More side quests</h2>
     <div class="quests">${quests}</div>
   </div>
+
+  <div class="about__sec pop-sec">
+    <h2 class="h-section" data-reveal="rise">Take a break</h2>
+    <p class="play__text" data-reveal="rise">Twenty seconds, one job: pop as many bubbles as you can. Sparkle stars are worth five.</p>
+    <div class="pop glass" data-pop data-reveal="rise">
+      <div class="pop__stats" aria-live="polite">
+        <span class="chip">Score <b data-score>0</b></span>
+        <span class="chip">Time <b data-time>20</b></span>
+        <span class="chip">Best <b data-best>0</b></span>
+      </div>
+      <div class="pop__arena" data-arena>
+        <div class="pop__overlay" data-overlay>
+          <p class="pop__title" data-title>Pop the bubbles</p>
+          <p class="pop__sub" data-sub>Click or tap. Stars are worth 5.</p>
+          <button type="button" class="btn" data-start>Start</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>`;
   return shell({ title: 'Play · Rosly Tavarez', desc: play.intro, body, page: 'about', current: 'play', ogImage: '/assets/img/play/full/guppy-poster.jpg' });
 }
