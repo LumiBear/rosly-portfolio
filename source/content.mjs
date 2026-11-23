@@ -429,8 +429,14 @@ export const play = {
       {
         title: 'Guppy Nailz',
         kind: 'Brand identity · Social · Print',
-        text: 'Launch brand for a small nail business, built around the owners’ love for their cat Guppy and a cute scrapbook theme. Includes an Instagram post, a poster, instructions card and business cards.',
-        imgs: [['play/guppynailz', 'Guppy Nailz logo, Instagram post and instructions card']],
+        text: 'Launch brand for a small nail business, built around the owners’ love for their cat Guppy and a cute scrapbook theme. Includes a logo and brand sheet, a three-slide Instagram carousel (restock, how to order, how to pick up) and a poster with tear-off QR tabs.',
+        imgs: [
+          ['play/guppynailz', 'Brand sheet: logo, instructions card and “Get to know me” post'],
+          ['play/guppy-ig-1', 'Instagram carousel 1 of 3: restock announcement'],
+          ['play/guppy-ig-2', 'Instagram carousel 2 of 3: how to order'],
+          ['play/guppy-ig-3', 'Instagram carousel 3 of 3: how to pick up, and payment methods'],
+          ['play/guppy-poster', 'Poster: custom press-on nails based in Denton, TX, with tear-off QR tabs'],
+        ],
       },
       {
         title: 'White Tiger',

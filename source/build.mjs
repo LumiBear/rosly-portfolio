@@ -49,9 +49,9 @@ function sparkles(n = 6, seed = 1) {
     `<i style="left:${(8 + r() * 80).toFixed(1)}%;top:${(10 + r() * 78).toFixed(1)}%;--s:${(0.6 + r() * 0.8).toFixed(2)};--d:${(r() * 4).toFixed(2)}s"></i>`).join('')}</span>`;
 }
 
-function figure(id, caption = '', { cls = '' } = {}) {
+function figure(id, caption = '', { cls = '', reveal = true } = {}) {
   const m = meta[id];
-  return `<figure class="fig ${cls}" data-reveal="fig" style="--ar:${(m.w / m.h).toFixed(4)}">
+  return `<figure class="fig ${cls}" ${reveal ? 'data-reveal="fig"' : ''} style="--ar:${(m.w / m.h).toFixed(4)}">
   <button class="fig__btn" type="button" data-view data-title="${esc(strip(caption)) || 'Image'}" data-pages="/assets/img/${m.full}" data-download="${dlName(id)}" data-dl-href="/assets/img/${m.full}" aria-label="Open image full size: ${esc(strip(caption))}">
     <span class="fig__frame" style="aspect-ratio:${m.w}/${m.h}">${img(id, { alt: strip(caption) })}</span>
     <span class="fig__hint" aria-hidden="true">${icon('expand')}</span>
@@ -377,10 +377,25 @@ function aboutPage() {
 /* ───────── play / side quests ───────── */
 function playPage() {
   const d = play.design;
-  const projs = d.projects.map((p) => `<article class="dproj" data-reveal="rise">
-      <div class="dproj__text"><p class="label">${p.kind}</p><h3>${p.title}</h3><p>${p.text}</p></div>
-      <div class="gallery gallery--${p.imgs.length > 3 ? 'grid' : p.imgs.length}">${p.imgs.map(([id, cap]) => figure(id, cap)).join('')}</div>
-    </article>`).join('');
+  const slug = (t) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const tabs = d.projects.map((p, n) => `<button type="button" role="tab" id="tab-${slug(p.title)}" aria-controls="panel-${slug(p.title)}" aria-selected="${n === 0}" tabindex="${n === 0 ? 0 : -1}" data-tab="${slug(p.title)}"><span class="ftab__name">${p.title}</span><span class="ftab__n">${p.imgs.length}</span></button>`).join('');
+  const panels = d.projects.map((p, n) => {
+    const many = p.imgs.length > 1;
+    const slides = p.imgs.map(([id, cap], k) => `<div class="car__slide" role="group" aria-roledescription="slide" aria-label="${k + 1} of ${p.imgs.length}">${figure(id, cap, { reveal: false })}</div>`).join('');
+    const thumbs = p.imgs.map(([id, cap], k) => `<button type="button" class="car__thumb" data-go="${k}" aria-label="Show image ${k + 1}: ${esc(strip(cap))}" ${k === 0 ? 'aria-current="true"' : ''}>${img(id, { sizes: '90px', alt: '' })}</button>`).join('');
+    return `<section class="fpanel ${n === 0 ? 'is-on' : ''}" role="tabpanel" id="panel-${slug(p.title)}" aria-labelledby="tab-${slug(p.title)}">
+      <div class="fpanel__text"><p class="label">${p.kind}</p><h3>${p.title}</h3><p>${p.text}</p></div>
+      <div class="car ${many ? '' : 'car--single'}" data-car>
+        <div class="car__track" tabindex="0" aria-label="${p.title} images">${slides}</div>
+        ${many ? `<div class="car__bar"><button type="button" class="car__btn" data-prev aria-label="Previous image">${icon('back')}</button><span class="car__count" aria-live="polite"><b data-cur>1</b> / ${p.imgs.length}</span><button type="button" class="car__btn" data-next aria-label="Next image">${icon('arrow')}</button></div>
+        <div class="car__thumbs">${thumbs}</div>` : ''}
+      </div>
+    </section>`;
+  }).join('');
+  const projs = `<div class="folders" data-folders>
+      <div class="folders__tabs" role="tablist" aria-label="Graphic design projects">${tabs}</div>
+      <div class="folders__body glass">${panels}</div>
+    </div>`;
   const quests = play.quests.map((q) => `<article class="glass card quest" data-reveal="rise">
       <p class="label">${q.status}</p>
       <h3>${q.title}</h3>
@@ -395,7 +410,7 @@ function playPage() {
   <div class="about__sec">
     <h2 class="h-section" data-reveal="rise">${d.title}</h2>
     <p class="play__text" data-reveal="rise">${d.text}</p>
-    <div class="dprojs">${projs}</div>
+    ${projs}
   </div>
 
   <div class="about__sec">

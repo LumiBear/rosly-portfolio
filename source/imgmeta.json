@@ -243,5 +243,25 @@
 "w": 880,
 "h": 1112,
 "full": "play/full/heavy-poster.jpg"
+},
+"play/guppy-ig-1": {
+"w": 1159,
+"h": 1500,
+"full": "play/full/guppy-ig-1.jpg"
+},
+"play/guppy-ig-2": {
+"w": 1159,
+"h": 1500,
+"full": "play/full/guppy-ig-2.jpg"
+},
+"play/guppy-ig-3": {
+"w": 1159,
+"h": 1500,
+"full": "play/full/guppy-ig-3.jpg"
+},
+"play/guppy-poster": {
+"w": 1159,
+"h": 1500,
+"full": "play/full/guppy-poster.jpg"
 }
 }
