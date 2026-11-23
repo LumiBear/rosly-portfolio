@@ -434,3 +434,14 @@ html.js.reveal-ready .cs__title { visibility: visible; }
   clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
 .trail i { margin: 0; translate: -50% -50%; }
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) { .lens, .trail { display: none !important; } .lens-on, .lens-on * { cursor: auto !important; } }
+
+/* play page */
+.play__text { max-width: 62ch; color: var(--ink-2); margin: -2vh 0 4vh; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.gallery .fig { margin: 0; }
+.gallery .fig__frame { aspect-ratio: 1 / 1 !important; }
+.quests { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.quest h3 { font: 400 22px/1.2 var(--display); margin: 6px 0 10px; }
+.quest p:last-child { margin: 0; color: var(--ink-2); }
+@media (max-width: 800px) { .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+@media (max-width: 480px) { .gallery { grid-template-columns: 1fr; } }

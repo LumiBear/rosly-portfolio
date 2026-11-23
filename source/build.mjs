@@ -1,7 +1,7 @@
 // Static site generator for Rosly's portfolio (glass edition). Run: node build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
-import { person, projects, inProgressExtra, about } from './content.mjs';
+import { person, projects, inProgressExtra, about, play } from './content.mjs';
 
 const OUT = '/home/claude/site';
 const meta = JSON.parse(fs.readFileSync(new URL('./imgmeta.json', import.meta.url)));
@@ -15,6 +15,7 @@ const TINT = {
   choretap: ['#FFC2D9', '#6FA8FF'],
   home: ['#A9CBFF', '#3F7FF2'],
   hero: ['#F3C6DA', '#B9658F'],
+  play: ['#CDEFE6', '#4BB8A3'],
 };
 const tint = (k) => `--t1:${TINT[k][0]};--t2:${TINT[k][1]}`;
 
@@ -107,6 +108,7 @@ function header(current) {
   <a class="mark" href="/" aria-label="Rosly Tavarez, home">Rosly Tavarez</a>
   <nav class="site-nav glass" aria-label="Primary">
     ${a('/#work', 'Work', 'work')}
+    ${a('/play/', 'Play', 'play')}
     ${a('/about/', 'About', 'about')}
     <button type="button" ${resumeAttrs}>Résumé</button>
     <button type="button" data-contact>Contact</button>
@@ -125,6 +127,7 @@ function footer() {
   </div>
   <nav class="site-foot__nav" aria-label="Footer">
     <a href="/">Home</a>
+    <a href="/play/">Play</a>
     <a href="/about/">About me</a>
     <button type="button" ${resumeAttrs}>Resume</button>
     <button type="button" data-contact>Contact</button>
@@ -371,6 +374,35 @@ function aboutPage() {
   return shell({ title: 'About · Rosly Tavarez', desc: about.intro, body, page: 'about', current: 'about' });
 }
 
+/* ───────── play / side quests ───────── */
+function playPage() {
+  const d = play.design;
+  const gallery = d.items.map(([id, cap]) => figure(id, cap)).join('');
+  const quests = play.quests.map((q) => `<article class="glass card quest" data-reveal="rise">
+      <p class="label">${q.status}</p>
+      <h3>${q.title}</h3>
+      <p>${q.body}</p>
+    </article>`).join('');
+  const body = `
+<section class="about play" style="${tint('play')}">
+  <p class="label" data-hero>Play</p>
+  <h1 class="about__title">Side quests.</h1>
+  <p class="lead" data-reveal="rise">${play.intro}</p>
+
+  <div class="about__sec">
+    <h2 class="h-section" data-reveal="rise">${d.title}</h2>
+    <p class="play__text" data-reveal="rise">${d.text}</p>
+    <div class="gallery">${gallery}</div>
+  </div>
+
+  <div class="about__sec">
+    <h2 class="h-section" data-reveal="rise">More side quests</h2>
+    <div class="quests">${quests}</div>
+  </div>
+</section>`;
+  return shell({ title: 'Play · Rosly Tavarez', desc: play.intro, body, page: 'about', current: 'play', ogImage: '/assets/img/play/full/munch-4.jpg' });
+}
+
 function notFound() {
   return shell({ title: 'Not found · Rosly Tavarez', desc: 'Page not found', body: `<section class="nf"><h1>Page not found.</h1><p>That link may have moved. Try the <a href="/">homepage</a>.</p></section>`, page: 'nf' });
 }
@@ -393,6 +425,7 @@ function write(rel, html) {
 
 write('index.html', home());
 write('about/index.html', aboutPage());
+write('play/index.html', playPage());
 write('404.html', notFound());
 for (const p of projects) write(`work/${p.slug}/index.html`, caseStudy(p));
-console.log('built', projects.length + 3, 'pages');
+console.log('built', projects.length + 4, 'pages');

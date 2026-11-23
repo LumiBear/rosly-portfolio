@@ -418,3 +418,27 @@ export const about = {
   toolbox: ['Figma', 'Framer', 'Miro / FigJam', 'Adobe Illustrator', 'Photoshop', 'InDesign', 'Blender', 'HTML / CSS'],
   certifications: ['IBM Enterprise Design Thinking Practitioner (2026)', 'UX Research at Scale: Surveys, Analytics, Online Testing (2026)', 'Figma: Designing with Variables and Conditionals (2026)', 'Adobe Illustrator (2024)'],
 };
+
+export const play = {
+  intro:
+    'Case studies are where I solve problems for people. This is where I play: type experiments, posters, and small projects I build for the fun of it.',
+  design: {
+    title: 'Graphic design',
+    text: 'A typography series built from a funny Craigslist post. I pushed one word, MUNCH, through rough, ruffled and clean letterforms, then let the ad copy for Mr. Pigglesworth’s Garden Service crowd in around it.',
+    items: [
+      ['play/munch-1', 'Ruffled MUNCH, black on white'],
+      ['play/munch-2', 'The same type inverted, white on black'],
+      ['play/munch-3', 'Clean, oversized letterforms cropped by the edge'],
+      ['play/munch-4', 'Ad copy set inside circles that cut through the type'],
+      ['play/munch-5', 'Ruffled type with the full ad copy as a text column'],
+      ['play/munch-6', 'Circles knocked out of the type, no copy'],
+    ],
+  },
+  quests: [
+    {
+      title: 'Trivia word game',
+      status: 'In progress',
+      body: 'A timed trivia word game inspired by Krillion’s Daily Dive. I’m designing it as a competitive party game and testing what makes a round feel fast and fair.',
+    },
+  ],
+};
