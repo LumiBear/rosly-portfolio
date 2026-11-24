@@ -248,7 +248,6 @@ function home() {
     <p class="hero__now" data-hero>Currently Union Arts Associate at UNT and an Adobe Student Ambassador. Looking for summer 2027 internships.</p>
   </div>
   <div class="hero__art" data-hero-art>
-    <span class="hero__orb"><img src="/assets/img/home/portrait.webp" width="${meta['home/portrait'].w}" height="${meta['home/portrait'].h}" alt="Rosly Tavarez" fetchpriority="high"></span>
     ${glassFolder('hero', { label: 'Portfolio', seed: 2 })}
   </div>
 </section>
@@ -367,8 +366,11 @@ function aboutPage() {
 
   <div class="about__sec about__cols" data-reveal="stagger">
     <div class="glass card"><h2>Education</h2><p><b>${about.education.school}</b><br>${about.education.degree}<br><span class="muted">${about.education.when}</span></p><p class="label">Honors</p><ul>${about.honors.map((h) => `<li>${h}</li>`).join('')}</ul></div>
-    <div class="glass card"><h2>Toolbox</h2><ul class="chips">${about.toolbox.map((t) => `<li class="chip">${t}</li>`).join('')}</ul><p class="label">Certifications</p><ul>${about.certifications.map((c) => `<li>${c}</li>`).join('')}</ul></div>
-    <div class="glass card"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul></div>
+    <div class="about__stack">
+      <div class="glass card"><h2>Toolbox</h2><ul class="chips">${about.toolbox.map((t) => `<li class="chip">${t}</li>`).join('')}</ul></div>
+      <div class="glass card"><h2>Languages</h2><ul><li>English</li><li>Spanish (bilingual)</li></ul></div>
+    </div>
+    <div class="glass card"><h2>Certifications</h2><ul>${about.certifications.map((c) => `<li>${c}</li>`).join('')}</ul></div>
   </div>
 </section>`;
   return shell({ title: 'About · Rosly Tavarez', desc: about.intro, body, page: 'about', current: 'about' });
@@ -418,24 +420,6 @@ function playPage() {
     <div class="quests">${quests}</div>
   </div>
 
-  <div class="about__sec pop-sec">
-    <h2 class="h-section" data-reveal="rise">Take a break</h2>
-    <p class="play__text" data-reveal="rise">Twenty seconds, one job: pop as many bubbles as you can. Sparkle stars are worth five.</p>
-    <div class="pop glass" data-pop data-reveal="rise">
-      <div class="pop__stats" aria-live="polite">
-        <span class="chip">Score <b data-score>0</b></span>
-        <span class="chip">Time <b data-time>20</b></span>
-        <span class="chip">Best <b data-best>0</b></span>
-      </div>
-      <div class="pop__arena" data-arena>
-        <div class="pop__overlay" data-overlay>
-          <p class="pop__title" data-title>Pop the bubbles</p>
-          <p class="pop__sub" data-sub>Click or tap. Stars are worth 5.</p>
-          <button type="button" class="btn" data-start>Start</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>`;
   return shell({ title: 'Play · Rosly Tavarez', desc: play.intro, body, page: 'about', current: 'play', ogImage: '/assets/img/play/full/guppy-poster.jpg' });
 }
