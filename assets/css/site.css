@@ -477,21 +477,4 @@ html.js .fpanel:not(.is-on) { display: none; }
 }
 @media (max-width: 560px) { .folders__tabs button { padding: 10px 13px 11px; font-size: 13px; } .car__thumb { width: 48px; height: 48px; } }
 
-/* bubble pop game */
-html:not(.js) .pop-sec { display: none; }
-.pop { padding: 14px; border-radius: 30px; max-width: 880px; }
-.pop__stats { display: flex; gap: 8px; flex-wrap: wrap; padding: 4px 6px 14px; }
-.pop__stats .chip b { font-weight: 500; font-variant-numeric: tabular-nums; min-width: 1.4ch; display: inline-block; }
-.pop__arena { position: relative; height: clamp(320px, 52vh, 440px); border-radius: 22px; overflow: hidden; background: linear-gradient(160deg, rgba(255,255,255,.9), rgba(205,239,230,.55) 60%, rgba(243,198,218,.5)); border: 1px solid rgba(255,255,255,.95); touch-action: manipulation; user-select: none; -webkit-user-select: none; isolation: isolate; }
-.bub { position: absolute; left: 0; top: 0; border-radius: 50%; cursor: pointer; will-change: transform; z-index: 1;
-  background: radial-gradient(circle at 30% 26%, rgba(255,255,255,.95) 0 11%, rgba(255,255,255,0) 12%), radial-gradient(circle at 50% 55%, var(--a), var(--b));
-  border: 1px solid rgba(255,255,255,.9); box-shadow: inset 0 -6px 14px rgba(255,255,255,.35), 0 10px 20px -12px rgba(40,60,90,.55); opacity: .92; }
-.bub--star { border: 0; border-radius: 0; background: linear-gradient(135deg, #fff, #F3C6DA 55%, #B9658F); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); box-shadow: none; opacity: 1; filter: drop-shadow(0 6px 8px rgba(185,101,143,.45)); }
-.spk { position: absolute; z-index: 2; width: 12px; height: 12px; margin: -6px 0 0 -6px; pointer-events: none; background: #fff; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); filter: drop-shadow(0 0 5px #F07BA8); animation: spk .6s cubic-bezier(.2,.7,.2,1) forwards; }
-@keyframes spk { to { transform: translate(var(--dx), var(--dy)) scale(.2) rotate(120deg); opacity: 0; } }
-.plus { position: absolute; z-index: 3; pointer-events: none; font: 400 18px/1 var(--display); color: #B9658F; transform: translate(-50%, -50%); animation: plus .7s ease-out forwards; }
-@keyframes plus { to { transform: translate(-50%, -190%); opacity: 0; } }
-.pop__overlay { position: absolute; inset: 0; z-index: 4; display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; padding: 20px; background: rgba(255,255,255,.55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: opacity .4s, visibility .4s; }
-.pop__overlay.is-off { opacity: 0; visibility: hidden; pointer-events: none; }
-.pop__title { font: 400 clamp(30px, 4vw, 48px)/1.1 var(--display); letter-spacing: -.02em; margin: 0; }
-.pop__sub { margin: 0 0 8px; color: var(--ink-2); }
+.about__stack { display: grid; grid-template-rows: auto 1fr; gap: 12px; }
