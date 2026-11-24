@@ -184,11 +184,6 @@
 "h": 900,
 "full": "play/full/bloom-root.jpg"
 },
-"play/white-tiger": {
-"w": 1600,
-"h": 900,
-"full": "play/full/white-tiger.jpg"
-},
 "play/daintydeskco": {
 "w": 1600,
 "h": 900,
@@ -223,5 +218,15 @@
 "w": 1159,
 "h": 1500,
 "full": "play/full/guppy-poster.jpg"
+},
+"play/tiger-spread": {
+"w": 1800,
+"h": 1343,
+"full": "play/full/tiger-spread.jpg"
+},
+"play/tiger-title": {
+"w": 1800,
+"h": 1343,
+"full": "play/full/tiger-title.jpg"
 }
 }

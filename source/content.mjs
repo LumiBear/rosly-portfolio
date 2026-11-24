@@ -440,8 +440,11 @@ export const play = {
       {
         title: 'White Tiger',
         kind: 'Infographic · Poster',
-        text: 'An infographic on the idolization of the exotic white tiger, made to draw a parallel in life while raising awareness.',
-        imgs: [['play/white-tiger', 'The White Tiger infographic and title treatment']],
+        text: 'An infographic on the idolization of the exotic white tiger, made to draw a parallel in life while raising awareness. A two-page spread with a halftone portrait, plus the blackletter title treatment.',
+        imgs: [
+          ['play/tiger-spread', 'The White Tiger: two-page infographic spread'],
+          ['play/tiger-title', 'The White Tiger: title treatment'],
+        ],
       },
       {
         title: 'DaintyDeskCo',

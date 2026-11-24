@@ -413,8 +413,10 @@
       const cur = car.querySelector('[data-cur]');
       let idx = 0, raf = 0;
       const smooth = reduced ? 'auto' : 'smooth';
+      const fit = () => { const s = slides[idx]; if (s && track.clientWidth) track.style.height = s.offsetHeight + 'px'; };
       const sync = (i) => {
         idx = i;
+        fit();
         if (cur) cur.textContent = i + 1;
         if (prev) prev.disabled = i === 0;
         if (next) next.disabled = i === slides.length - 1;
@@ -432,8 +434,11 @@
         if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
         if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
       });
-      car.addEventListener('car:show', () => { track.scrollLeft = 0; sync(0); });
+      car.addEventListener('car:show', () => { track.scrollLeft = 0; sync(0); requestAnimationFrame(fit); });
+      window.addEventListener('resize', fit);
+      car.querySelectorAll('img').forEach((im) => { if (!im.complete) im.addEventListener('load', fit, { once: true }); });
       sync(0);
+      requestAnimationFrame(fit);
     });
   }
 
