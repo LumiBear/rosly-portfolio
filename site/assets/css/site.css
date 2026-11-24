@@ -290,7 +290,7 @@ p { margin: 0; }
 .xp__org { color: var(--t2); font-size: 15px; margin-top: 4px; }
 .xp__item ul { margin: 12px 0 0; padding-left: 18px; color: var(--ink-2); max-width: 70ch; }
 .xp__item li + li { margin-top: 6px; }
-.about__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.about__cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; align-items: stretch; }
 .card { padding: 26px; border-radius: 24px; }
 .card h2 { font: 400 22px/1.2 var(--display); margin-bottom: 14px; }
 .card .label { margin: 24px 0 8px; }
