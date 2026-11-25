@@ -13,6 +13,7 @@ const TINT = {
   closet: ['#D9CCFA', '#8C76E0'],
   reverdi: ['#FFE0A3', '#F0A23A'],
   choretap: ['#FFC2D9', '#6FA8FF'],
+  freshroute: ['#F4C7CC', '#9B2F45'],
   home: ['#A9CBFF', '#3F7FF2'],
   hero: ['#F3C6DA', '#B9658F'],
   play: ['#CDEFE6', '#4BB8A3'],

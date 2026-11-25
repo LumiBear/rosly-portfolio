@@ -228,5 +228,55 @@
 "w": 1800,
 "h": 1343,
 "full": "play/full/tiger-title.jpg"
+},
+"freshroute/cover": {
+"w": 1600,
+"h": 900,
+"full": "freshroute/full/cover.jpg"
+},
+"freshroute/big-idea": {
+"w": 1600,
+"h": 1058,
+"full": "freshroute/full/big-idea.jpg"
+},
+"freshroute/impact": {
+"w": 1200,
+"h": 1600,
+"full": "freshroute/full/impact.jpg"
+},
+"freshroute/matrix": {
+"w": 1600,
+"h": 900,
+"full": "freshroute/full/matrix.png"
+},
+"freshroute/storyboard": {
+"w": 1600,
+"h": 1200,
+"full": "freshroute/full/storyboard.jpg"
+},
+"freshroute/sketches": {
+"w": 1600,
+"h": 1200,
+"full": "freshroute/full/sketches.jpg"
+},
+"freshroute/flows": {
+"w": 1600,
+"h": 639,
+"full": "freshroute/full/flows.png"
+},
+"freshroute/driver-dashboard": {
+"w": 1520,
+"h": 1150,
+"full": "freshroute/full/driver-dashboard.png"
+},
+"freshroute/driver-nav": {
+"w": 1520,
+"h": 1150,
+"full": "freshroute/full/driver-nav.png"
+},
+"freshroute/manager-incoming": {
+"w": 1600,
+"h": 1073,
+"full": "freshroute/full/manager-incoming.png"
 }
 }

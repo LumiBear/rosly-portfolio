@@ -391,6 +391,136 @@ export const projects = [
       },
     ],
   },
+  {
+    slug: 'freshroute',
+    title: 'FreshRoute',
+    kicker: 'Food rescue logistics · in progress',
+    summary:
+      'Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge.',
+    year: '2026',
+    kind: 'Team research project',
+    tags: ['Research', 'Team', 'In progress'],
+    role: 'UX researcher · team of four',
+    timeline: 'Fall 2026 · ongoing',
+    team: 'Maroon Moose (4 UX design students)',
+    tools: 'Google Forms & Sheets, interview guides, whiteboard workshops, paper prototypes',
+    cover: 'freshroute/cover',
+    inProgress: true,
+    sections: [
+      {
+        id: 'overview', step: 'Overview', title: 'Good food, bad timing.',
+        blocks: [
+          { t: 'lead', text: 'Grocery stores throw out food that is still safe to eat, and food banks spend their days chasing it. The gap between them is not willingness. It is coordination: who is coming, when, with what, and whether the yogurt has been sitting in a warm van for an hour.' },
+          { t: 'p', text: 'This semester-long team project started with a broad question about food waste and narrowed, through research, to one moment: the handoff between a store, a driver, and the food bank waiting on the other end.' },
+          { t: 'note', text: 'This case study is in progress. We have finished research, ideation, and the first round of wireframes. Usability testing comes next, and this page will grow with it.' },
+        ],
+      },
+      {
+        id: 'scope', step: 'Scoping', title: 'Six directions, one decision.',
+        blocks: [
+          { t: 'p', text: 'Food waste touches everyone from shoppers to warehouse staff, so we mapped six possible directions before committing to one: connecting businesses with food banks, food bank inventory, the wider donation ecosystem, helping people find food, discounted surplus for consumers, and preventing waste at home.' },
+          { t: 'p', text: 'We chose to focus on the link between grocery stores and food banks. It is where the most safe food is lost, and the people on both sides told us the process depends on phone calls and memory.' },
+        ],
+      },
+      {
+        id: 'competitive', step: 'Competitive analysis', title: 'Lots of apps for shoppers. Almost nothing for the people moving the food.',
+        blocks: [
+          { t: 'p', text: 'Each of us audited one product feature by feature against a shared list of 32 capabilities. I took <b>Too Good To Go</b>, the surplus-food marketplace. My teammates covered HelloFresh, Plentiful, and Misfits Market.' },
+          { t: 'stats', items: [['4', 'products compared'], ['32', 'features in the matrix'], ['13', 'features in Too Good To Go'], ['1 of 4', 'with tools for partner businesses']] },
+          { t: 'list', items: [
+            '<b>Built for the buyer.</b> Every product had polished browsing, filters, and allergen info for the person receiving food.',
+            '<b>Thin on logistics.</b> Only Too Good To Go offered management tools for the businesses giving food, and none told the receiving side when food was on its way.',
+            '<b>No one tracked condition.</b> Not one product showed how long perishable food had been out of refrigeration.',
+          ] },
+        ],
+      },
+      {
+        id: 'interviews', step: 'Interview plan', title: 'Asking better questions.',
+        blocks: [
+          { t: 'p', text: 'We wrote a recruiting screener to find people who actually make operational decisions at food banks, then built two discussion guides: one for food bank managers and one for grocery store managers. I reached out to managers at Albertsons and WinCo and helped coordinate interview scheduling.' },
+          { t: 'p', text: 'Our professor critiqued both guides question by question, and the revisions changed how I write interviews:' },
+          { t: 'columns', items: [
+            { h: 'Before', list: ['“What are your biggest anxieties when donating?”', 'One probe asking how food is checked, sorted, recorded, and stored', 'A long “imagine a year from now” scenario'] },
+            { h: 'After', list: ['“What do you do when difficulties come up?”', 'Separate questions for checking, sorting, and recording', '“If you had a magic wand, what is the one thing you would change?”'] },
+          ] },
+          { t: 'quote', text: 'Scheduling interviews in advance, instead of approaching people on the spot, respects their time and leads to better conversations.', by: 'Key learning from my weekly status report' },
+        ],
+      },
+      {
+        id: 'findings', step: 'What we heard', title: '“Oh, the truck’s here.”',
+        blocks: [
+          { t: 'p', text: 'Our richest interview was with a local food pantry manager who orders from the regional food bank, drives store pickups himself, and unloads the trucks. A few details from that conversation shaped everything after it:' },
+          { t: 'list', items: [
+            '<b>Arrival is a guess.</b> The regional truck comes “usually around 10 or 11,” depending on traffic, and it interrupts whatever he is in the middle of.',
+            '<b>Cold food gets turned away.</b> The van has no cooling, and he cannot accept perishables when nobody knows how long they have been out of the fridge.',
+            '<b>Listings are vague.</b> Unclear descriptions once led to five pallets of popcorn and 19-pound tubs of sour cream.',
+            '<b>Every store works differently.</b> One scans each can, another makes staff unbox items to scan them, another bags cans one by one.',
+          ] },
+          { t: 'personas', items: [
+            { tag: 'Persona', name: 'Maya, food pantry coordinator', body: 'Runs a pantry that sees about 600 household visits a week with one other staff member and rotating volunteers. Donations arrive by email, drop boxes, and surprise calls from drivers, so she cannot plan cold storage or staff. Weighing, sorting, and logging eat the time she would rather spend growing the pantry.' },
+            { tag: 'Anti-persona', name: 'Max, the solo shortcut', body: 'Picks up alone and skips the counts. Designing for Max reminded us that untracked handoffs are where food goes missing, so items are counted at both pickup and drop-off.' },
+          ] },
+        ],
+      },
+      {
+        id: 'ideation', step: 'Ideation', title: 'From big idea to one concept.',
+        blocks: [
+          { t: 'p', text: 'We framed the opportunity as a Who / What / Wow: a food bank manager who can see deliveries in real time, alert the store before a driver arrives, and know food will show up in the same state it left.' },
+          { t: 'figure', img: 'freshroute/big-idea', caption: 'Our “Big Idea: Safe Transport” board, written during a class work session.', medium: true },
+          { t: 'p', text: 'Two need statements came out of the research. Food bank managers need a way to monitor deliveries so they can predict turnaround time and prepare. They also need simpler inventory, so they always know what is on hand, sorted by category and expiration date, before it spoils.' },
+          { t: 'p', text: 'We sketched four concepts against those needs, then plotted them by user impact and feasibility.' },
+          { t: 'figures', items: [
+            { img: 'freshroute/impact', caption: 'First pass on the whiteboard: impact against feasibility.' },
+            { img: 'freshroute/matrix', caption: 'The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable.' },
+          ] },
+          { t: 'columns', items: [
+            { h: 'Chosen', list: ['<b>Notifications from FreshRoute.</b> Live ETAs for the food bank and the store, so both sides prep before the truck pulls in.'] },
+            { h: 'Kept for later', list: ['<b>Handy Footage.</b> Cargo video of the drive. Easy to build, but it only explains problems after they happen, while notifications prevent them.', '<b>Grocery Store Scanner.</b> Items logged at the store so they arrive already sorted. Feasible, with a smaller payoff.'] },
+            { h: 'Cut', list: ['<b>Camera Detection.</b> Auto-sorting produce with a camera at the food bank. It scored low on both impact and feasibility.'] },
+          ] },
+          { t: 'figure', img: 'freshroute/storyboard', caption: 'Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives.' },
+        ],
+      },
+      {
+        id: 'studio', step: 'Design studio', title: 'Sketch, vote, repeat.',
+        blocks: [
+          { t: 'p', text: 'Each of us sketched screens for the driver and the food bank manager, then we covered the table in sticky-note critique and dot-voted on what to keep.' },
+          { t: 'list', items: [
+            '<b>Color creates urgency</b> was the top vote, so on time, slipping, and late each get their own color, glyph, and words.',
+            '<b>Driver input should feed the system,</b> so each driver’s feedback updates the store’s pickup notes for the next person.',
+            '<b>Multiple stops</b> per route came second.',
+            '<b>Gamification was cut.</b> Streaks and leaderboards felt stressful and distracting for someone driving.',
+          ] },
+          { t: 'figure', img: 'freshroute/sketches', caption: 'Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen.' },
+        ],
+      },
+      {
+        id: 'wireframes', step: 'Wireframes', title: 'Two workspaces, one promise.',
+        blocks: [
+          { t: 'p', text: 'The sketches became mid-fidelity wireframes with two separate flows. Drivers get an iPad app that finds pickups, routes them, and locks in an arrival time. Food bank managers get a desk view that shows only the outcome: who is coming, when, with what, and what happened on the way.' },
+          { t: 'figure', img: 'freshroute/flows', caption: 'The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store.' },
+          { t: 'figures', items: [
+            { img: 'freshroute/driver-dashboard', caption: 'Driver dashboard: every listing leads with weight, food type, and pickup window, the details that went missing in the popcorn story.' },
+            { img: 'freshroute/driver-nav', caption: 'Driving view: directions in the middle, the ETA ring top right. Everything else stays out of the way while the van moves.' },
+          ] },
+          { t: 'figure', img: 'freshroute/manager-incoming', caption: 'Food bank view: every truck on its way, its ETA, what is on it, and how long the cold items have been out.' },
+          { t: 'note', text: 'Wireframes are grayscale on purpose. This round tested structure and content, not visual style.' },
+        ],
+      },
+      {
+        id: 'next', step: 'Next steps', title: 'What we are testing now.',
+        blocks: [
+          { t: 'list', items: [
+            '<b>Cognitive walkthrough.</b> Each of us takes one task with Maya. Mine is sorting a delivery by expiration date after it arrives, so the least food is wasted. For every step: is the action available, does she know it is the right one, and does she get feedback?',
+            '<b>Usability testing</b> with a food bank manager, volunteers, and a grocery store manager.',
+            '<b>Success measures:</b> less time waiting at the dock, deliveries prepped before the truck arrives, and less food spoiled during handoff.',
+            '<b>Later:</b> item logging at the store, so donations arrive already sorted by category and expiration date.',
+          ] },
+          { t: 'quote', text: 'The best idea on our board was not the most impressive one. It was the one that answered the question everyone kept asking: when is the truck getting here?', by: 'What this project has taught me so far' },
+        ],
+      },
+    ],
+  },
 ];
 
 export const inProgressExtra = {
