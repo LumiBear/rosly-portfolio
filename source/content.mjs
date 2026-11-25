@@ -425,8 +425,10 @@ export const projects = [
       {
         id: 'competitive', step: 'Competitive analysis', title: 'Lots of apps for shoppers. Almost nothing for the people moving the food.',
         blocks: [
-          { t: 'p', text: 'Each of us audited one product feature by feature against a shared list of 32 capabilities. I took <b>Too Good To Go</b>, the surplus-food marketplace. My teammates covered HelloFresh, Plentiful, and Misfits Market.' },
-          { t: 'stats', items: [['4', 'products compared'], ['32', 'features in the matrix'], ['13', 'features in Too Good To Go'], ['1 of 4', 'with tools for partner businesses']] },
+          { t: 'p', text: 'The problem is not a shortage of food. In 2024, the U.S. produced far more surplus food than it gave away, while millions of people went without enough to eat.' },
+          { t: 'stats', items: [['70M tons', 'of surplus food in the U.S. in 2024, about 29% of the food supply'], ['<2%', 'of that surplus was donated'], ['$26.9B', 'of surplus food from grocery retail alone'], ['48M', 'people faced food insecurity in 2024']] },
+          { t: 'note', text: 'Sources: <a href="https://refed.org/uploads/2026-food-waste-report-design-final-1.pdf" target="_blank" rel="noopener">ReFED U.S. Food Waste Report 2026</a> and <a href="https://refed.org/uploads/by-sector-retail-1.pdf" target="_blank" rel="noopener">ReFED retail fact sheet</a> (2024 data); USDA figures via <a href="https://www.feedingamerica.org/about-us/press-room/Map-the-Meal-Gap-2026" target="_blank" rel="noopener">Feeding America, Map the Meal Gap 2026</a>.' },
+          { t: 'p', text: 'So where are the tools that move that food? Each of us audited one product feature by feature against a shared list of capabilities. I took <b>Too Good To Go</b>, the surplus-food marketplace. My teammates covered HelloFresh, Plentiful, and Misfits Market.' },
           { t: 'list', items: [
             '<b>Built for the buyer.</b> Every product had polished browsing, filters, and allergen info for the person receiving food.',
             '<b>Thin on logistics.</b> Only Too Good To Go offered management tools for the businesses giving food, and none told the receiving side when food was on its way.',
