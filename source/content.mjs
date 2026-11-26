@@ -447,13 +447,6 @@ export const projects = [
   },
 ];
 
-export const inProgressExtra = {
-  title: 'Reducing food waste',
-  kicker: 'Grocery stores, kitchens & dining halls',
-  note: 'Research phase. Case study coming soon.',
-  year: '2026',
-};
-
 export const about = {
   intro:
     'I’m a UX designer studying for a BFA in UX Design at the University of North Texas, with an advertising minor. I specialize in accessible, visually driven experiences across web, mobile, and brand, and I’m happiest when research turns a messy, emotional problem into something that feels simple.',

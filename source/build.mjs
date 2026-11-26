@@ -1,7 +1,7 @@
 // Static site generator for Rosly's portfolio (glass edition). Run: node build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
-import { person, projects, inProgressExtra, about, play } from './content.mjs';
+import { person, projects, about, play } from './content.mjs';
 
 const OUT = process.env.OUT || new URL('../site', import.meta.url).pathname;
 const meta = JSON.parse(fs.readFileSync(new URL('./imgmeta.json', import.meta.url)));
@@ -272,11 +272,6 @@ function home() {
     <p class="work__count">${projects.length} case studies</p>
   </div>
   <ol class="posters">${cards}</ol>
-  <div class="soon glass" data-reveal="rise">
-    <p class="label">Coming soon · ${inProgressExtra.year}</p>
-    <p class="soon__title">${inProgressExtra.title}</p>
-    <p class="soon__desc">${inProgressExtra.kicker}. ${inProgressExtra.note}</p>
-  </div>
 </section>
 
 <section class="intro">
