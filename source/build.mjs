@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { person, projects, inProgressExtra, about, play } from './content.mjs';
 
-const OUT = '/home/claude/site';
+const OUT = process.env.OUT || new URL('../site', import.meta.url).pathname;
 const meta = JSON.parse(fs.readFileSync(new URL('./imgmeta.json', import.meta.url)));
 const VERSION = Date.now().toString(36);
 
@@ -105,6 +105,7 @@ function blocks(list) {
       case 'quote': return `<blockquote class="quote" data-reveal="rise"><p>“${b.text}”</p><footer>${b.by}</footer></blockquote>`;
       case 'palette': return `<ul class="palette" data-reveal="stagger">${b.items.map(([hex, name]) => `<li><span class="swatch" style="--c:${hex}"></span><span class="palette__name">${name}</span><code>${hex}</code></li>`).join('')}</ul>`;
       case 'file': return fileCard(b);
+      case 'embed': return `<div class="embed" data-reveal="rise"><div class="embed__phone"><iframe src="${b.src}" title="${esc(b.title)}" loading="lazy"></iframe></div><p class="embed__note">${b.note}</p></div>`;
       case 'link': return `<p class="extlink" data-reveal="rise"><a class="btn" href="${b.href}" target="_blank" rel="noopener">${b.label} ${icon('out')}</a><span>${b.note}</span></p>`;
       default: throw new Error('Unknown block ' + b.t);
     }

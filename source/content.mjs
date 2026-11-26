@@ -385,9 +385,10 @@ export const projects = [
         blocks: [
           { t: 'p', text: 'To test the flow on real phones, I built an installable web prototype. Each sticker opens a lightweight page, so a guest or new roommate can tap without installing anything.' },
           { t: 'phones', items: [
-            { img: 'choretap/landing', caption: 'Welcome: “Chores, minus the group-chat drama.” A live feed preview shows the idea in one glance.' },
-            { img: 'choretap/signup', caption: 'Sign-up keeps it short and tells people upfront that housemates will see their first name.' },
+            { img: 'choretap/landing', caption: 'Welcome: “Chores, minus the group-chat drama.” No account to make. A first name is enough, so housemates know who tapped.' },
+            { img: 'choretap/today', caption: 'Today: whose turn it is, washer and dryer timers, and a live feed of what everyone just did.' },
           ] },
+          { t: 'embed', src: '/choretap-app/', title: 'ChoreTap prototype', note: 'Try it right here. Tap “Explore a demo house” to look around.' },
           { t: 'link', href: '/choretap-app/', label: 'Open the live prototype', note: 'Works best on a phone' },
         ],
       },

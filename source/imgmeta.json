@@ -135,14 +135,9 @@
   "full": "choretap/full/cover.png"
  },
  "choretap/landing": {
-  "w": 739,
-  "h": 1600,
+  "w": 740,
+  "h": 1720,
   "full": "choretap/full/landing.png"
- },
- "choretap/signup": {
-  "w": 739,
-  "h": 1600,
-  "full": "choretap/full/signup.png"
  },
  "choretap/icon": {
   "w": 512,
@@ -328,5 +323,10 @@
   "w": 899,
   "h": 470,
   "full": "canvas/full/v2-5.jpg"
+ },
+ "choretap/today": {
+  "w": 740,
+  "h": 1720,
+  "full": "choretap/full/today.png"
  }
 }

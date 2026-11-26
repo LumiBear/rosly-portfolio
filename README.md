@@ -1,11 +1,11 @@
 # Rosly Tavarez — portfolio
 
 - `site/` is the finished website. This is the folder you deploy (Cloudflare Pages, Netlify, GitHub Pages all work).
-- `source/content.mjs` holds every word on the site. Edit text there, then run `node build.mjs` from the `source` folder to regenerate the HTML in `site/` (the script's OUT path points at /home/claude/site; change the `OUT` line at the top to `../site` when running it on your Mac).
+- `source/content.mjs` holds every word on the site. Edit text there, then run `node build.mjs` from the `source` folder to regenerate the HTML in `site/` (it writes into `../site` automatically).
 
 ## Pages
 - `/` home · `/about/` · `/work/canvas/` · `/work/closet/` · `/work/froth/` · `/work/reverdi/` · `/work/choretap/`
-- `/choretap-app/` the live ChoreTap prototype
+- `/choretap-app/` the live ChoreTap prototype (a built copy of the app: to update it, replace everything in `site/choretap-app/` with the new build). The case study also embeds it in a phone frame on desktop.
 - `/files/RoslyTavarez_Resume.pdf` résumé (swap this file and `assets/img/files/RoslyTavarez_Resume-1.webp` to update it)
 
 ## Deploy to Cloudflare Pages (no code)
