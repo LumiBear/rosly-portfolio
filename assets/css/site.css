@@ -255,6 +255,10 @@ p { margin: 0; }
 .embed__phone { height: min(800px, 86vh); aspect-ratio: 390 / 800; padding: 9px; border-radius: 46px; background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.9); box-shadow: 0 30px 60px -34px rgba(40,60,90,.5); }
 .embed__phone iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 37px; background: #fdf1f7; }
 .embed__note { font-size: 13px; color: var(--ink-2); text-align: center; }
+.iconcard { display: flex; align-items: center; gap: 16px; width: fit-content; max-width: 100%; margin: 28px 0 8px; padding: 12px 22px 12px 12px; border-radius: 22px; }
+.iconcard__img { width: 64px; height: 64px; flex: none; border-radius: 16px; box-shadow: 0 10px 20px -12px rgba(30,40,70,.55); }
+.iconcard__title { margin: 0; font: 400 16px/1.3 var(--display); }
+.iconcard__text { margin: 2px 0 0; font-size: 14px; line-height: 1.45; color: var(--ink-2); max-width: 36ch; }
 .extlink { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .extlink span { font-size: 13px; color: var(--ink-2); }
 
