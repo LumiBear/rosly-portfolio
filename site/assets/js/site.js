@@ -51,11 +51,9 @@
     if (bits.length) tl.from(bits, { y: 26, opacity: 0, filter: 'blur(12px)', duration: 1.2, stagger: 0.08, clearProps: 'filter' }, 0.1);
     const art = document.querySelector('[data-hero-art]');
     if (art) {
-      tl.fromTo(art.querySelectorAll('.gfolder__back, .gfolder__tab'), { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.3, clearProps: 'transform,opacity' }, 0.2)
-        .from(art.querySelectorAll('.blobs b'), { scale: 0.2, opacity: 0, duration: 1.8, stagger: 0.1, ease: 'expo.out' }, 0.3)
-        .fromTo(art.querySelector('.gfolder__front'), { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1.3, clearProps: 'transform,opacity' }, 0.45)
-        .from(art.querySelectorAll('.sparkles i'), { scale: 0, duration: 0.9, stagger: 0.06, ease: 'back.out(3)' }, 1.0);
-      const orb = art.querySelector('.hero__orb, .about__photo');
+      const cards = art.querySelectorAll('.hstack__card, .cover');
+      if (cards.length) tl.from(cards, { y: 60, opacity: 0, duration: 1.3, stagger: 0.12, clearProps: 'transform,opacity' }, 0.25);
+      const orb = art.querySelector('.about__photo');
       if (orb) tl.from(orb, { y: -50, scale: 0.85, opacity: 0, filter: 'blur(16px)', duration: 1.4, clearProps: 'filter' }, 0.6);
     }
     const title = document.querySelector('.cs__title, .about__title');
@@ -151,20 +149,6 @@
     if (!posters.length) return;
     if (!reduced) posters.forEach((p, i) => gsap.from(p, { y: 70, opacity: 0, filter: 'blur(12px)', duration: 1.2, ease: EXPO, delay: (i % 2) * 0.1, clearProps: 'filter',
       scrollTrigger: { trigger: p, start: 'top 92%', once: true } }));
-    // Touch screens can't hover: the folder opens as it passes the middle of the screen
-    if (!fine) posters.forEach((p) => ScrollTrigger.create({ trigger: p, start: 'top 55%', end: 'bottom 45%', toggleClass: 'is-peek' }));
-    // Glass follows the pointer a little, like light moving across it
-    if (fine && !reduced) posters.forEach((p) => {
-      const front = p.querySelector('.gfolder__front');
-      const blobs = p.querySelector('.gfolder .blobs');
-      p.addEventListener('pointermove', (e) => {
-        const r = p.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-        gsap.to(blobs, { x: x * 30, y: y * 24, duration: 1, ease: 'power3' });
-        gsap.to(front, { '--gx': `${(x + 0.5) * 100}%`, '--gy': `${(y + 0.5) * 100}%`, duration: 0.6 });
-      });
-      p.addEventListener('pointerleave', () => gsap.to(blobs, { x: 0, y: 0, duration: 1.2, ease: 'power3' }));
-    });
   }
 
   function polaroid() {}
@@ -381,7 +365,7 @@
     document.addEventListener('pointerleave', () => lens.classList.remove('on'));
     document.addEventListener('pointerenter', () => seen && lens.classList.add('on'));
     document.addEventListener('pointerover', (e) => {
-      lens.classList.toggle('hot', !!e.target.closest('a, button, summary, [role="button"], .gfolder, .poster'));
+      lens.classList.toggle('hot', !!e.target.closest('a, button, summary, [role="button"], .poster'));
     });
   }
 

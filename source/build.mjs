@@ -222,19 +222,29 @@ function glassFolder(key, { inner = '', label = '', thumb = '', seed = 1 } = {})
   </span>`;
 }
 
+/* A project cover: always visible, framed in glass over soft tinted color. */
+function coverArt(key, { thumb = '', label = '', id = '' } = {}) {
+  const m = meta[id] || { w: 16, h: 10 };
+  return `<span class="cover" style="${tint(key)}" aria-hidden="true">
+    <span class="blobs"><b></b><b></b><b></b></span>
+    <span class="cover__img" style="--ar:${m.w} / ${m.h}">${thumb}</span>
+    ${label ? `<span class="cover__label">${label}</span>` : ''}
+  </span>`;
+}
+
 /* ───────── home ───────── */
 function home() {
   const cards = projects.map((p, i) => `<li class="poster" style="${tint(p.slug)}">
     <a class="poster__link" href="/work/${p.slug}/">
+      ${coverArt(p.slug, { id: p.cover, label: `Case ${String(i + 1).padStart(2, '0')}${p.inProgress ? ' · in progress' : ''}`, thumb: img(p.cover, { sizes: '(min-width: 900px) 40vw, 90vw', alt: '' }) })}
       <span class="poster__text">
         <span class="poster__title" style="view-transition-name: t-${p.slug}">${p.title}</span>
         <span class="poster__kicker">${p.kicker}</span>
-        <span class="poster__meta">${p.kind} · ${p.year}</span>
+        <span class="poster__foot"><span class="poster__meta">${p.kind} · ${p.year}</span><span class="chip">Open case ${icon('arrow')}</span></span>
       </span>
-      ${glassFolder(p.slug, { label: `Case ${String(i + 1).padStart(2, '0')}${p.inProgress ? ' · in progress' : ''}`, thumb: img(p.cover, { sizes: '(min-width: 900px) 30vw, 70vw', alt: '' }), seed: i + 3 })}
-      <span class="poster__foot"><span class="chip">Open case ${icon('arrow')}</span></span>
     </a>
   </li>`).join('');
+  const stack = projects.slice(0, 3).map((p, i) => `<span class="hstack__card hstack__card--${i + 1}" style="${tint(p.slug)}"><span class="blobs"><b></b><b></b></span><span class="cover__img" style="--ar:${meta[p.cover].w} / ${meta[p.cover].h}">${img(p.cover, { sizes: '(min-width: 900px) 34vw, 80vw', alt: '', eager: i === 0 })}</span></span>`).join('');
 
   const body = `
 <section class="hero" style="${tint('hero')}">
@@ -249,7 +259,7 @@ function home() {
     <p class="hero__now" data-hero>Currently Union Arts Associate at UNT and an Adobe Student Ambassador. Looking for summer 2027 internships.</p>
   </div>
   <div class="hero__art" data-hero-art>
-    ${glassFolder('hero', { label: 'Portfolio', seed: 2 })}
+    <div class="hstack" aria-hidden="true">${stack}</div>
   </div>
 </section>
 
@@ -301,7 +311,7 @@ function caseStudy(p) {
       <h1 class="cs__title" style="view-transition-name: t-${p.slug}">${p.title}</h1>
       <p class="cs__summary" data-hero>${p.summary}</p>
     </div>
-    <div class="cs__art" data-hero-art>${glassFolder(p.slug, { label: p.inProgress ? 'In progress' : p.year, seed: idx + 7 })}</div>
+    <div class="cs__art" data-hero-art>${coverArt(p.slug, { id: p.cover, label: p.inProgress ? 'In progress' : p.year, thumb: img(p.cover, { sizes: '(min-width: 900px) 40vw, 90vw', alt: '' }) })}</div>
     <dl class="cs__meta" data-hero>
       <div class="glass"><dt>Role</dt><dd>${p.role}</dd></div>
       <div class="glass"><dt>Timeline</dt><dd>${p.timeline}</dd></div>
