@@ -249,6 +249,12 @@ p { margin: 0; }
 .filecard__note { font-size: 13px; color: var(--ink-2); }
 .filecard__dl { display: grid; place-items: center; width: 62px; border-left: 1px solid rgba(255,255,255,.9); text-decoration: none; transition: background .3s; }
 .filecard__dl:hover { background: rgba(255,255,255,.8); }
+/* Live prototype preview: desktop only. On phones the button below opens the real thing full screen. */
+.embed { display: none; margin: 52px 0 20px; }
+@media (min-width: 900px) and (hover: hover) { .embed { display: grid; justify-items: center; gap: 14px; } }
+.embed__phone { height: min(800px, 86vh); aspect-ratio: 390 / 800; padding: 9px; border-radius: 46px; background: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.9); box-shadow: 0 30px 60px -34px rgba(40,60,90,.5); }
+.embed__phone iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 37px; background: #fdf1f7; }
+.embed__note { font-size: 13px; color: var(--ink-2); text-align: center; }
 .extlink { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .extlink span { font-size: 13px; color: var(--ink-2); }
 
