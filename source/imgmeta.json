@@ -305,28 +305,28 @@
   "full": "canvas/full/v1-5.jpg"
  },
  "canvas/v2-1": {
-  "w": 897,
-  "h": 636,
+  "w": 893,
+  "h": 632,
   "full": "canvas/full/v2-1.jpg"
  },
  "canvas/v2-2": {
-  "w": 904,
-  "h": 636,
+  "w": 900,
+  "h": 632,
   "full": "canvas/full/v2-2.jpg"
  },
  "canvas/v2-3": {
-  "w": 897,
-  "h": 636,
+  "w": 893,
+  "h": 632,
   "full": "canvas/full/v2-3.jpg"
  },
  "canvas/v2-4": {
-  "w": 904,
-  "h": 636,
+  "w": 900,
+  "h": 632,
   "full": "canvas/full/v2-4.jpg"
  },
  "canvas/v2-5": {
-  "w": 903,
-  "h": 474,
+  "w": 899,
+  "h": 470,
   "full": "canvas/full/v2-5.jpg"
  }
 }

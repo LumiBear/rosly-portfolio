@@ -108,7 +108,6 @@ export const projects = [
             ['canvas/v2-4', 'Roadmap and timer, with AI-curated micro-steps.'],
             ['canvas/v2-5', 'Insights beside the draft in Google Docs.'],
           ] },
-          { t: 'figure', img: 'canvas/walkthrough', caption: 'Design walkthrough: Canvas integration, the “how are you feeling?” check-in, and actionable micro-steps.' },
         ],
       },
       {
