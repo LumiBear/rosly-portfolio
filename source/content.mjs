@@ -32,6 +32,7 @@ export const projects = [
         blocks: [
           { t: 'lead', text: 'Most productivity tools treat procrastination as a scheduling problem. My research kept pointing somewhere else: students avoid work when a task makes them anxious, and that anxiety peaks a few days after an assignment is posted, when the page is still blank and the instructions still feel vague.' },
           { t: 'p', text: 'I set out to design something that shows up at that moment instead of after it. Canvas Focus Mode lives inside the learning platform students already open every day. It asks what is in the way, then responds with the right kind of help: a five-minute first action, a broken-down plan, or a gentle interruption when a perfectionist starts rewriting the same paragraph for the fourth time.' },
+          { t: 'figure', img: 'canvas/hero-angle', caption: 'Canvas Focus Mode, shown on a laptop inside the Canvas interface.' },
           { t: 'facts', items: [['Problem', 'Avoidance driven by anxiety and perfectionism, not poor planning'], ['Approach', 'Diagnose the emotional barrier first, then prescribe a specific intervention'], ['Outcome', '5 of 6 test participants said they would use it; SUS score of 82']] },
         ],
       },
@@ -40,6 +41,7 @@ export const projects = [
         blocks: [
           { t: 'p', text: 'I started with secondary research so I could walk into interviews with sharper questions. Three frameworks shaped everything after: Temporal Motivation Theory, Affect Regulation Theory, and Implementation Intentions. Read together, they describe procrastination as a short-term mood repair. Students put a task off because doing so makes them feel better right now.' },
           { t: 'stats', items: [['80–95%', 'of college students procrastinate'], ['~50%', 'do it chronically'], ['60%', 'of productivity apps are abandoned within 30 days']] },
+          { t: 'bars', items: [['Procrastinate', 88, '80–95%'], ['Do it chronically', 50, '~50%'], ['Apps abandoned in 30 days', 60, '60%']] },
           { t: 'p', text: 'That last number reframed the brief. Students do download tools that promise to help. They quit them because opening one more app adds friction at the exact moment they are already looking for an exit.' },
           { t: 'figure', img: 'canvas/science', caption: 'The evidence base I mapped each feature against: strategy, scientific basis, source, and expected effect.' },
         ],
@@ -95,6 +97,7 @@ export const projects = [
             { img: 'canvas/focus-plan', caption: 'Creating a focus plan: the student picks a task, names how they feel, and gets a first step sized to that feeling.' },
             { img: 'canvas/walkthrough', caption: 'Design walkthrough: Canvas integration, the “how are you feeling?” check-in, and actionable micro-steps.' },
           ] },
+          { t: 'figure', img: 'canvas/flow-overview', caption: 'The flow at a glance: check-in, breakdown, first action, focus session.' },
           { t: 'figure', img: 'canvas/screens', caption: 'The full flow, from the morning dashboard through a timed focus session and the writing view.' },
         ],
       },
@@ -103,6 +106,7 @@ export const projects = [
         blocks: [
           { t: 'p', text: 'Before testing, I ran a heuristic evaluation focused on visibility of system status and user control. The biggest risk was that the tool would feel naggy or controlling. Then I put the clickable prototype in front of six college students.' },
           { t: 'stats', items: [['5 / 6', 'said they would use it'], ['82', 'System Usability Scale score'], ['2', 'favorite features: first actions & progress tracking']] },
+          { t: 'bars', items: [['Would use it', 83, '5 of 6'], ['System Usability Scale', 82, '82 / 100']] },
           { t: 'quote', text: 'The 5-minute thing actually got me to open my essay instead of avoiding it for another day.', by: 'Usability test participant' },
           { t: 'p', text: 'The first version of the perfectionism blocker read like a warning, close to “stop revising.” Participants found it scolding. I rewrote it as “Your goal is to write something, not something perfect,” and softened the visual treatment from an alert to an inline card. I also added privacy-first data handling and made every notification optional.' },
           { t: 'quote', text: 'I didn’t realize how much time I was losing just staring at a blank doc until this called it out.', by: 'Usability test participant' },
@@ -249,6 +253,7 @@ export const projects = [
         id: 'concept', step: 'Concept', title: 'What if fragrance helped restore nature?',
         blocks: [
           { t: 'p', text: 'The fragrance industry depends on resource-intensive crops and heavy packaging, while invasive plant species damage ecosystems and cost millions to manage each year. ReVerdi connects those problems: responsibly harvested invasive botanicals become the base notes of a personalized scent, and part of every sale funds ecosystem restoration.' },
+          { t: 'figure', img: 'reverdi/solution', caption: 'The solution: an in-store test, an at-home kit, and a companion app.' },
           { t: 'figure', img: 'reverdi/problem', caption: 'Problem and opportunity: why a regenerative concept fits L’Oréal’s goal of 100% eco-designed products by 2030.' },
           { t: 'p', text: 'We chose YSL Beauty for its fashion-driven innovation and bold identity, a brand that could credibly lead regenerative luxury fragrance.' },
         ],

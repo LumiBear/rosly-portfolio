@@ -86,6 +86,7 @@ function blocks(list) {
       case 'phones': return `<div class="phones phones--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption, { cls: 'fig--phone' })).join('')}</div>`;
       case 'moodboard': return `<div class="mood"><div class="mood__grid">${b.items.map((id) => figure(id, '', { cls: 'fig--mood' })).join('')}</div><p class="caption">${b.caption}</p></div>`;
       case 'stats': return `<dl class="stats" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
+      case 'bars': return `<div class="bars glass" data-reveal="rise">${b.items.map(([label, pct, val]) => `<div class="bar"><span class="bar__label">${label}</span><span class="bar__track"><span class="bar__fill" style="--p:${pct}%"></span></span><span class="bar__val">${val}</span></div>`).join('')}</div>`;
       case 'facts': return `<dl class="facts" data-reveal="stagger">${b.items.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
       case 'list': return `<ul class="list" data-reveal="stagger">${b.items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
       case 'columns': return `<div class="cols" data-reveal="stagger">${b.items.map((c) => `<div class="col glass"><h4>${c.h}</h4><ul>${c.list.map((i) => `<li>${i}</li>`).join('')}</ul></div>`).join('')}</div>`;
