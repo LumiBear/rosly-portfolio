@@ -92,13 +92,23 @@ export const projects = [
         id: 'design', step: 'Design', title: 'From wireframes to a dashboard students would trust.',
         blocks: [
           { t: 'p', text: 'I wireframed the check-in, the task breakdown, and the perfectionism interruption in Figma before moving to high fidelity. The visual language borrows from Canvas so the feature feels native, with a calm, low-alarm palette and plain, friendly copy. It should feel like a nudge from a study partner, not another notification.' },
-          { t: 'figure', img: 'canvas/dashboard', caption: 'Focus Mode dashboard: today’s micro-steps sit beside active assignments, with one clear way to start.' },
-          { t: 'figures', items: [
-            { img: 'canvas/focus-plan', caption: 'Creating a focus plan: the student picks a task, names how they feel, and gets a first step sized to that feeling.' },
-            { img: 'canvas/walkthrough', caption: 'Design walkthrough: Canvas integration, the “how are you feeling?” check-in, and actionable micro-steps.' },
+          { t: 'p', text: 'Screens in <b>orange</b> are my first iterations. They borrow Canvas’s own red so the feature felt native, and they are where I worked out the check-in, the task breakdown, and the focus timer.' },
+          { t: 'carousel', label: 'First iterations · orange', items: [
+            ['canvas/v1-1', 'Dashboard with a “Ready for Deep Work?” entry point into Focus Mode.'],
+            ['canvas/v1-2', 'Focus Mode home: today’s micro-steps beside active assignments.'],
+            ['canvas/v1-3', 'Creating a focus plan: pick a task, name how you feel, get a first step sized to that feeling.'],
+            ['canvas/v1-4', 'Roadmap and timer, with AI-curated micro-steps.'],
+            ['canvas/v1-5', 'Insights surfaced beside the student’s draft in Google Docs.'],
           ] },
-          { t: 'figure', img: 'canvas/flow-overview', caption: 'The flow at a glance: check-in, breakdown, first action, focus session.' },
-          { t: 'figure', img: 'canvas/screens', caption: 'The full flow, from the morning dashboard through a timed focus session and the writing view.' },
+          { t: 'p', text: 'The <b>final</b> screens, with the <b>green sidebar</b>, move the same flow into UNT’s Canvas theme. The layout stayed the same. Color, navigation, and spacing were tuned so Focus Mode looks like part of the school’s own Canvas.' },
+          { t: 'carousel', label: 'Final design · green sidebar', items: [
+            ['canvas/v2-1', 'Dashboard with the Focus entry point in the UNT sidebar.'],
+            ['canvas/v2-2', 'Focus Mode home: micro-steps, active assignments, and a contextual AI suggestion.'],
+            ['canvas/v2-3', 'Creating a focus plan, with the feeling check-in.'],
+            ['canvas/v2-4', 'Roadmap and timer, with AI-curated micro-steps.'],
+            ['canvas/v2-5', 'Insights beside the draft in Google Docs.'],
+          ] },
+          { t: 'figure', img: 'canvas/walkthrough', caption: 'Design walkthrough: Canvas integration, the “how are you feeling?” check-in, and actionable micro-steps.' },
         ],
       },
       {

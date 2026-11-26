@@ -86,6 +86,17 @@ function blocks(list) {
       case 'phones': return `<div class="phones phones--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption, { cls: 'fig--phone' })).join('')}</div>`;
       case 'moodboard': return `<div class="mood"><div class="mood__grid">${b.items.map((id) => figure(id, '', { cls: 'fig--mood' })).join('')}</div><p class="caption">${b.caption}</p></div>`;
       case 'stats': return `<dl class="stats" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
+      case 'carousel': {
+        const n = b.items.length;
+        const slides = b.items.map(([id, cap], k) => `<div class="car__slide" role="group" aria-roledescription="slide" aria-label="${k + 1} of ${n}">${figure(id, cap, { reveal: false })}</div>`).join('');
+        const thumbs = b.items.map(([id, cap], k) => `<button type="button" class="car__thumb" data-go="${k}" aria-label="Show screen ${k + 1}: ${esc(strip(cap))}" ${k === 0 ? 'aria-current="true"' : ''}>${img(id, { sizes: '90px', alt: '' })}</button>`).join('');
+        return `<div class="cscar glass" data-reveal="rise"><p class="label cscar__label">${b.label}</p>
+      <div class="car" data-car>
+        <div class="car__track" tabindex="0" aria-label="${esc(b.label)}">${slides}</div>
+        <div class="car__bar"><button type="button" class="car__btn" data-prev aria-label="Previous screen">${icon('back')}</button><span class="car__count" aria-live="polite"><b data-cur>1</b> / ${n}</span><button type="button" class="car__btn" data-next aria-label="Next screen">${icon('arrow')}</button></div>
+        <div class="car__thumbs">${thumbs}</div>
+      </div></div>`;
+      }
       case 'bars': return `<div class="bars glass" data-reveal="rise">${b.items.map(([label, pct, val]) => `<div class="bar"><span class="bar__label">${label}</span><span class="bar__track"><span class="bar__fill" style="--p:${pct}%"></span></span><span class="bar__val">${val}</span></div>`).join('')}</div>`;
       case 'facts': return `<dl class="facts" data-reveal="stagger">${b.items.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
       case 'list': return `<ul class="list" data-reveal="stagger">${b.items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
