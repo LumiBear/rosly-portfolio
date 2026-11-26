@@ -390,9 +390,10 @@ html.js.reveal-ready .cs__title { visibility: visible; }
   .hero { grid-template-columns: 1fr; min-height: auto; padding-top: calc(var(--head-h) + 4vh); }
   .hero__art { max-width: 460px; width: 100%; justify-self: center; }
   .posters { grid-template-columns: 1fr; }
-  .poster__link { aspect-ratio: 1 / 1.12; }
+  .poster__link { aspect-ratio: auto; height: clamp(360px, 62vw, 460px); }
   .poster__text { right: 7%; }
-  .poster .gfolder { left: 30%; top: 44%; }
+  .poster .gfolder { left: 7%; right: 7%; top: 47%; bottom: 19%; }
+  .poster__foot { bottom: 5%; }
   .cs__head { grid-template-columns: 1fr; }
   .cs__art { max-width: 420px; width: 100%; justify-self: center; }
   .figrow--2, .figrow--3 { grid-template-columns: 1fr; }
