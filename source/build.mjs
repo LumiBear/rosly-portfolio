@@ -85,7 +85,7 @@ function blocks(list) {
       case 'figures': return `<div class="figrow figrow--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption)).join('')}</div>`;
       case 'phones': return `<div class="phones phones--${b.items.length}">${b.items.map((f) => figure(f.img, f.caption, { cls: 'fig--phone' })).join('')}</div>`;
       case 'moodboard': return `<div class="mood"><div class="mood__grid">${b.items.map((id) => figure(id, '', { cls: 'fig--mood' })).join('')}</div><p class="caption">${b.caption}</p></div>`;
-      case 'stats': return `<dl class="stats" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
+      case 'stats': return `<dl class="stats stats--${b.items.length}" data-reveal="stagger">${b.items.map(([n, l]) => `<div class="stat"><dt>${n}</dt><dd>${l}</dd></div>`).join('')}</dl>`;
       case 'carousel': {
         const n = b.items.length;
         const slides = b.items.map(([id, cap], k) => `<div class="car__slide" role="group" aria-roledescription="slide" aria-label="${k + 1} of ${n}">${figure(id, cap, { reveal: false })}</div>`).join('');
