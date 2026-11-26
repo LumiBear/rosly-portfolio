@@ -16,15 +16,6 @@ items = {
    'screens': (f'{P}/image10.png','png',None),
    'flow-overview': (f'{S}/framer/canvas-2.png','jpg',None),
  },
- 'closet': {
-   'cover': (f'{S}/framer/closet-cover.png','jpg',None),
-   'mock-boots': (f'{S}/framer/closet-1.png','jpg',None),
-   'mock-hand': (f'{S}/framer/closet-2.png','jpg',None),
-   'home': (f'{DR}/Closet/screen.png','png',None),
-   'product': (f'{DR}/Closet/screen copy.png','png',None),
-   'listing': (f'{DR}/Closet/screen copy 2.png','png',None),
-   'seller': (f'{DR}/Closet/screen copy 3.png','png',None),
- },
  'froth': {
    'cover': (f'{S}/framer/froth-cover.png','png',None),
    'old-site': (f'{S}/framer/froth-2.png','png',None),

@@ -59,41 +59,6 @@
   "h": 792,
   "full": "canvas/full/flow-overview.jpg"
  },
- "closet/cover": {
-  "w": 1600,
-  "h": 1175,
-  "full": "closet/full/cover.jpg"
- },
- "closet/mock-boots": {
-  "w": 896,
-  "h": 1200,
-  "full": "closet/full/mock-boots.jpg"
- },
- "closet/mock-hand": {
-  "w": 896,
-  "h": 1200,
-  "full": "closet/full/mock-hand.jpg"
- },
- "closet/home": {
-  "w": 543,
-  "h": 1600,
-  "full": "closet/full/home.png"
- },
- "closet/product": {
-  "w": 635,
-  "h": 1600,
-  "full": "closet/full/product.png"
- },
- "closet/listing": {
-  "w": 706,
-  "h": 1600,
-  "full": "closet/full/listing.png"
- },
- "closet/seller": {
-  "w": 509,
-  "h": 1600,
-  "full": "closet/full/seller.png"
- },
  "reverdi/cover": {
   "w": 1600,
   "h": 900,

@@ -4,7 +4,7 @@
 - `source/content.mjs` holds every word on the site. Edit text there, then run `node build.mjs` from the `source` folder to regenerate the HTML in `site/` (it writes into `../site` automatically).
 
 ## Pages
-- `/` home · `/about/` · `/work/canvas/` · `/work/closet/` · `/work/froth/` · `/work/reverdi/` · `/work/choretap/`
+- `/` home · `/about/` · `/work/canvas/` · `/work/froth/` · `/work/reverdi/` · `/work/choretap/`
 - `/choretap-app/` the live ChoreTap prototype (a built copy of the app: to update it, replace everything in `site/choretap-app/` with the new build). The case study also embeds it in a phone frame on desktop.
 - `/files/RoslyTavarez_Resume.pdf` résumé (swap this file and `assets/img/files/RoslyTavarez_Resume-1.webp` to update it)
 
