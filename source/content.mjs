@@ -283,16 +283,17 @@ export const projects = [
         blocks: [
           { t: 'p', text: 'Chores are a sore subject, so the interface needed to lower the temperature. I collected references from other designers for warm color, rounded cards, and friendly type, then defined my own direction from what they had in common.' },
           { t: 'moodboard', items: ['choretap/ref-3', 'choretap/ref-1', 'choretap/ref-2', 'choretap/ref-4', 'choretap/ref-5'], caption: 'Reference board. All images are work by other designers, collected for inspiration only.' },
-          { t: 'figure', img: 'choretap/icon', caption: 'App icon: a checked star with a tap signal, readable at sticker size.', narrow: true },
+          { t: 'iconcard', img: 'choretap/icon', title: 'App icon', text: 'A checked star with a tap signal, readable at sticker size.' },
         ],
       },
       {
         id: 'prototype', step: 'Prototype', title: 'A working prototype on the web.',
         blocks: [
           { t: 'p', text: 'To test the flow on real phones, I built an installable web prototype. Each sticker opens a lightweight page, so a guest or new roommate can tap without installing anything.' },
-          { t: 'phones', items: [
-            { img: 'choretap/landing', caption: 'Welcome: “Chores, minus the group-chat drama.” No account to make. A first name is enough, so housemates know who tapped.' },
-            { img: 'choretap/today', caption: 'Today: whose turn it is, washer and dryer timers, and a live feed of what everyone just did.' },
+          { t: 'carousel', label: 'Prototype screens', items: [
+            ['choretap/landing', 'Welcome: “Chores, minus the group-chat drama.” No account to make. A first name is enough, so housemates know who tapped.'],
+            ['choretap/today', 'Today: whose turn it is, washer and dryer timers, and a live feed of what everyone just did.'],
+            ['choretap/balance', 'Balance: “Pretty even.” Fairness shown as a balance, not a leaderboard.'],
           ] },
           { t: 'embed', src: '/choretap-app/', title: 'ChoreTap prototype', note: 'Try it right here. Tap “Explore a demo house” to look around.' },
           { t: 'link', href: '/choretap-app/', label: 'Open the live prototype', note: 'Works best on a phone' },

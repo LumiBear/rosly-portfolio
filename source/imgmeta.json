@@ -293,5 +293,10 @@
   "w": 740,
   "h": 1720,
   "full": "choretap/full/today.png"
+ },
+ "choretap/balance": {
+  "w": 740,
+  "h": 1720,
+  "full": "choretap/full/balance.png"
  }
 }
