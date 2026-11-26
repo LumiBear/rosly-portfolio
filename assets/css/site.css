@@ -486,3 +486,6 @@ html.js .fpanel:not(.is-on) { display: none; }
 .bar__fill { display: block; height: 100%; width: var(--p); border-radius: 99px; background: linear-gradient(90deg, var(--t1), var(--t2)); }
 .bar__val { font: 500 14px/1 var(--display); color: var(--ink); min-width: 64px; text-align: right; }
 @media (max-width: 640px) { .bar { grid-template-columns: 1fr auto; } .bar__track { grid-column: 1 / -1; order: 3; } }
+
+.cscar { margin: 26px 0; padding: 18px 12px 14px; border-radius: 26px; }
+.cscar__label { margin: 0 0 6px 14px; }
