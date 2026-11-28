@@ -457,5 +457,10 @@ write('index.html', home());
 write('about/index.html', aboutPage());
 write('play/index.html', playPage());
 write('404.html', notFound());
-for (const p of projects) write(`work/${p.slug}/index.html`, caseStudy(p));
+for (const p of projects) {
+  // Hand-built case study pages live in source/pages/<slug>.html and are copied as-is.
+  const custom = path.join(path.dirname(new URL(import.meta.url).pathname), 'pages', `${p.slug}.html`);
+  if (fs.existsSync(custom)) { const f = path.join(OUT, 'work', p.slug, 'index.html'); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.copyFileSync(custom, f); }
+  else write(`work/${p.slug}/index.html`, caseStudy(p));
+}
 console.log('built', projects.length + 4, 'pages');
