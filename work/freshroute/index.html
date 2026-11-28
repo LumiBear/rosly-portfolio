@@ -1,273 +1,296 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Portfolio!</title>
-<meta name="description" content="Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge.">
-<meta property="og:title" content="FreshRoute · Rosly Tavarez">
-<meta property="og:description" content="Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge.">
-<meta property="og:image" content="../../assets/img/freshroute/full/cover.jpg">
-<meta name="theme-color" content="#F3F5F7">
-<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="../../assets/favicon.png" sizes="64x64" type="image/png">
-<link rel="apple-touch-icon" href="../../assets/favicon.png">
-<link rel="preload" href="../../assets/fonts/unbounded-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../../assets/css/site.css?v=mwwuyadb">
-<script>(function(d){var h=d.documentElement;h.classList.add('js');try{if(!('onpagereveal' in window)&&sessionStorage.getItem('pt')){h.classList.add('is-entering')}}catch(e){}setTimeout(function(){h.classList.add('reveal-ready');h.classList.remove('is-entering')},3000)})(document);</script>
-<script defer src="../../assets/vendor/gsap.min.js"></script>
-<script defer src="../../assets/vendor/ScrollTrigger.min.js"></script>
-<script defer src="../../assets/vendor/SplitText.min.js"></script>
-<script defer src="../../assets/vendor/Flip.min.js"></script>
-<script defer src="../../assets/vendor/lenis.min.js"></script>
-<script defer src="../../assets/js/site.js?v=mwwuyadb"></script>
-</head>
-<body class="page-case">
-<a class="skip" href="#main">Skip to content</a>
-<header class="site-head">
-  <a class="mark" href="../../" aria-label="Rosly Tavarez, home">Rosly Tavarez</a>
-  <nav class="site-nav glass" aria-label="Primary">
-    <a href="../../#work" aria-current="page">Work</a>
-    <a href="../../play/" >Play</a>
-    <a href="../../about/" >About</a>
-    <button type="button" data-view data-title="Résumé" data-pages="../../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../../files/RoslyTavarez_Resume.pdf">Résumé</button>
-    <button type="button" data-contact>Contact</button>
-  </nav>
-</header>
-<main id="main">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FreshRoute · Rosly Tavarez</title><meta name="description" content="Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge."><meta property="og:title" content="FreshRoute · Rosly Tavarez"><meta property="og:image" content="../../assets/img/freshroute/full/cover.jpg"><meta name="theme-color" content="#0a0b0e"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><style>@font-face{font-family:"PJS";src:url(../../assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}@font-face{font-family:Unbounded;src:url(../../assets/fonts/unbounded-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url(../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{--bg:#0a0b0e;--card:#14161b;--card2:#191c22;--line:rgba(255,255,255,.09);--ink:#f4f2ee;--ink2:#cfcac2;--mute:#9a9fa8;--em:#ff7a1a;--em2:#ffb36b;--lime:#ffd23f;--or:#7ddf64;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font-family:"PJS","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+img{display:block;max-width:100%}
+.w{max-width:1184px;margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.045em;line-height:1.02;font-weight:800}
+.k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--mute)}
+.k b{background:linear-gradient(90deg,var(--em),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:10px}
+.cap small{display:block;font-size:12px;color:var(--mute);font-weight:600}.cap b{font-size:14px;font-weight:700}
+/* glow backdrop */
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(60% 45% at 85% -5%,rgba(255,122,26,.18),transparent 70%),radial-gradient(50% 40% at 0% 40%,rgba(255,210,63,.06),transparent 70%);pointer-events:none;z-index:0}
+section,footer{position:relative;z-index:1}
+/* header */
+.pf-head{position:fixed;left:20px;right:20px;top:14px;z-index:100;height:54px;display:flex;align-items:center;gap:20px;padding:0 6px 0 22px;border-radius:999px;background:rgba(16,18,23,.82);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px -26px #000;font-family:"Schibsted Grotesk","PJS",system-ui,sans-serif}
+.pf-mark{font:400 13px/1 Unbounded,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.chapters{flex:1;display:flex;gap:4px;justify-content:center}
+.chapters .cs{flex:1;max-width:104px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--mute);font-size:11px;font-weight:700;text-align:center;white-space:nowrap}
+.chapters .cs em{font-style:normal;transition:color .3s}.chapters .cs.on em,.chapters .cs:hover em{color:var(--ink)}
+.chapters .cs i{display:block;height:4px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
+.chapters .cs u{display:block;height:100%;background:linear-gradient(90deg,var(--em),var(--lime));transform:scaleX(0);transform-origin:left;text-decoration:none}
+.pf-nav{display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(255,255,255,.06)}
+.pf-nav a{font-size:13px;text-decoration:none;color:var(--ink);padding:8px 12px;border-radius:999px;transition:background .3s;font-weight:500}
+.pf-nav a:hover{background:rgba(255,255,255,.12)}.pf-nav a[aria-current]{background:rgba(255,255,255,.16)}
+@media(max-width:1180px){.chapters .cs em{display:none}.pf-nav a:not([aria-current]):not(:last-child){display:none}}
+@media(max-width:700px){.pf-head{left:10px;right:10px;gap:10px}.pf-nav{display:none}}
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+.static .rv{opacity:1;transform:none}
+/* hero */
+.hero{min-height:100vh;padding:120px 0 70px;overflow:hidden;background:radial-gradient(90% 70% at 50% 100%,rgba(120,50,8,.7),transparent 70%)}
+.hero .w{position:relative}
+.hmeta{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:24px;font-size:12px;font-weight:600;line-height:1.5;margin-bottom:44px}
+.hmeta span{display:block;color:var(--mute)}.hmeta b{font-weight:700}
+.hero h1{font-size:clamp(44px,6.6vw,96px);letter-spacing:-.06em;line-height:.95;max-width:1100px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--em),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{max-width:560px;font-size:19px;color:var(--ink2);margin-top:28px}
+.hframe{margin:64px auto 0;max-width:1000px;perspective:1600px}
+.dev{border-radius:20px;background:#20232a;border:1px solid rgba(255,255,255,.12);overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.04),0 0 140px -30px rgba(255,122,26,.35)}
+.dev .bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#171a20}
+.dev .bar i{width:10px;height:10px;border-radius:50%;background:#383c45}
+.dev .bar span{margin-left:14px;flex:1;max-width:340px;height:18px;border-radius:9px;background:#22262d;font-size:10.5px;color:var(--mute);display:grid;place-items:center}
+.dev .scr{background:#fff;position:relative}
+.dev .scr img{width:100%}
+.hframe .dev{transform:rotateX(var(--rx,16deg)) scale(var(--sc,.96));transform-origin:center top}
+/* statement */
+.state{padding:150px 0 90px}
+.state .big{font-size:clamp(34px,4.4vw,64px);line-height:1.06;letter-spacing:-.05em;font-weight:800;max-width:1000px;margin:26px 0 56px}
+.state .wd{color:#33433b;transition:color .15s}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.state p{font-size:19px;color:var(--ink2);max-width:540px}.state p+p{margin-top:18px}
+.facts{border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);font-size:16px}
+.facts span{color:var(--mute);font-weight:700;font-size:13px;padding-top:2px;text-transform:uppercase;letter-spacing:.08em}.facts b{font-weight:600}
+/* section heads */
+.sh{padding:130px 0 50px}
+.sh h2{font-size:clamp(40px,5.2vw,78px);letter-spacing:-.055em;margin-top:22px;max-width:980px}
+.sh h2 em{font-style:normal;color:var(--mute)}
+.sh p{font-size:19px;color:var(--ink2);max-width:640px;margin-top:22px}
+.prose{font-size:18px;color:var(--ink2);max-width:660px}.prose+.prose{margin-top:18px}
+/* panels */
+.panel{border-radius:36px;background:radial-gradient(120% 90% at 50% 0%,#5b2a0b 0%,#1c120c 45%,#0b0806 100%);border:1px solid rgba(255,255,255,.08);padding:48px;position:relative;overflow:hidden}
+.bc{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:34px;position:relative}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.stat{grid-column:span 6;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+.stat .n{font-size:clamp(56px,6.6vw,96px);font-weight:800;letter-spacing:-.07em;line-height:.9;background:linear-gradient(135deg,var(--em2),var(--em) 60%,var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{color:var(--ink2);font-size:17px;max-width:240px}
+.meter{height:8px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:22px}
+.meter u{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--em),var(--lime));transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease);text-decoration:none}
+.in .meter u,.static .meter u{transform:scaleX(var(--v))}
+.fig{margin-top:16px;border-radius:32px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.fig.dk{background:var(--card)}.fig img{width:100%}
+figcaption{font-size:13.5px;color:var(--mute);padding:14px 4px 0}
+.figs{margin-top:16px}
+/* feature analysis */
+.fgrid{display:grid;grid-template-columns:270px repeat(5,1fr);gap:12px;margin-top:34px}
+.fc{border-radius:26px;background:var(--card2);overflow:hidden;border:1px solid var(--line)}
+.fc .fh{height:84px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:14px;padding:0 10px;background:rgba(255,255,255,.05)}
+.fc .fr{height:62px;display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(255,255,255,.06)}
+.fc .fr:nth-child(odd){background:rgba(255,255,255,.025)}
+.fc.lab{background:transparent;border-color:transparent}.fc.lab .fh{background:transparent}
+.fc.lab .fr{justify-content:space-between;padding:0 6px 0 4px;font-weight:700;font-size:14.5px;gap:8px}
+.fr i,.fleg i{font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--or);color:#0b1f06;padding:4px 9px;border-radius:99px;white-space:nowrap}
+.dot{display:inline-block;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6c7f76,#3d4d45)}
+.fc.me{background:linear-gradient(180deg,#8a3a0a,#33170a);border-color:rgba(155,232,192,.4);box-shadow:0 0 70px -20px rgba(255,122,26,.6)}
+.fc.me .fh{background:linear-gradient(90deg,var(--em),var(--lime));color:#2a1200;font-size:15px}
+.fc.me .dot{background:radial-gradient(circle at 35% 30%,#eaffd0,var(--lime));box-shadow:0 0 18px rgba(255,210,63,.6)}
+.fc.me .fr.close{background:rgba(255,210,63,.12);box-shadow:inset 0 0 0 2px var(--lime)}
+.fleg{display:flex;gap:26px;flex-wrap:wrap;align-items:center;margin-top:22px;font-size:13.5px;font-weight:700;color:var(--mute)}
+.fleg .dot{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+.fleg .fn{margin-left:auto;color:var(--ink);font-weight:600;font-size:15px}.fleg .fn strong{font-weight:800}
+/* personas */
+.pers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:30px;display:flex;flex-direction:column}
+.pav{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:800;color:#2a1200;box-shadow:0 14px 30px -10px rgba(255,122,26,.5)}
+.pn{font-size:34px;font-weight:800;letter-spacing:-.05em;margin-top:18px;line-height:1}
+.pr{font-weight:800;font-size:14px;margin-top:6px;color:var(--em2)}
+.pc p{font-size:16px;line-height:1.5;margin-top:16px;color:var(--ink2);flex:1}
+.pwin{margin-top:22px;background:linear-gradient(160deg,rgba(255,122,26,.22),rgba(255,210,63,.1));border:1px solid rgba(155,232,192,.25);border-radius:22px;padding:18px 20px;font-weight:700;font-size:15px;line-height:1.35}
+.pwin span{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--em2);margin-bottom:6px;font-weight:800}
+.emp{margin-top:16px;border-radius:36px;padding:38px;background:radial-gradient(120% 100% at 50% 0%,#5b2a0b,#1c120c 55%,#0b0806)}
+.egrid{display:grid;grid-template-columns:1fr 200px 1fr;gap:14px;margin-top:20px}
+.eq{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px 26px}
+.eq b{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.eq ul{list-style:none;margin-top:12px}.eq li{font-size:15.5px;line-height:1.4;padding:8px 0;border-top:1px solid rgba(255,255,255,.08);color:#dfece5}
+.q1{grid-column:1;grid-row:1}.q2{grid-column:3;grid-row:1}.q3{grid-column:1;grid-row:2}.q4{grid-column:3;grid-row:2}
+.ecore{grid-column:2;grid-row:1/3;display:grid;place-items:center}
+.ec{width:190px;height:190px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--lime));display:grid;place-content:center;text-align:center;color:#2a1200;box-shadow:0 0 0 12px rgba(255,122,26,.14),0 0 0 26px rgba(255,210,63,.08)}
+.ec span{font-size:30px;font-weight:800;letter-spacing:-.05em}.ec small{font-size:12px;font-weight:700}
+.egp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.egp>div{border-radius:26px;padding:24px 28px;font-size:15.5px;line-height:1.45}.egp b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.pain{background:rgba(255,122,69,.14);color:#ffd9c9}.pain b{color:var(--or)}
+.gain{background:rgba(255,210,63,.12);color:#eefbc4}.gain b{color:var(--lime)}
+/* ideation list */
+.rows{border-top:1px solid var(--line);margin-top:36px}
+.rows div{display:grid;grid-template-columns:70px 280px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.rows i{font-style:normal;font-weight:800;color:var(--em);font-size:15px}.rows h3{font-size:26px}.rows p{color:var(--ink2);font-size:16.5px}
+/* scrolly */
+.scrolly{display:grid;grid-template-columns:1fr 660px;gap:40px;position:relative}
+.steps .st{min-height:78vh;padding-top:12vh;opacity:.28;transition:opacity .5s}.steps .st.on{opacity:1}
+.st .n{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--em)}
+.st h3{font-size:clamp(34px,3.6vw,52px);margin-top:14px}
+.st>p{font-size:17.5px;color:var(--ink2);margin-top:16px;max-width:460px}
+.st ol{list-style:none;margin-top:26px;max-width:480px}.st li{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
+.st li i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--lime));color:#2a1200;font-weight:800;font-size:12px;display:grid;place-items:center}
+.st li b{display:block;font-size:15.5px}.st li span{font-size:14.5px;color:var(--mute)}
+.stage{position:sticky;top:calc(50vh - 260px);height:520px}
+.stage .glow{position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(255,122,26,.35),transparent);filter:blur(30px)}
+.stage .dev{position:absolute;inset:0;display:flex;flex-direction:column}
+.stage .scr{flex:1;overflow:hidden}
+.layer{position:absolute;inset:0;opacity:0;transition:opacity .55s var(--ease);display:grid;place-items:center;background:#fff}.layer.on{opacity:1}
+.layer img{width:100%;height:100%;object-fit:contain}
+.stage .ctr{position:absolute;left:0;right:0;bottom:-34px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+/* iterations */
+.marq{overflow:hidden;margin-top:30px}.marq .row{display:flex;gap:18px;will-change:transform}
+.marq .dev{flex:none;width:520px;background:#20232a}.marq .bar{background:#171a20}
+.itnote{margin-top:22px}
+/* testing */
+.quote{font-size:clamp(26px,3vw,42px);line-height:1.12;letter-spacing:-.04em;font-weight:800;max-width:900px}
+.quote b{display:block;margin-top:20px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--em2);font-weight:800}
+.qs{display:grid;gap:16px;margin-top:16px}
+/* footer */
+.pf-foot{max-width:1360px;margin:60px auto 0;padding:0 clamp(18px,4vw,56px) 26px;font-family:"Schibsted Grotesk","PJS",system-ui,sans-serif}
+.pf-card{position:relative;border-radius:34px;background:#14161b;overflow:hidden;padding:clamp(20px,3.5vw,44px);border:1px solid var(--line)}
+.pf-blobs{position:absolute;inset:-6%;overflow:hidden;pointer-events:none}.pf-blobs b{position:absolute;border-radius:50%;filter:blur(36px);opacity:.9}
+.pf-blobs b:nth-child(1){width:78%;aspect-ratio:1;left:40%;top:0;background:radial-gradient(circle,rgba(255,122,26,.6),transparent 70%)}
+.pf-blobs b:nth-child(2){width:50%;aspect-ratio:1;right:-4%;top:2%;background:radial-gradient(circle,rgba(255,210,63,.35),transparent 70%)}
+.pf-blobs b:nth-child(3){width:58%;aspect-ratio:1;left:10%;bottom:-20%;background:radial-gradient(circle,rgba(120,50,8,.8),transparent 68%)}
+.pf-glass{position:relative;padding:clamp(22px,3vw,38px);border-radius:26px;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px)}
+.pf-glass p{font:400 clamp(20px,2.4vw,32px)/1.15 Unbounded,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.025em;max-width:24ch}
+.pf-mail{font-size:clamp(16px,1.4vw,19px);text-decoration:none;color:#2a1200;padding:12px 20px;border-radius:999px;background:var(--em2);font-weight:600}
+.pf-fnav{display:flex;flex-wrap:wrap;gap:10px;padding:28px 0 30px}
+.pf-fnav a{font-size:15px;font-weight:500;text-decoration:none;padding:11px 22px;border-radius:999px;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);transition:background .3s,color .3s,transform .4s}
+.pf-fnav a:hover{background:var(--em2);color:#2a1200;transform:translateY(-2px)}
+.pf-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:var(--mute)}.pf-base a{color:inherit;text-decoration:none}
+@media(max-width:1000px){.scrolly{grid-template-columns:1fr}.stage{position:relative;top:0;order:-1;height:auto;aspect-ratio:1.4;margin-bottom:44px}.pers,.two,.egrid,.egp{grid-template-columns:1fr}.ecore{grid-column:auto;grid-row:auto}.q1,.q2,.q3,.q4{grid-column:auto;grid-row:auto}.stat{grid-column:span 12}.rows div{grid-template-columns:40px 1fr}.rows p{grid-column:2}.fgrid{grid-template-columns:150px repeat(4,1fr);font-size:12px}.hmeta{grid-template-columns:1fr 1fr}}
+.marq .dev .scr{aspect-ratio:1.42;background:#fff;display:grid;place-items:center}.marq .dev .scr img{width:100%;height:100%;object-fit:contain}
 
-<article class="cs" data-slug="freshroute" style="--t1:#F4C7CC;--t2:#9B2F45">
-  <header class="cs__head">
-    <div class="cs__intro">
-      <a class="backlink" href="../../#work"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M14 8H3m0 0 4-4M3 8l4 4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg> All work</a>
-      <p class="label" data-hero>Case 04 · Food rescue logistics · in progress</p>
-      <h1 class="cs__title" style="view-transition-name: t-freshroute">FreshRoute</h1>
-      <p class="cs__summary" data-hero>Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge.</p>
-    </div>
-    <div class="cs__art" data-hero-art><span class="gfolder" style="--t1:#F4C7CC;--t2:#9B2F45" aria-hidden="true">
-    <span class="gfolder__tab"></span>
-    <span class="gfolder__back"></span>
-    <span class="blobs"><b></b><b></b><b></b></span>
-    
-    <span class="gfolder__front glass"><span class="sparkles" aria-hidden="true"><i style="left:56.8%;top:15.3%;--s:1.00;--d:3.56s"></i><i style="left:30.6%;top:64.3%;--s:1.13;--d:1.86s"></i><i style="left:87.9%;top:37.8%;--s:0.63;--d:3.31s"></i><i style="left:38.3%;top:41.9%;--s:1.08;--d:0.59s"></i><i style="left:8.1%;top:66.7%;--s:0.67;--d:0.92s"></i><i style="left:58.6%;top:56.6%;--s:1.01;--d:2.92s"></i></span><span class="gfolder__label">In progress</span></span>
-  </span></div>
-    <dl class="cs__meta" data-hero>
-      <div class="glass"><dt>Role</dt><dd>UX researcher · team of four</dd></div>
-      <div class="glass"><dt>Timeline</dt><dd>Fall 2026 · ongoing</dd></div>
-      <div class="glass"><dt>Team</dt><dd>Maroon Moose (4 UX design students)</dd></div>
-      <div class="glass"><dt>Tools</dt><dd>Google Forms & Sheets, interview guides, whiteboard workshops, paper prototypes</dd></div>
-    </dl>
-  </header>
-  <div class="cs__cover"><figure class="fig fig--cover" data-reveal="fig" style="--ar:1.7778">
-  <button class="fig__btn" type="button" data-view data-title="Image" data-pages="../../assets/img/freshroute/full/cover.jpg" data-download="RoslyTavarez_freshroute_cover.jpg" data-dl-href="../../assets/img/freshroute/full/cover.jpg" aria-label="Open image full size: ">
-    <span class="fig__frame" style="aspect-ratio:1600/900"><img class="" src="../../assets/img/freshroute/cover.webp" width="1600" height="900" alt="" loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  
-</figure></div>
+.pill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,122,26,.18);color:var(--em2);border:1px solid rgba(255,179,107,.35);padding:5px 11px;border-radius:99px;margin-left:10px;vertical-align:2px}
+.pers.two2{grid-template-columns:repeat(2,1fr)}
+.dirs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.dir{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:24px;font-weight:700;font-size:17px;line-height:1.25;min-height:130px;display:flex;flex-direction:column;justify-content:space-between}
+.dir span{font-size:12px;letter-spacing:.1em;color:var(--mute);font-weight:800}
+.dir.pick{background:linear-gradient(160deg,#8a3a0a,#33170a);border-color:rgba(255,179,107,.5);box-shadow:0 0 60px -18px rgba(255,122,26,.6)}.dir.pick span{color:var(--lime)}
+.cols3{display:grid;gap:14px;margin-top:20px}
+.cols3 .bc{padding:28px}.cols3 h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--em2);margin-bottom:14px}
+.cols3 li{list-style:none;font-size:15.5px;color:var(--ink2);padding:10px 0;border-top:1px solid var(--line);line-height:1.4}
+.cols3 .bc.pick{background:linear-gradient(160deg,rgba(255,122,26,.2),rgba(255,210,63,.07));border-color:rgba(255,179,107,.4)}
+.heard{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}.heard .bc{padding:26px}.heard b{display:block;font-size:19px;letter-spacing:-.03em;margin-bottom:8px}.heard p{color:var(--ink2);font-size:15.5px}
+.src{font-size:13px;color:var(--mute);margin-top:18px}.src a{color:var(--em2)}
+.figpair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.figpair .fig{margin-top:16px}
+.fig.ph{background:#14161b}.fig img{width:100%}
+.stage .layer img{object-fit:contain;background:#fff}
+@media(max-width:1000px){.dirs,.cols3,.heard,.figpair,.pers.two2{grid-template-columns:1fr}.stat{grid-column:span 6}}
+</style></head><body>
+<header class="pf-head"><a class="pf-mark" href="../../">Rosly Tavarez</a><nav class="chapters" id="chapters" aria-label="Case study steps"></nav><nav class="pf-nav" aria-label="Primary"><a href="../../#work" aria-current="page">Work</a><a href="../../play/">Play</a><a href="../../about/">About</a><a href="../../files/RoslyTavarez_Resume.pdf">Résumé</a><a href="mailto:roslytav@gmail.com">Contact</a></nav></header>
 
-  <div class="cs__body">
-    <aside class="tl" aria-label="Case study timeline">
-      <div class="tl__inner glass">
-        <p class="label">Process</p>
-        <div class="tl__track" aria-hidden="true"><span class="tl__fill"></span></div>
-        <ol><li><a href="#overview" data-step-link="overview"><span class="tl__n">01</span><span class="tl__label">Overview</span></a></li><li><a href="#scope" data-step-link="scope"><span class="tl__n">02</span><span class="tl__label">Scoping</span></a></li><li><a href="#competitive" data-step-link="competitive"><span class="tl__n">03</span><span class="tl__label">Competitive analysis</span></a></li><li><a href="#interviews" data-step-link="interviews"><span class="tl__n">04</span><span class="tl__label">Interview plan</span></a></li><li><a href="#findings" data-step-link="findings"><span class="tl__n">05</span><span class="tl__label">What we heard</span></a></li><li><a href="#ideation" data-step-link="ideation"><span class="tl__n">06</span><span class="tl__label">Ideation</span></a></li><li><a href="#studio" data-step-link="studio"><span class="tl__n">07</span><span class="tl__label">Design studio</span></a></li><li><a href="#wireframes" data-step-link="wireframes"><span class="tl__n">08</span><span class="tl__label">Wireframes</span></a></li><li><a href="#next" data-step-link="next"><span class="tl__n">09</span><span class="tl__label">Next steps</span></a></li></ol>
-      </div>
-    </aside>
-    <div class="cs__content"><section class="cs__sec" id="overview" data-step="overview">
-    <p class="label"><span class="cs__num">01</span> Overview</p>
-    <h2 data-reveal="rise">Good food, bad timing.</h2>
-    <p class="lead" data-reveal="rise">Grocery stores throw out food that is still safe to eat, and food banks spend their days chasing it. The gap between them is not willingness. It is coordination: who is coming, when, with what, and whether the yogurt has been sitting in a warm van for an hour.</p>
-<p data-reveal="rise">This semester-long team project started with a broad question about food waste and narrowed, through research, to one moment: the handoff between a store, a driver, and the food bank waiting on the other end.</p>
-<p class="note glass" data-reveal="rise">This case study is in progress. We have finished research, ideation, and the first round of wireframes. Usability testing comes next, and this page will grow with it.</p>
-  </section><section class="cs__sec" id="scope" data-step="scope">
-    <p class="label"><span class="cs__num">02</span> Scoping</p>
-    <h2 data-reveal="rise">Six directions, one decision.</h2>
-    <p data-reveal="rise">Food waste touches everyone from shoppers to warehouse staff, so we mapped six possible directions before committing to one: connecting businesses with food banks, food bank inventory, the wider donation ecosystem, helping people find food, discounted surplus for consumers, and preventing waste at home.</p>
-<p data-reveal="rise">We chose to focus on the link between grocery stores and food banks. It is where the most safe food is lost, and the people on both sides told us the process depends on phone calls and memory.</p>
-  </section><section class="cs__sec" id="competitive" data-step="competitive">
-    <p class="label"><span class="cs__num">03</span> Competitive analysis</p>
-    <h2 data-reveal="rise">Lots of apps for shoppers. Almost nothing for the people moving the food.</h2>
-    <p data-reveal="rise">The problem is not a shortage of food. In 2024, the U.S. produced far more surplus food than it gave away, while millions of people went without enough to eat.</p>
-<dl class="stats stats--4" data-reveal="stagger"><div class="stat"><dt>70M tons</dt><dd>of surplus food in the U.S. in 2024, about 29% of the food supply</dd></div><div class="stat"><dt><2%</dt><dd>of that surplus was donated</dd></div><div class="stat"><dt>$26.9B</dt><dd>of surplus food from grocery retail alone</dd></div><div class="stat"><dt>48M</dt><dd>people faced food insecurity in 2024</dd></div></dl>
-<p class="note glass" data-reveal="rise">Sources: <a href="https://refed.org/uploads/2026-food-waste-report-design-final-1.pdf" target="_blank" rel="noopener">ReFED U.S. Food Waste Report 2026</a> and <a href="https://refed.org/uploads/by-sector-retail-1.pdf" target="_blank" rel="noopener">ReFED retail fact sheet</a> (2024 data); USDA figures via <a href="https://www.feedingamerica.org/about-us/press-room/Map-the-Meal-Gap-2026" target="_blank" rel="noopener">Feeding America, Map the Meal Gap 2026</a>.</p>
-<p data-reveal="rise">So where are the tools that move that food? Each of us audited one product feature by feature against a shared list of capabilities. I took <b>Too Good To Go</b>, the surplus-food marketplace. My teammates covered HelloFresh, Plentiful, and Misfits Market.</p>
-<ul class="list" data-reveal="stagger"><li><b>Built for the buyer.</b> Every product had polished browsing, filters, and allergen info for the person receiving food.</li><li><b>Thin on logistics.</b> Only Too Good To Go offered management tools for the businesses giving food, and none told the receiving side when food was on its way.</li><li><b>No one tracked condition.</b> Not one product showed how long perishable food had been out of refrigeration.</li></ul>
-  </section><section class="cs__sec" id="interviews" data-step="interviews">
-    <p class="label"><span class="cs__num">04</span> Interview plan</p>
-    <h2 data-reveal="rise">Asking better questions.</h2>
-    <p data-reveal="rise">We wrote a recruiting screener to find people who actually make operational decisions at food banks, then built two discussion guides: one for food bank managers and one for grocery store managers. I reached out to managers at Albertsons and WinCo and helped coordinate interview scheduling.</p>
-<p data-reveal="rise">Our professor critiqued both guides question by question, and the revisions changed how I write interviews:</p>
-<div class="cols" data-reveal="stagger"><div class="col glass"><h4>Before</h4><ul><li>“What are your biggest anxieties when donating?”</li><li>One probe asking how food is checked, sorted, recorded, and stored</li><li>A long “imagine a year from now” scenario</li></ul></div><div class="col glass"><h4>After</h4><ul><li>“What do you do when difficulties come up?”</li><li>Separate questions for checking, sorting, and recording</li><li>“If you had a magic wand, what is the one thing you would change?”</li></ul></div></div>
-<blockquote class="quote" data-reveal="rise"><p>“Scheduling interviews in advance, instead of approaching people on the spot, respects their time and leads to better conversations.”</p><footer>Key learning from my weekly status report</footer></blockquote>
-  </section><section class="cs__sec" id="findings" data-step="findings">
-    <p class="label"><span class="cs__num">05</span> What we heard</p>
-    <h2 data-reveal="rise">“Oh, the truck’s here.”</h2>
-    <p data-reveal="rise">Our richest interview was with a local food pantry manager who orders from the regional food bank, drives store pickups himself, and unloads the trucks. A few details from that conversation shaped everything after it:</p>
-<ul class="list" data-reveal="stagger"><li><b>Arrival is a guess.</b> The regional truck comes “usually around 10 or 11,” depending on traffic, and it interrupts whatever he is in the middle of.</li><li><b>Cold food gets turned away.</b> The van has no cooling, and he cannot accept perishables when nobody knows how long they have been out of the fridge.</li><li><b>Listings are vague.</b> Unclear descriptions once led to five pallets of popcorn and 19-pound tubs of sour cream.</li><li><b>Every store works differently.</b> One scans each can, another makes staff unbox items to scan them, another bags cans one by one.</li></ul>
-<div class="personas" data-reveal="stagger"><article class="persona"><p class="label">Persona</p><h4>Maya, food pantry coordinator</h4><p>Runs a pantry that sees about 600 household visits a week with one other staff member and rotating volunteers. Donations arrive by email, drop boxes, and surprise calls from drivers, so she cannot plan cold storage or staff. Weighing, sorting, and logging eat the time she would rather spend growing the pantry.</p></article><article class="persona"><p class="label">Anti-persona</p><h4>Max, the solo shortcut</h4><p>Picks up alone and skips the counts. Designing for Max reminded us that untracked handoffs are where food goes missing, so items are counted at both pickup and drop-off.</p></article></div>
-  </section><section class="cs__sec" id="ideation" data-step="ideation">
-    <p class="label"><span class="cs__num">06</span> Ideation</p>
-    <h2 data-reveal="rise">From big idea to one concept.</h2>
-    <p data-reveal="rise">We framed the opportunity as a Who / What / Wow: a food bank manager who can see deliveries in real time, alert the store before a driver arrives, and know food will show up in the same state it left.</p>
-<figure class="fig fig--medium" data-reveal="fig" style="--ar:1.5123">
-  <button class="fig__btn" type="button" data-view data-title="Our “Big Idea: Safe Transport” board, written during a class work session." data-pages="../../assets/img/freshroute/full/big-idea.jpg" data-download="RoslyTavarez_freshroute_big-idea.jpg" data-dl-href="../../assets/img/freshroute/full/big-idea.jpg" aria-label="Open image full size: Our “Big Idea: Safe Transport” board, written during a class work session.">
-    <span class="fig__frame" style="aspect-ratio:1600/1058"><img class="" src="../../assets/img/freshroute/big-idea.webp" width="1600" height="1058" alt="Our “Big Idea: Safe Transport” board, written during a class work session." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Our “Big Idea: Safe Transport” board, written during a class work session.</figcaption>
-</figure>
-<p data-reveal="rise">Two need statements came out of the research. Food bank managers need a way to monitor deliveries so they can predict turnaround time and prepare. They also need simpler inventory, so they always know what is on hand, sorted by category and expiration date, before it spoils.</p>
-<p data-reveal="rise">We sketched four concepts against those needs, then plotted them by user impact and feasibility.</p>
-<div class="figrow figrow--2"><figure class="fig " data-reveal="fig" style="--ar:0.7500">
-  <button class="fig__btn" type="button" data-view data-title="First pass on the whiteboard: impact against feasibility." data-pages="../../assets/img/freshroute/full/impact.jpg" data-download="RoslyTavarez_freshroute_impact.jpg" data-dl-href="../../assets/img/freshroute/full/impact.jpg" aria-label="Open image full size: First pass on the whiteboard: impact against feasibility.">
-    <span class="fig__frame" style="aspect-ratio:1200/1600"><img class="" src="../../assets/img/freshroute/impact.webp" width="1200" height="1600" alt="First pass on the whiteboard: impact against feasibility." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>First pass on the whiteboard: impact against feasibility.</figcaption>
-</figure><figure class="fig " data-reveal="fig" style="--ar:1.7778">
-  <button class="fig__btn" type="button" data-view data-title="The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable." data-pages="../../assets/img/freshroute/full/matrix.png" data-download="RoslyTavarez_freshroute_matrix.png" data-dl-href="../../assets/img/freshroute/full/matrix.png" aria-label="Open image full size: The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable.">
-    <span class="fig__frame" style="aspect-ratio:1600/900"><img class="" src="../../assets/img/freshroute/matrix.webp" width="1600" height="900" alt="The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable.</figcaption>
-</figure></div>
-<div class="cols" data-reveal="stagger"><div class="col glass"><h4>Chosen</h4><ul><li><b>Notifications from FreshRoute.</b> Live ETAs for the food bank and the store, so both sides prep before the truck pulls in.</li></ul></div><div class="col glass"><h4>Kept for later</h4><ul><li><b>Handy Footage.</b> Cargo video of the drive. Easy to build, but it only explains problems after they happen, while notifications prevent them.</li><li><b>Grocery Store Scanner.</b> Items logged at the store so they arrive already sorted. Feasible, with a smaller payoff.</li></ul></div><div class="col glass"><h4>Cut</h4><ul><li><b>Camera Detection.</b> Auto-sorting produce with a camera at the food bank. It scored low on both impact and feasibility.</li></ul></div></div>
-<figure class="fig " data-reveal="fig" style="--ar:1.3333">
-  <button class="fig__btn" type="button" data-view data-title="Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives." data-pages="../../assets/img/freshroute/full/storyboard.jpg" data-download="RoslyTavarez_freshroute_storyboard.jpg" data-dl-href="../../assets/img/freshroute/full/storyboard.jpg" aria-label="Open image full size: Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives.">
-    <span class="fig__frame" style="aspect-ratio:1600/1200"><img class="" src="../../assets/img/freshroute/storyboard.webp" width="1600" height="1200" alt="Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives.</figcaption>
-</figure>
-  </section><section class="cs__sec" id="studio" data-step="studio">
-    <p class="label"><span class="cs__num">07</span> Design studio</p>
-    <h2 data-reveal="rise">Sketch, vote, repeat.</h2>
-    <p data-reveal="rise">Each of us sketched screens for the driver and the food bank manager, then we covered the table in sticky-note critique and dot-voted on what to keep.</p>
-<ul class="list" data-reveal="stagger"><li><b>Color creates urgency</b> was the top vote, so on time, slipping, and late each get their own color, glyph, and words.</li><li><b>Driver input should feed the system,</b> so each driver’s feedback updates the store’s pickup notes for the next person.</li><li><b>Multiple stops</b> per route came second.</li><li><b>Gamification was cut.</b> Streaks and leaderboards felt stressful and distracting for someone driving.</li></ul>
-<figure class="fig " data-reveal="fig" style="--ar:1.3333">
-  <button class="fig__btn" type="button" data-view data-title="Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen." data-pages="../../assets/img/freshroute/full/sketches.jpg" data-download="RoslyTavarez_freshroute_sketches.jpg" data-dl-href="../../assets/img/freshroute/full/sketches.jpg" aria-label="Open image full size: Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen.">
-    <span class="fig__frame" style="aspect-ratio:1600/1200"><img class="" src="../../assets/img/freshroute/sketches.webp" width="1600" height="1200" alt="Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen.</figcaption>
-</figure>
-  </section><section class="cs__sec" id="wireframes" data-step="wireframes">
-    <p class="label"><span class="cs__num">08</span> Wireframes</p>
-    <h2 data-reveal="rise">Two workspaces, one promise.</h2>
-    <p data-reveal="rise">The sketches became mid-fidelity wireframes with two separate flows. Drivers get an iPad app that finds pickups, routes them, and locks in an arrival time. Food bank managers get a desk view that shows only the outcome: who is coming, when, with what, and what happened on the way.</p>
-<figure class="fig " data-reveal="fig" style="--ar:2.5039">
-  <button class="fig__btn" type="button" data-view data-title="The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store." data-pages="../../assets/img/freshroute/full/flows.png" data-download="RoslyTavarez_freshroute_flows.png" data-dl-href="../../assets/img/freshroute/full/flows.png" aria-label="Open image full size: The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store.">
-    <span class="fig__frame" style="aspect-ratio:1600/639"><img class="" src="../../assets/img/freshroute/flows.webp" width="1600" height="639" alt="The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store.</figcaption>
-</figure>
-<div class="figrow figrow--2"><figure class="fig " data-reveal="fig" style="--ar:1.3217">
-  <button class="fig__btn" type="button" data-view data-title="Driver dashboard: every listing leads with weight, food type, and pickup window, the details that went missing in the popcorn story." data-pages="../../assets/img/freshroute/full/driver-dashboard.png" data-download="RoslyTavarez_freshroute_driver-dashboard.png" data-dl-href="../../assets/img/freshroute/full/driver-dashboard.png" aria-label="Open image full size: Driver dashboard: every listing leads with weight, food type, and pickup window, the details that went missing in the popcorn story.">
-    <span class="fig__frame" style="aspect-ratio:1520/1150"><img class="" src="../../assets/img/freshroute/driver-dashboard.webp" width="1520" height="1150" alt="Driver dashboard: every listing leads with weight, food type, and pickup window, the details that went missing in the popcorn story." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Driver dashboard: every listing leads with weight, food type, and pickup window, the details that went missing in the popcorn story.</figcaption>
-</figure><figure class="fig " data-reveal="fig" style="--ar:1.3217">
-  <button class="fig__btn" type="button" data-view data-title="Driving view: directions in the middle, the ETA ring top right. Everything else stays out of the way while the van moves." data-pages="../../assets/img/freshroute/full/driver-nav.png" data-download="RoslyTavarez_freshroute_driver-nav.png" data-dl-href="../../assets/img/freshroute/full/driver-nav.png" aria-label="Open image full size: Driving view: directions in the middle, the ETA ring top right. Everything else stays out of the way while the van moves.">
-    <span class="fig__frame" style="aspect-ratio:1520/1150"><img class="" src="../../assets/img/freshroute/driver-nav.webp" width="1520" height="1150" alt="Driving view: directions in the middle, the ETA ring top right. Everything else stays out of the way while the van moves." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Driving view: directions in the middle, the ETA ring top right. Everything else stays out of the way while the van moves.</figcaption>
-</figure></div>
-<figure class="fig " data-reveal="fig" style="--ar:1.4911">
-  <button class="fig__btn" type="button" data-view data-title="Food bank view: every truck on its way, its ETA, what is on it, and how long the cold items have been out." data-pages="../../assets/img/freshroute/full/manager-incoming.png" data-download="RoslyTavarez_freshroute_manager-incoming.png" data-dl-href="../../assets/img/freshroute/full/manager-incoming.png" aria-label="Open image full size: Food bank view: every truck on its way, its ETA, what is on it, and how long the cold items have been out.">
-    <span class="fig__frame" style="aspect-ratio:1600/1073"><img class="" src="../../assets/img/freshroute/manager-incoming.webp" width="1600" height="1073" alt="Food bank view: every truck on its way, its ETA, what is on it, and how long the cold items have been out." loading="lazy" decoding="async" sizes="(min-width: 1100px) 60vw, 100vw"></span>
-    <span class="fig__hint" aria-hidden="true"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span>
-  </button>
-  <figcaption>Food bank view: every truck on its way, its ETA, what is on it, and how long the cold items have been out.</figcaption>
-</figure>
-<p class="note glass" data-reveal="rise">Wireframes are grayscale on purpose. This round tested structure and content, not visual style.</p>
-  </section><section class="cs__sec" id="next" data-step="next">
-    <p class="label"><span class="cs__num">09</span> Next steps</p>
-    <h2 data-reveal="rise">What we are testing now.</h2>
-    <ul class="list" data-reveal="stagger"><li><b>Cognitive walkthrough.</b> Each of us takes one task with Maya. Mine is sorting a delivery by expiration date after it arrives, so the least food is wasted. For every step: is the action available, does she know it is the right one, and does she get feedback?</li><li><b>Usability testing</b> with a food bank manager, volunteers, and a grocery store manager.</li><li><b>Success measures:</b> less time waiting at the dock, deliveries prepped before the truck arrives, and less food spoiled during handoff.</li><li><b>Later:</b> item logging at the store, so donations arrive already sorted by category and expiration date.</li></ul>
-<blockquote class="quote" data-reveal="rise"><p>“The best idea on our board was not the most impressive one. It was the one that answered the question everyone kept asking: when is the truck getting here?”</p><footer>What this project has taught me so far</footer></blockquote>
-  </section></div>
-  </div>
-</article>
+<section class="hero" data-label="Overview"><div class="w">
+  <div class="hmeta"><div><span>Project</span><b>FreshRoute, surplus food handoff<span class="pill">In progress</span></b></div><div><span>Role</span><b>UX researcher · team of four</b></div><div><span>Team</span><b>Maroon Moose</b></div><div><span>Timeline</span><b>Fall 2026 · ongoing</b></div><div><span>Tools</span><b>Google Forms & Sheets, interview guides, whiteboard workshops, paper prototypes</b></div></div>
+  <h1 class="rv">Good food, <em>bad timing.</em></h1>
+  <p class="sub rv">Grocery stores have safe surplus food and food banks need it, but the handoff runs on guesswork. FreshRoute tells a food bank exactly when a donation truck will arrive, what is on it, and how long the cold items have been out of the fridge.</p>
+  <div class="hframe rv"><div class="dev"><div class="bar"><i></i><i></i><i></i><span>freshroute.app / incoming</span></div><div class="scr"><img src="../../assets/img/freshroute/manager-incoming.webp" alt="FreshRoute food bank view"></div></div></div>
+</div></section>
 
-<section class="more" aria-labelledby="more-h">
-  <div class="more__head">
-    <h2 id="more-h" class="h-section" data-reveal="rise">Read more of my case studies</h2>
-  </div>
-  <ul class="more__list"><li style="--t1:#9FE3C0;--t2:#2FA36B">
-    <a class="more__link glass" href="../../work/canvas/">
-      <span class="more__img"><span class="blobs" aria-hidden="true"><b></b><b></b></span><img class="" src="../../assets/img/canvas/cover.webp" width="1600" height="900" alt="" loading="lazy" decoding="async" sizes="(min-width: 900px) 25vw, 80vw"></span>
-      <span class="more__title" style="view-transition-name: t-canvas">Canvas Focus Mode</span>
-      <span class="more__sum">Procrastination intervention for Canvas LMS</span>
-    </a>
-  </li><li style="--t1:#FFE0A3;--t2:#F0A23A">
-    <a class="more__link glass" href="../../work/reverdi/">
-      <span class="more__img"><span class="blobs" aria-hidden="true"><b></b><b></b></span><img class="" src="../../assets/img/reverdi/cover.webp" width="1600" height="900" alt="" loading="lazy" decoding="async" sizes="(min-width: 900px) 25vw, 80vw"></span>
-      <span class="more__title" style="view-transition-name: t-reverdi">ReVerdi</span>
-      <span class="more__sum">L’Oréal Brandstorm 2026 · A regenerative fragrance for YSL Beauty</span>
-    </a>
-  </li><li style="--t1:#FFC2D9;--t2:#6FA8FF">
-    <a class="more__link glass" href="../../work/choretap/">
-      <span class="more__img"><span class="blobs" aria-hidden="true"><b></b><b></b></span><img class="" src="../../assets/img/choretap/cover.webp" width="1600" height="1000" alt="" loading="lazy" decoding="async" sizes="(min-width: 900px) 25vw, 80vw"></span>
-      <span class="more__title" style="view-transition-name: t-choretap">ChoreTap</span>
-      <span class="more__sum">NFC shared chore system · in progress</span>
-    </a>
-  </li></ul>
-</section>
-</main>
-<footer class="site-foot" style="--t1:#F3C6DA;--t2:#B9658F">
-  <div class="site-foot__card">
-    <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
-    <div class="site-foot__glass glass glass--strong">
-      <p class="site-foot__big" data-reveal="rise">Big ideas, made useful.</p>
-      <a class="site-foot__mail" href="mailto:roslytav@gmail.com">roslytav@gmail.com</a>
+<section class="state" data-label="Overview"><div class="w">
+  <div class="k rv"><b>01</b>Overview</div>
+  <h2 class="big wdwrap">Grocery stores throw out food that is still safe to eat, and food banks spend their days chasing it. The gap between them is not willingness. It is coordination: who is coming, when, with what, and whether the yogurt has been sitting in a warm van for an hour.</h2>
+  <div class="two"><div><p class="rv" style="font-size:20px;color:var(--ink);max-width:560px">This semester-long team project started with a broad question about food waste and narrowed, through research, to one moment: the handoff between a store, a driver, and the food bank waiting on the other end.</p></div>
+  <div class="panel rv"><div class="k">Where this stands</div><p style="margin-top:12px;color:var(--ink2)">We have finished research, ideation, and the first round of wireframes. Usability testing comes next, and this page will grow with it.</p></div></div>
+</div></section>
+
+<section data-label="Overview"><div class="w">
+  <div class="sh"><div class="k rv"><b>02</b>Scoping</div><h2 class="rv">Six directions, <em>one decision.</em></h2><p class="rv">Food waste touches everyone from shoppers to warehouse staff, so we mapped six possible directions before committing to one: connecting businesses with food banks, food bank inventory, the wider donation ecosystem, helping people find food, discounted surplus for consumers, and preventing waste at home.</p></div>
+  <div class="dirs"><div class="dir rv pick" style="--d:0s"><span>01 · CHOSEN</span>Connecting businesses with food banks</div><div class="dir rv " style="--d:0.06s"><span>02</span>Food bank inventory</div><div class="dir rv " style="--d:0.12s"><span>03</span>The wider donation ecosystem</div><div class="dir rv " style="--d:0.18s"><span>04</span>Helping people find food</div><div class="dir rv " style="--d:0.24s"><span>05</span>Discounted surplus for consumers</div><div class="dir rv " style="--d:0.3s"><span>06</span>Preventing waste at home</div></div>
+  <div style="margin-top:40px"><p class="prose rv">We chose to focus on the link between grocery stores and food banks. It is where the most safe food is lost, and the people on both sides told us the process depends on phone calls and memory.</p></div>
+</div></section>
+
+<section data-label="Research"><div class="w">
+  <div class="sh"><div class="k rv"><b>03</b>Competitive audit</div><h2 class="rv">Lots of apps for shoppers. <em>Almost nothing for the people moving the food.</em></h2><p class="rv">The problem is not a shortage of food. In 2024, the U.S. produced far more surplus food than it gave away, while millions of people went without enough to eat.</p></div>
+  <div class="bento"><div class="bc stat rv" style="--d:0s;--v:0.29"><div class="n">70M tons</div><div><p>of surplus food in the U.S. in 2024, about 29% of the food supply</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.08s;--v:0.02"><div class="n"><2%</div><div><p>of that surplus was donated</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.16s;--v:0.6"><div class="n">$26.9B</div><div><p>of surplus food from grocery retail alone</p></div></div><div class="bc stat rv" style="--d:0.24s;--v:0.15"><div class="n">48M</div><div><p>people faced food insecurity in 2024</p></div></div></div>
+  <p class="src rv">Sources: <a href="https://refed.org/uploads/2026-food-waste-report-design-final-1.pdf" target="_blank" rel="noopener">ReFED U.S. Food Waste Report 2026</a> and <a href="https://refed.org/uploads/by-sector-retail-1.pdf" target="_blank" rel="noopener">ReFED retail fact sheet</a> (2024 data); USDA figures via <a href="https://www.feedingamerica.org/about-us/press-room/Map-the-Meal-Gap-2026" target="_blank" rel="noopener">Feeding America, Map the Meal Gap 2026</a>.</p>
+  <div style="margin-top:40px"><p class="prose rv">So where are the tools that move that food? Each of us audited one product feature by feature against a shared list of capabilities. I took <b>Too Good To Go</b>, the surplus-food marketplace. My teammates covered HelloFresh, Plentiful, and Misfits Market.</p></div>
+  <div class="panel rv" style="margin-top:50px"><div class="k">Feature analysis · four products, one shared capability list</div><h3 style="font-size:clamp(26px,2.8vw,40px);margin-top:12px;max-width:760px">Where today’s apps stop, and where FreshRoute starts.</h3><div class="fgrid"><div class="fc lab"><div class="fh"></div><div class="fr">Browsing, filters and allergen info for the receiver</div><div class="fr">Management tools for the business giving food</div><div class="fr">Tells the receiving side when food is on its way<i>Gap</i></div><div class="fr">Tracks time out of refrigeration<i>Gap</i></div></div><div class="fc "><div class="fh">Too Good To Go</div><div class="fr "><b class="dot"></b></div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div></div><div class="fc "><div class="fh">HelloFresh</div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc "><div class="fh">Plentiful</div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc "><div class="fh">Misfits Market</div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc me"><div class="fh">FreshRoute</div><div class="fr "></div><div class="fr "><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div></div></div><div class="fleg"><span><b class="dot"></b> Offers it</span><span><i>Gap</i> None of the four offers it</span><span class="fn"><strong>2 of 4</strong> rows are gaps, and both are the core of FreshRoute.</span></div><p class="src">I audited Too Good To Go. Teammates audited the other three. Marks summarize the team’s audit findings, not a full feature census.</p></div>
+  <div class="rows"><div class="rv"><i>01</i><h3>Built for the buyer</h3><p>Every product had polished browsing, filters, and allergen info for the person receiving food.</p></div><div class="rv"><i>02</i><h3>Thin on logistics</h3><p>Only Too Good To Go offered management tools for the businesses giving food, and none told the receiving side when food was on its way.</p></div><div class="rv"><i>03</i><h3>No one tracked condition</h3><p>Not one product showed how long perishable food had been out of refrigeration.</p></div></div>
+</div></section>
+
+<section data-label="Research"><div class="w">
+  <div class="sh"><div class="k rv"><b>04</b>Interviews</div><h2 class="rv">Asking <em>better questions.</em></h2><p class="rv">We wrote a recruiting screener to find people who actually make operational decisions at food banks, then built two discussion guides: one for food bank managers and one for grocery store managers. I reached out to managers at Albertsons and WinCo and helped coordinate interview scheduling.</p></div>
+  <div style="margin-top:26px"><p class="prose rv">Our professor critiqued both guides question by question, and the revisions changed how I write interviews:</p></div>
+  <div class="cols3" style="grid-template-columns:repeat(2,1fr)"><div class="bc rv " style="--d:0s"><h4>Before</h4><ul><li>“What are your biggest anxieties when donating?”</li><li>One probe asking how food is checked, sorted, recorded, and stored</li><li>A long “imagine a year from now” scenario</li></ul></div><div class="bc rv pick" style="--d:0.07s"><h4>After</h4><ul><li>“What do you do when difficulties come up?”</li><li>Separate questions for checking, sorting, and recording</li><li>“If you had a magic wand, what is the one thing you would change?”</li></ul></div></div>
+  <div class="panel rv" style="margin-top:30px"><div class="quote">“Scheduling interviews in advance, instead of approaching people on the spot, respects their time and leads to better conversations.”<b>Key learning from my weekly status report</b></div></div>
+</div></section>
+
+<section data-label="People"><div class="w">
+  <div class="sh"><div class="k rv"><b>05</b>Findings and personas</div><h2 class="rv">“Oh, the truck’s here.” <em>One pantry manager, four details.</em></h2><p class="rv">Our richest interview was with a local food pantry manager who orders from the regional food bank, drives store pickups himself, and unloads the trucks. A few details from that conversation shaped everything after it:</p></div>
+  <div class="heard"><div class="bc rv" style="--d:0s"><b>Arrival is a guess</b><p>The regional truck comes “usually around 10 or 11,” depending on traffic, and it interrupts whatever he is in the middle of.</p></div><div class="bc rv" style="--d:0.07s"><b>Cold food gets turned away</b><p>The van has no cooling, and he cannot accept perishables when nobody knows how long they have been out of the fridge.</p></div><div class="bc rv" style="--d:0.14s"><b>Listings are vague</b><p>Unclear descriptions once led to five pallets of popcorn and 19-pound tubs of sour cream.</p></div><div class="bc rv" style="--d:0.21000000000000002s"><b>Every store works differently</b><p>One scans each can, another makes staff unbox items to scan them, another bags cans one by one.</p></div></div>
+  <div class="pers two2" style="margin-top:50px"><div class="pc rv" style="--d:0s"><div class="pav" style="background:linear-gradient(135deg,#ffb36b,#ff7a1a)">M</div><div class="pn">Maya</div><div class="pr">Persona, food pantry coordinator</div><p>Runs a pantry that sees about 600 household visits a week with one other staff member and rotating volunteers. Donations arrive by email, drop boxes, and surprise calls from drivers, so she cannot plan cold storage or staff. Weighing, sorting, and logging eat the time she would rather spend growing the pantry.</p><div class="pwin"><span>What FreshRoute gives Maya</span>A live ETA, a list of what is on the truck, and how long the cold items have been out, so she can plan staff and cold storage before the truck arrives.</div></div><div class="pc rv" style="--d:0.08s"><div class="pav" style="background:linear-gradient(135deg,#ffd23f,#ffb36b)">M</div><div class="pn">Max</div><div class="pr">Anti-persona, the solo shortcut</div><p>Picks up alone and skips the counts. Designing for Max reminded us that untracked handoffs are where food goes missing, so items are counted at both pickup and drop-off.</p><div class="pwin"><span>What FreshRoute gives Max</span>Items are counted at pickup and again at drop-off, so a handoff with nobody watching still leaves a record.</div></div></div>
+  <div class="emp rv"><div class="k">Empathy map · Maya, pantry coordinator · synthesized from the interview and persona, not a separate study</div>
+    <div class="egrid">
+      <div class="eq q1"><b>Says</b><ul><li>The truck comes sometime around 10 or 11.</li><li>Unclear listings cost us pallets we could not use.</li><li>I cannot take cold food if nobody knows how long it sat out.</li></ul></div>
+      <div class="eq q2"><b>Thinks</b><ul><li>If I plan for the wrong hour, the morning slips.</li><li>Staff and cold storage are fixed, donations are not.</li><li>Everything perishable is a risk I cannot check.</li></ul></div>
+      <div class="ecore"><div class="ec"><span>Maya</span><small>Pantry coordinator</small></div></div>
+      <div class="eq q3"><b>Does</b><ul><li>Takes donations by email, drop box, and surprise calls.</li><li>Weighs, sorts, and logs by hand.</li><li>Drops what she is doing when a truck pulls in.</li></ul></div>
+      <div class="eq q4"><b>Feels</b><ul><li>Interrupted by arrivals she could not predict.</li><li>Wary of perishables she cannot vouch for.</li><li>Stretched across about 600 household visits a week.</li></ul></div>
     </div>
+    <div class="egp"><div class="pain"><b>Pains</b>Arrival is a guess. Listings are vague. Nobody knows how long cold food has been out.</div><div class="gain"><b>Gains</b>A live ETA. A clear list of what is on the truck. Time out of the fridge, shown before she decides to accept.</div></div>
   </div>
-  <nav class="site-foot__nav" aria-label="Footer">
-    <a href="../../">Home</a>
-    <a href="../../play/">Play</a>
-    <a href="../../about/">About me</a>
-    <button type="button" data-view data-title="Résumé" data-pages="../../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../../files/RoslyTavarez_Resume.pdf">Resume</button>
-    <button type="button" data-contact>Contact</button>
-  </nav>
-  <div class="site-foot__base">
-    <span>© 2026 Rosly Tavarez</span>
-    <button type="button" class="totop" data-top>Back to top ↑</button>
+</div></section>
+
+<section data-label="Ideation"><div class="w">
+  <div class="sh"><div class="k rv"><b>06</b>Ideation</div><h2 class="rv">From big idea <em>to one concept.</em></h2><p class="rv">We framed the opportunity as a Who / What / Wow: a food bank manager who can see deliveries in real time, alert the store before a driver arrives, and know food will show up in the same state it left.</p></div>
+  <figure><div class="fig  rv"><img src="../../assets/img/freshroute/big-idea.webp" alt="Our “Big Idea: Safe Transport” board, written during a class work session."></div><figcaption>Our “Big Idea: Safe Transport” board, written during a class work session.</figcaption></figure>
+  <div style="margin-top:36px"><p class="prose rv">Two need statements came out of the research. Food bank managers need a way to monitor deliveries so they can predict turnaround time and prepare. They also need simpler inventory, so they always know what is on hand, sorted by category and expiration date, before it spoils.</p></div>
+  <div style="margin-top:24px"><p class="prose rv">We sketched four concepts against those needs, then plotted them by user impact and feasibility.</p></div>
+  <div class="figpair"><figure><div class="fig  rv"><img src="../../assets/img/freshroute/impact.webp" alt="First pass on the whiteboard: impact against feasibility."></div><figcaption>First pass on the whiteboard: impact against feasibility.</figcaption></figure><figure><div class="fig  rv"><img src="../../assets/img/freshroute/matrix.webp" alt="The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable."></div><figcaption>The cleaned-up matrix. Notifications from FreshRoute scored highest on user impact while staying buildable.</figcaption></figure></div>
+  <div class="cols3" style="grid-template-columns:repeat(3,1fr)"><div class="bc rv pick" style="--d:0s"><h4>Chosen</h4><ul><li><b>Notifications from FreshRoute.</b> Live ETAs for the food bank and the store, so both sides prep before the truck pulls in.</li></ul></div><div class="bc rv " style="--d:0.07s"><h4>Kept for later</h4><ul><li><b>Handy Footage.</b> Cargo video of the drive. Easy to build, but it only explains problems after they happen, while notifications prevent them.</li><li><b>Grocery Store Scanner.</b> Items logged at the store so they arrive already sorted. Feasible, with a smaller payoff.</li></ul></div><div class="bc rv " style="--d:0.14s"><h4>Cut</h4><ul><li><b>Camera Detection.</b> Auto-sorting produce with a camera at the food bank. It scored low on both impact and feasibility.</li></ul></div></div>
+  <figure><div class="fig  rv"><img src="../../assets/img/freshroute/storyboard.webp" alt="Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives."></div><figcaption>Storyboard: a grocery store manager wonders where the truck is, gets a heads-up, and is ready when it arrives.</figcaption></figure>
+</div></section>
+
+<section data-label="Ideation"><div class="w">
+  <div class="sh"><div class="k rv"><b>07</b>Studio</div><h2 class="rv">Sketch, <em>vote, repeat.</em></h2><p class="rv">Each of us sketched screens for the driver and the food bank manager, then we covered the table in sticky-note critique and dot-voted on what to keep.</p></div>
+  <div class="rows"><div class="rv"><i>01</i><h3>Color creates urgency</h3><p>Top vote. On time, slipping, and late each get their own color, glyph, and words.</p></div><div class="rv"><i>02</i><h3>Driver input feeds the system</h3><p>Each driver’s feedback updates the store’s pickup notes for the next person.</p></div><div class="rv"><i>03</i><h3>Multiple stops</h3><p>Several stops per route came second in the vote.</p></div><div class="rv"><i>04</i><h3>Gamification was cut</h3><p>Streaks and leaderboards felt stressful and distracting for someone driving.</p></div></div>
+  <figure><div class="fig  rv"><img src="../../assets/img/freshroute/sketches.webp" alt="Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen."></div><figcaption>Cleaned-up sketches of the driver dashboard, navigation, and the “what went wrong” screen.</figcaption></figure>
+</div></section>
+
+<section data-label="Wireframes"><div class="w">
+  <div class="sh"><div class="k rv"><b>08</b>Wireframes</div><h2 class="rv">Two workspaces, <em>one promise.</em></h2><p class="rv">The sketches became mid-fidelity wireframes with two separate flows. Drivers get an iPad app that finds pickups, routes them, and locks in an arrival time. Food bank managers get a desk view that shows only the outcome: who is coming, when, with what, and what happened on the way.</p></div>
+  <figure><div class="fig  rv"><img src="../../assets/img/freshroute/flows.webp" alt="The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store."></div><figcaption>The driver flow (14 screens) and the food bank manager flow (6 screens), plus a text link for the store.</figcaption></figure>
+  <div class="scrolly">
+    <div class="steps"><div class="st"><div class="n">01 · Driver dashboard</div><h3>Every listing leads with what the pantry needs to know.</h3><p>Drivers get an iPad app that finds pickups, routes them, and locks in an arrival time.</p><ol><li><i>1</i><div><b>Weight first</b><span>Each listing opens with weight, so nobody is surprised by five pallets.</span></div></li><li><i>2</i><div><b>Food type and pickup window</b><span>The details that went missing in the popcorn story now sit at the top of the card.</span></div></li><li><i>3</i><div><b>Arrival time locked in</b><span>Accepting a pickup commits the driver to a time the food bank can see.</span></div></li></ol></div><div class="st"><div class="n">02 · Driving view</div><h3>Quiet while the van moves.</h3><p>Gamification was cut because streaks felt stressful for someone behind the wheel, so this view does the opposite.</p><ol><li><i>1</i><div><b>Directions in the middle</b><span>The route is the whole screen, with nothing competing for attention.</span></div></li><li><i>2</i><div><b>ETA ring top right</b><span>A ring shows on time, slipping, or late, with its own color, glyph, and words.</span></div></li><li><i>3</i><div><b>Everything else stays out of the way</b><span>Pickup details wait until the van stops.</span></div></li></ol></div><div class="st"><div class="n">03 · Food bank view</div><h3>One screen for who is coming and what they carry.</h3><p>Managers get a desk view that shows only the outcome, so a truck pulling in stops being a surprise.</p><ol><li><i>1</i><div><b>Every truck on its way</b><span>Each delivery is listed with its own ETA.</span></div></li><li><i>2</i><div><b>What is on it</b><span>Contents are visible before the dock door opens, so cold storage and staff can be ready.</span></div></li><li><i>3</i><div><b>Time out of the fridge</b><span>Cold items show how long they have been out, which is what decides whether they can be accepted.</span></div></li></ol></div></div>
+    <div class="stage"><div class="glow"></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>freshroute.app</span></div><div class="scr"><div class="layer"><img src="../../assets/img/freshroute/driver-dashboard.webp" alt=""></div><div class="layer"><img src="../../assets/img/freshroute/driver-nav.webp" alt=""></div><div class="layer"><img src="../../assets/img/freshroute/manager-incoming.webp" alt=""></div></div></div><div class="ctr"></div></div>
   </div>
-</footer>
-<dialog class="viewer" id="viewer" aria-labelledby="viewer-title">
-  <div class="viewer__panel">
-    <div class="viewer__bar">
-      <p class="viewer__title" id="viewer-title"></p>
-      <div class="viewer__actions">
-        <a class="chip" data-viewer-dl href="#" download><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 2v8m0 0L4.5 6.5M8 10l3.5-3.5M2.5 13.5h11" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span>Download</span></a>
-        <button class="chip" type="button" data-viewer-fs aria-pressed="false"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span>Fullscreen</span></button>
-        <button class="btn-close" type="button" data-viewer-close aria-label="Close">×</button>
-      </div>
-    </div>
-    <div class="viewer__body" tabindex="0"></div>
-  </div>
-</dialog>
-<dialog class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="contact__panel" style="--t1:#F3C6DA;--t2:#B9658F">
-    <span class="blobs" aria-hidden="true"><b></b><b></b><b></b></span>
-    <div class="contact__glass glass glass--strong">
-      <button class="btn-close" type="button" data-contact-close aria-label="Close">×</button>
-      <p class="label">Contact</p>
-      <h2 id="contact-title">Let’s work together.</h2>
-      <p class="contact__lede">Have a thoughtful problem to solve? I’d love to hear about it. I’m open to UX and product design internships for summer 2027 and part-time roles during the school year.</p>
-      <ul class="contact__list">
-        <li><span class="contact__k">Email</span><a href="mailto:roslytav@gmail.com">roslytav@gmail.com</a><button type="button" class="chip copy" data-copy="roslytav@gmail.com"><svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 11V3h8" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span>Copy</span></button></li>
-        <li><span class="contact__k">LinkedIn</span><a href="https://www.linkedin.com/in/roslytavarez" target="_blank" rel="noopener">linkedin.com/in/roslytavarez <svg class="i" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a></li>
-        <li><span class="contact__k">Résumé</span><button type="button" class="linklike" data-view data-title="Résumé" data-pages="../../assets/img/files/RoslyTavarez_Resume-1.webp" data-download="RoslyTavarez_Resume.pdf" data-dl-href="../../files/RoslyTavarez_Resume.pdf">View or download PDF</button></li>
-      </ul>
-    </div>
-  </div>
-</dialog>
-<div class="curtain" aria-hidden="true"></div>
-</body>
-</html>
+  <p class="src" style="margin-top:80px">Wireframes are grayscale on purpose. This round tested structure and content, not visual style.</p>
+</div></section>
+
+<section data-label="Next"><div class="w">
+  <div class="sh"><div class="k rv"><b>09</b>Next</div><h2 class="rv">What we are <em>testing now.</em></h2></div>
+  <div class="rows"><div class="rv"><i>01</i><h3>Cognitive walkthrough</h3><p>Each of us takes one task with Maya. Mine is sorting a delivery by expiration date after it arrives, so the least food is wasted. For every step: is the action available, does she know it is the right one, and does she get feedback?</p></div><div class="rv"><i>02</i><h3>Usability testing</h3><p>With a food bank manager, volunteers, and a grocery store manager.</p></div><div class="rv"><i>03</i><h3>Success measures</h3><p>Less time waiting at the dock, deliveries prepped before the truck arrives, and less food spoiled during handoff.</p></div><div class="rv"><i>04</i><h3>Later</h3><p>Item logging at the store, so donations arrive already sorted by category and expiration date.</p></div></div>
+  <div class="panel rv" style="margin-top:50px"><div class="quote">“The best idea on our board was not the most impressive one. It was the one that answered the question everyone kept asking: when is the truck getting here?”<b>What this project has taught me so far</b></div></div>
+</div></section>
+
+<footer class="pf-foot"><div class="pf-card"><span class="pf-blobs" aria-hidden="true"><b></b><b></b><b></b></span><div class="pf-glass"><p>Big ideas, made useful.</p><a class="pf-mail" href="mailto:roslytav@gmail.com">roslytav@gmail.com</a></div></div><nav class="pf-fnav"><a href="../../">Home</a><a href="../../play/">Play</a><a href="../../about/">About me</a><a href="../../files/RoslyTavarez_Resume.pdf">Resume</a><a href="mailto:roslytav@gmail.com">Contact</a></nav><div class="pf-base"><span>© 2026 Rosly Tavarez</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to top ↑</a></div></footer><script>(function () {
+  var q = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var STATIC = location.search.indexOf('static') > -1; if (STATIC) document.documentElement.classList.add('static');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  q('.rv').forEach(function (el) { io.observe(el); });
+  q('.wdwrap').forEach(function (el) { el.innerHTML = el.textContent.trim().split(/\s+/).map(function (w) { return '<span class="wd">' + w + '</span>'; }).join(' '); });
+  var A = [62, 60, 56], B = [244, 242, 238];
+  function mix(t) { return 'rgb(' + A.map(function (a, i) { return Math.round(a + (B[i] - a) * t); }).join(',') + ')'; }
+  var steps = q('.st'), layers = q('.layer'), ctr = q('.ctr')[0];
+  var setStep = function (i) { steps.forEach(function (s, k) { s.classList.toggle('on', k === i); }); layers.forEach(function (l, k) { l.classList.toggle('on', k === i); }); if (ctr) ctr.textContent = 'Screen ' + (i + 1) + ' of ' + layers.length; };
+  setStep(0);
+  var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(steps.indexOf(e.target)); }); }, { rootMargin: '-48% 0px -48% 0px' });
+  steps.forEach(function (s) { sio.observe(s); });
+  if (STATIC) steps.forEach(function (s) { s.classList.add('on'); });
+  var chap = q('#chapters')[0], secs = q('[data-label]'), groups = [];
+  secs.forEach(function (s) { var l = s.dataset.label, g = groups[groups.length - 1]; if (g && g.label === l) g.els.push(s); else groups.push({ label: l, els: [s] }); });
+  groups.forEach(function (g) { var d = document.createElement('a'); d.href = '#'; d.className = 'cs'; d.title = g.label; d.innerHTML = '<em>' + g.label + '</em><i><u></u></i>'; g.cs = d; d.onclick = function (ev) { ev.preventDefault(); window.scrollTo({ top: g.els[0].getBoundingClientRect().top + scrollY, behavior: 'smooth' }); }; chap.appendChild(d); g.seg = d.querySelector('u'); });
+  var words = q('.wdwrap'), marq = q('.marq'), hf = q('.hframe .dev')[0];
+  function frame() {
+    var vh = innerHeight, sy = scrollY, H = document.documentElement.scrollHeight, max = H - vh;
+    var cur = groups[0]; groups.forEach(function (g) { if (g.els[0].getBoundingClientRect().top < vh * 0.5) cur = g; });
+    groups.forEach(function (g, gi) { var a = g.els[0].getBoundingClientRect().top + sy, nx = groups[gi + 1], b = nx ? nx.els[0].getBoundingClientRect().top + sy : H; var p = Math.max(0, Math.min(1, (sy + vh * 0.5 - a) / Math.max(1, b - a))); if (sy >= max - 2) p = 1; g.seg.style.transform = 'scaleX(' + p + ')'; g.cs.classList.toggle('on', g === cur); });
+    if (!reduce) {
+      if (hf) { var t = Math.min(1, sy / (vh * 0.7)); hf.style.setProperty('--rx', (16 * (1 - t)) + 'deg'); hf.style.setProperty('--sc', (0.96 + 0.04 * t)); }
+      marq.forEach(function (m) { var r = m.getBoundingClientRect(), row = m.firstElementChild, p = (vh - r.top) / (vh + r.height), span = row.scrollWidth - m.clientWidth; row.style.transform = 'translate3d(' + (-Math.max(0, Math.min(1, p)) * span) + 'px,0,0)'; });
+    }
+    words.forEach(function (el) { var r = el.getBoundingClientRect(), p = Math.min(1, Math.max(0, (vh * 0.86 - r.top) / (vh * 0.45 + r.height * 0.7))); if (STATIC) p = 1; var ws = q('.wd', el), n = ws.length; ws.forEach(function (w, i) { w.style.color = mix(Math.min(1, Math.max(0, p * (n + 8) - i) / 8)); }); });
+  }
+  var tick = false;
+  addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(function () { frame(); tick = false; }); } }, { passive: true });
+  addEventListener('resize', frame); frame();
+})();
+</script></body></html>
