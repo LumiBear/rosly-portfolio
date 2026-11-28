@@ -1,0 +1,276 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Canvas Focus Mode · Rosly Tavarez</title><meta name="description" content="A psychology-backed extension for Canvas that meets students at the exact moment they start avoiding an assignment, and gets them moving with one small first step."><meta property="og:title" content="Canvas Focus Mode · Rosly Tavarez"><meta property="og:image" content="../../assets/img/canvas/full/cover.jpg"><meta name="theme-color" content="#06100c"><link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml"><style>@font-face{font-family:"PJS";src:url(../../assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}@font-face{font-family:Unbounded;src:url(../../assets/fonts/unbounded-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}@font-face{font-family:"Schibsted Grotesk";src:url(../../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2) format("woff2");font-weight:400 900;font-display:swap}
+:root{--bg:#06100c;--card:#0d1a14;--card2:#11231b;--line:rgba(255,255,255,.09);--ink:#eef6f1;--ink2:#c3d3ca;--mute:#8aa196;--em:#2fd08a;--em2:#9be8c0;--lime:#d4f46a;--or:#ff7a45;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--ink);font-family:"PJS","Plus Jakarta Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.5}
+img{display:block;max-width:100%}
+.w{max-width:1184px;margin:0 auto;padding:0 24px}
+h1,h2,h3{letter-spacing:-.045em;line-height:1.02;font-weight:800}
+.k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--mute)}
+.k b{background:linear-gradient(90deg,var(--em),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent;margin-right:10px}
+.cap small{display:block;font-size:12px;color:var(--mute);font-weight:600}.cap b{font-size:14px;font-weight:700}
+/* glow backdrop */
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(60% 45% at 85% -5%,rgba(47,208,138,.18),transparent 70%),radial-gradient(50% 40% at 0% 40%,rgba(212,244,106,.06),transparent 70%);pointer-events:none;z-index:0}
+section,footer{position:relative;z-index:1}
+/* header */
+.pf-head{position:fixed;left:20px;right:20px;top:14px;z-index:100;height:54px;display:flex;align-items:center;gap:20px;padding:0 6px 0 22px;border-radius:999px;background:rgba(10,22,17,.8);-webkit-backdrop-filter:blur(22px) saturate(160%);backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px -26px #000;font-family:"Schibsted Grotesk","PJS",system-ui,sans-serif}
+.pf-mark{font:400 13px/1 Unbounded,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em;text-decoration:none;color:var(--ink);white-space:nowrap}
+.chapters{flex:1;display:flex;gap:4px;justify-content:center}
+.chapters .cs{flex:1;max-width:104px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--mute);font-size:11px;font-weight:700;text-align:center;white-space:nowrap}
+.chapters .cs em{font-style:normal;transition:color .3s}.chapters .cs.on em,.chapters .cs:hover em{color:var(--ink)}
+.chapters .cs i{display:block;height:4px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden}
+.chapters .cs u{display:block;height:100%;background:linear-gradient(90deg,var(--em),var(--lime));transform:scaleX(0);transform-origin:left;text-decoration:none}
+.pf-nav{display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(255,255,255,.06)}
+.pf-nav a{font-size:13px;text-decoration:none;color:var(--ink);padding:8px 12px;border-radius:999px;transition:background .3s;font-weight:500}
+.pf-nav a:hover{background:rgba(255,255,255,.12)}.pf-nav a[aria-current]{background:rgba(255,255,255,.16)}
+@media(max-width:1180px){.chapters .cs em{display:none}.pf-nav a:not([aria-current]):not(:last-child){display:none}}
+@media(max-width:700px){.pf-head{left:10px;right:10px;gap:10px}.pf-nav{display:none}}
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+.static .rv{opacity:1;transform:none}
+/* hero */
+.hero{min-height:100vh;padding:120px 0 70px;overflow:hidden;background:radial-gradient(90% 70% at 50% 100%,rgba(15,90,63,.7),transparent 70%)}
+.hero .w{position:relative}
+.hmeta{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:24px;font-size:12px;font-weight:600;line-height:1.5;margin-bottom:44px}
+.hmeta span{display:block;color:var(--mute)}.hmeta b{font-weight:700}
+.hero h1{font-size:clamp(44px,6.6vw,96px);letter-spacing:-.06em;line-height:.95;max-width:1100px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--em),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{max-width:560px;font-size:19px;color:var(--ink2);margin-top:28px}
+.hframe{margin:64px auto 0;max-width:1000px;perspective:1600px}
+.dev{border-radius:20px;background:#1a2620;border:1px solid rgba(255,255,255,.12);overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.04),0 0 140px -30px rgba(47,208,138,.35)}
+.dev .bar{height:34px;display:flex;align-items:center;gap:7px;padding:0 14px;background:#121c17}
+.dev .bar i{width:10px;height:10px;border-radius:50%;background:#2c3a33}
+.dev .bar span{margin-left:14px;flex:1;max-width:340px;height:18px;border-radius:9px;background:#1b2822;font-size:10.5px;color:var(--mute);display:grid;place-items:center}
+.dev .scr{background:#fff;position:relative}
+.dev .scr img{width:100%}
+.hframe .dev{transform:rotateX(var(--rx,16deg)) scale(var(--sc,.96));transform-origin:center top}
+/* statement */
+.state{padding:150px 0 90px}
+.state .big{font-size:clamp(34px,4.4vw,64px);line-height:1.06;letter-spacing:-.05em;font-weight:800;max-width:1000px;margin:26px 0 56px}
+.state .wd{color:#33433b;transition:color .15s}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.state p{font-size:19px;color:var(--ink2);max-width:540px}.state p+p{margin-top:18px}
+.facts{border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);font-size:16px}
+.facts span{color:var(--mute);font-weight:700;font-size:13px;padding-top:2px;text-transform:uppercase;letter-spacing:.08em}.facts b{font-weight:600}
+/* section heads */
+.sh{padding:130px 0 50px}
+.sh h2{font-size:clamp(40px,5.2vw,78px);letter-spacing:-.055em;margin-top:22px;max-width:980px}
+.sh h2 em{font-style:normal;color:var(--mute)}
+.sh p{font-size:19px;color:var(--ink2);max-width:640px;margin-top:22px}
+.prose{font-size:18px;color:var(--ink2);max-width:660px}.prose+.prose{margin-top:18px}
+/* panels */
+.panel{border-radius:36px;background:radial-gradient(120% 90% at 50% 0%,#12573d 0%,#0a2a1f 45%,#071510 100%);border:1px solid rgba(255,255,255,.08);padding:48px;position:relative;overflow:hidden}
+.bc{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:34px;position:relative}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.stat{grid-column:span 4;display:flex;flex-direction:column;justify-content:space-between;min-height:260px}
+.stat .n{font-size:clamp(56px,6.6vw,96px);font-weight:800;letter-spacing:-.07em;line-height:.9;background:linear-gradient(135deg,var(--em2),var(--em) 60%,var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat p{color:var(--ink2);font-size:17px;max-width:240px}
+.meter{height:8px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:22px}
+.meter u{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--em),var(--lime));transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease);text-decoration:none}
+.in .meter u,.static .meter u{transform:scaleX(var(--v))}
+.fig{margin-top:16px;border-radius:32px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.fig.dk{background:var(--card)}.fig img{width:100%}
+figcaption{font-size:13.5px;color:var(--mute);padding:14px 4px 0}
+.figs{margin-top:16px}
+/* feature analysis */
+.fgrid{display:grid;grid-template-columns:270px repeat(4,1fr);gap:12px;margin-top:34px}
+.fc{border-radius:26px;background:var(--card2);overflow:hidden;border:1px solid var(--line)}
+.fc .fh{height:84px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:14px;padding:0 10px;background:rgba(255,255,255,.05)}
+.fc .fr{height:62px;display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(255,255,255,.06)}
+.fc .fr:nth-child(odd){background:rgba(255,255,255,.025)}
+.fc.lab{background:transparent;border-color:transparent}.fc.lab .fh{background:transparent}
+.fc.lab .fr{justify-content:space-between;padding:0 6px 0 4px;font-weight:700;font-size:14.5px;gap:8px}
+.fr i,.fleg i{font-style:normal;font-size:10.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--or);color:#1a0b04;padding:4px 9px;border-radius:99px;white-space:nowrap}
+.dot{display:inline-block;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6c7f76,#3d4d45)}
+.fc.me{background:linear-gradient(180deg,#1f7a53,#0f3b2a);border-color:rgba(155,232,192,.4);box-shadow:0 0 70px -20px rgba(47,208,138,.6)}
+.fc.me .fh{background:linear-gradient(90deg,var(--em),var(--lime));color:#06230f;font-size:15px}
+.fc.me .dot{background:radial-gradient(circle at 35% 30%,#eaffd0,var(--lime));box-shadow:0 0 18px rgba(212,244,106,.6)}
+.fc.me .fr.close{background:rgba(212,244,106,.12);box-shadow:inset 0 0 0 2px var(--lime)}
+.fleg{display:flex;gap:26px;flex-wrap:wrap;align-items:center;margin-top:22px;font-size:13.5px;font-weight:700;color:var(--mute)}
+.fleg .dot{width:16px;height:16px;vertical-align:-3px;margin-right:6px}
+.fleg .fn{margin-left:auto;color:var(--ink);font-weight:600;font-size:15px}.fleg .fn strong{font-weight:800}
+/* personas */
+.pers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:30px;display:flex;flex-direction:column}
+.pav{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:800;color:#06230f;box-shadow:0 14px 30px -10px rgba(47,208,138,.5)}
+.pn{font-size:34px;font-weight:800;letter-spacing:-.05em;margin-top:18px;line-height:1}
+.pr{font-weight:800;font-size:14px;margin-top:6px;color:var(--em2)}
+.pc p{font-size:16px;line-height:1.5;margin-top:16px;color:var(--ink2);flex:1}
+.pwin{margin-top:22px;background:linear-gradient(160deg,rgba(47,208,138,.22),rgba(212,244,106,.1));border:1px solid rgba(155,232,192,.25);border-radius:22px;padding:18px 20px;font-weight:700;font-size:15px;line-height:1.35}
+.pwin span{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--em2);margin-bottom:6px;font-weight:800}
+.emp{margin-top:16px;border-radius:36px;padding:38px;background:radial-gradient(120% 100% at 50% 0%,#12573d,#0a2a1f 55%,#071510)}
+.egrid{display:grid;grid-template-columns:1fr 200px 1fr;gap:14px;margin-top:20px}
+.eq{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px 26px}
+.eq b{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.eq ul{list-style:none;margin-top:12px}.eq li{font-size:15.5px;line-height:1.4;padding:8px 0;border-top:1px solid rgba(255,255,255,.08);color:#dfece5}
+.q1{grid-column:1;grid-row:1}.q2{grid-column:3;grid-row:1}.q3{grid-column:1;grid-row:2}.q4{grid-column:3;grid-row:2}
+.ecore{grid-column:2;grid-row:1/3;display:grid;place-items:center}
+.ec{width:190px;height:190px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--lime));display:grid;place-content:center;text-align:center;color:#06230f;box-shadow:0 0 0 12px rgba(47,208,138,.14),0 0 0 26px rgba(212,244,106,.08)}
+.ec span{font-size:30px;font-weight:800;letter-spacing:-.05em}.ec small{font-size:12px;font-weight:700}
+.egp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.egp>div{border-radius:26px;padding:24px 28px;font-size:15.5px;line-height:1.45}.egp b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.pain{background:rgba(255,122,69,.14);color:#ffd9c9}.pain b{color:var(--or)}
+.gain{background:rgba(212,244,106,.12);color:#eefbc4}.gain b{color:var(--lime)}
+/* ideation list */
+.rows{border-top:1px solid var(--line);margin-top:36px}
+.rows div{display:grid;grid-template-columns:70px 280px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.rows i{font-style:normal;font-weight:800;color:var(--em);font-size:15px}.rows h3{font-size:26px}.rows p{color:var(--ink2);font-size:16.5px}
+/* scrolly */
+.scrolly{display:grid;grid-template-columns:1fr 660px;gap:40px;position:relative}
+.steps .st{min-height:78vh;padding-top:12vh;opacity:.28;transition:opacity .5s}.steps .st.on{opacity:1}
+.st .n{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--em)}
+.st h3{font-size:clamp(34px,3.6vw,52px);margin-top:14px}
+.st>p{font-size:17.5px;color:var(--ink2);margin-top:16px;max-width:460px}
+.st ol{list-style:none;margin-top:26px;max-width:480px}.st li{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
+.st li i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--em),var(--lime));color:#06230f;font-weight:800;font-size:12px;display:grid;place-items:center}
+.st li b{display:block;font-size:15.5px}.st li span{font-size:14.5px;color:var(--mute)}
+.stage{position:sticky;top:calc(50vh - 260px);height:520px}
+.stage .glow{position:absolute;inset:-60px;background:radial-gradient(closest-side,rgba(47,208,138,.35),transparent);filter:blur(30px)}
+.stage .dev{position:absolute;inset:0;display:flex;flex-direction:column}
+.stage .scr{flex:1;overflow:hidden}
+.layer{position:absolute;inset:0;opacity:0;transition:opacity .55s var(--ease);display:grid;place-items:center;background:#fff}.layer.on{opacity:1}
+.layer img{width:100%;height:100%;object-fit:contain}
+.stage .ctr{position:absolute;left:0;right:0;bottom:-34px;text-align:center;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+/* iterations */
+.marq{overflow:hidden;margin-top:30px}.marq .row{display:flex;gap:18px;will-change:transform}
+.marq .dev{flex:none;width:520px;background:#2a1a14}.marq .bar{background:#1a110d}
+.itnote{margin-top:22px}
+/* testing */
+.quote{font-size:clamp(26px,3vw,42px);line-height:1.12;letter-spacing:-.04em;font-weight:800;max-width:900px}
+.quote b{display:block;margin-top:20px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--em2);font-weight:800}
+.qs{display:grid;gap:16px;margin-top:16px}
+/* footer */
+.pf-foot{max-width:1360px;margin:60px auto 0;padding:0 clamp(18px,4vw,56px) 26px;font-family:"Schibsted Grotesk","PJS",system-ui,sans-serif}
+.pf-card{position:relative;border-radius:34px;background:#0d1a14;overflow:hidden;padding:clamp(20px,3.5vw,44px);border:1px solid var(--line)}
+.pf-blobs{position:absolute;inset:-6%;overflow:hidden;pointer-events:none}.pf-blobs b{position:absolute;border-radius:50%;filter:blur(36px);opacity:.9}
+.pf-blobs b:nth-child(1){width:78%;aspect-ratio:1;left:40%;top:0;background:radial-gradient(circle,rgba(47,208,138,.6),transparent 70%)}
+.pf-blobs b:nth-child(2){width:50%;aspect-ratio:1;right:-4%;top:2%;background:radial-gradient(circle,rgba(212,244,106,.35),transparent 70%)}
+.pf-blobs b:nth-child(3){width:58%;aspect-ratio:1;left:10%;bottom:-20%;background:radial-gradient(circle,rgba(15,90,63,.8),transparent 68%)}
+.pf-glass{position:relative;padding:clamp(22px,3vw,38px);border-radius:26px;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(30px);backdrop-filter:blur(30px)}
+.pf-glass p{font:400 clamp(20px,2.4vw,32px)/1.15 Unbounded,"Helvetica Neue",Arial,sans-serif;letter-spacing:-.025em;max-width:24ch}
+.pf-mail{font-size:clamp(16px,1.4vw,19px);text-decoration:none;color:#06230f;padding:12px 20px;border-radius:999px;background:var(--em2);font-weight:600}
+.pf-fnav{display:flex;flex-wrap:wrap;gap:10px;padding:28px 0 30px}
+.pf-fnav a{font-size:15px;font-weight:500;text-decoration:none;padding:11px 22px;border-radius:999px;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);transition:background .3s,color .3s,transform .4s}
+.pf-fnav a:hover{background:var(--em2);color:#06230f;transform:translateY(-2px)}
+.pf-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:var(--mute)}.pf-base a{color:inherit;text-decoration:none}
+@media(max-width:1000px){.scrolly{grid-template-columns:1fr}.stage{position:relative;top:0;order:-1;height:auto;aspect-ratio:1.4;margin-bottom:44px}.pers,.two,.egrid,.egp{grid-template-columns:1fr}.ecore{grid-column:auto;grid-row:auto}.q1,.q2,.q3,.q4{grid-column:auto;grid-row:auto}.stat{grid-column:span 12}.rows div{grid-template-columns:40px 1fr}.rows p{grid-column:2}.fgrid{grid-template-columns:150px repeat(4,1fr);font-size:12px}.hmeta{grid-template-columns:1fr 1fr}}
+.marq .dev .scr{aspect-ratio:1.42;background:#fff;display:grid;place-items:center}.marq .dev .scr img{width:100%;height:100%;object-fit:contain}
+</style></head><body>
+<header class="pf-head"><a class="pf-mark" href="../../">Rosly Tavarez</a><nav class="chapters" id="chapters" aria-label="Case study steps"></nav><nav class="pf-nav" aria-label="Primary"><a href="../../#work" aria-current="page">Work</a><a href="../../play/">Play</a><a href="../../about/">About</a><a href="../../files/RoslyTavarez_Resume.pdf">Résumé</a><a href="mailto:roslytav@gmail.com">Contact</a></nav></header>
+
+<section class="hero" data-label="Overview"><div class="w">
+  <div class="hmeta"><div><span>Project</span><b>Canvas Focus Mode, a procrastination intervention</b></div><div><span>Role</span><b>Sole UX designer and researcher</b></div><div><span>Timeline</span><b>Spring 2026</b></div><div><span>Tools</span><b>Figma, Miro</b></div><div><span>Type</span><b>Web · Browser extension</b></div></div>
+  <h1 class="rv">Focus Mode <em>for the moment you freeze.</em></h1>
+  <p class="sub rv">A psychology-backed extension for Canvas that meets students at the exact moment they start avoiding an assignment, and gets them moving with one small first step.</p>
+  <div class="hframe rv"><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v2-1.webp" alt="Canvas Focus Mode dashboard"></div></div></div>
+</div></section>
+
+<section class="state" data-label="Overview"><div class="w">
+  <div class="k rv"><b>01</b>Overview</div>
+  <h2 class="big wdwrap">Students don’t procrastinate because they can’t plan.</h2>
+  <div class="two"><div><p class="rv" style="font-size:20px;color:var(--ink);max-width:560px">Most productivity tools treat procrastination as a scheduling problem. My research kept pointing somewhere else: students avoid work when a task makes them anxious, and that anxiety peaks a few days after an assignment is posted, when the page is still blank and the instructions still feel vague.</p><p class="rv" style="margin-top:18px">I set out to design something that shows up at that moment instead of after it. Canvas Focus Mode lives inside the learning platform students already open every day. It asks what is in the way, then responds with the right kind of help: a five-minute first action, a broken-down plan, or a gentle interruption when a perfectionist starts rewriting the same paragraph for the fourth time.</p></div>
+  <div class="facts rv"><div><span>Problem</span><b>Avoidance driven by anxiety and perfectionism, not poor planning</b></div><div><span>Approach</span><b>Diagnose the emotional barrier first, then prescribe a specific intervention</b></div><div><span>Outcome</span><b>5 of 6 test participants said they would use it; SUS score of 82</b></div></div></div>
+</div></section>
+
+<section data-label="Research"><div class="w">
+  <div class="sh"><div class="k rv"><b>02</b>Research</div><h2 class="rv">Reading the literature <em>before talking to anyone.</em></h2><p class="rv">I started with secondary research so I could walk into interviews with sharper questions. Three frameworks shaped everything after: Temporal Motivation Theory, Affect Regulation Theory, and Implementation Intentions. Read together, they describe procrastination as a short-term mood repair. Students put a task off because doing so makes them feel better right now.</p></div>
+  <div class="bento"><div class="bc stat rv" style="--d:0s;--v:0.88"><div class="n">80–95%</div><div><p>of college students procrastinate</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.08s;--v:0.5"><div class="n">~50%</div><div><p>do it chronically</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.16s;--v:0.6"><div class="n">60%</div><div><p>of productivity apps are abandoned within 30 days</p><div class="meter"><u></u></div></div></div></div>
+  <div style="margin-top:40px"><p class="prose rv">That last number reframed the brief. Students do download tools that promise to help. They quit them because opening one more app adds friction at the exact moment they are already looking for an exit.</p></div>
+  <div class="fig dk rv"><img src="../../assets/img/canvas/science.webp" alt="Evidence base"></div><figcaption>The evidence base I mapped each feature against: strategy, scientific basis, source, and expected effect.</figcaption>
+</div></section>
+
+<section data-label="Landscape"><div class="w">
+  <div class="sh"><div class="k rv"><b>03</b>Competitive scan</div><h2 class="rv">Plenty of planners. <em>Nothing for the moment you freeze.</em></h2></div>
+  <div class="two"><div><p class="prose rv">I reviewed Forest, Todoist, and Notion, the tools students in my interviews mentioned most. All three are good at organizing work once a student has decided to do it. None of them notice when a student opens an assignment, reads it, and closes the tab.</p></div><div><p class="prose rv">I also mapped the stakeholders around a struggling student: professors, academic advisors, and the Canvas platform itself. Professors and advisors care about outcomes but usually step in after a student has already fallen behind. That left an early window nobody was designing for, and Canvas, with more than 30 million students already logging in, was the natural place to reach it.</p></div></div>
+  <div class="panel rv" style="margin-top:50px"><div class="k">Feature analysis · Forest, Todoist and Notion, the tools students named most</div><h3 style="font-size:clamp(26px,2.8vw,40px);margin-top:12px;max-width:760px">Where today’s tools stop, and where Focus Mode picks up.</h3><div class="fgrid"><div class="fc lab"><div class="fh"></div><div class="fr">Plan and organize tasks</div><div class="fr">Focus timer</div><div class="fr">Lives inside Canvas<i>Gap</i></div><div class="fr">Reads Canvas deadlines and grades<i>Gap</i></div><div class="fr">Asks what is blocking you first<i>Gap</i></div><div class="fr">Auto-breaks an assignment into timed steps<i>Gap</i></div><div class="fr">Notices a revision loop as it happens<i>Gap</i></div><div class="fr">Five-minute first action<i>Gap</i></div></div><div class="fc "><div class="fh">Forest</div><div class="fr "></div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc "><div class="fh">Todoist</div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc "><div class="fh">Notion</div><div class="fr "><b class="dot"></b></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div><div class="fr "></div></div><div class="fc me"><div class="fh">Focus Mode</div><div class="fr "><b class="dot"></b></div><div class="fr "><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div><div class="fr close"><b class="dot"></b></div></div></div><div class="fleg"><span><b class="dot"></b> Offers it</span><span><i>Gap</i> None of the three offers it</span><span class="fn"><strong>6 of 8</strong> rows are gaps, and Focus Mode is built around all 6.</span></div></div>
+</div></section>
+
+<section data-label="People"><div class="w">
+  <div class="sh"><div class="k rv"><b>04</b>Interviews and personas</div><h2 class="rv">One problem, <em>three very different students.</em></h2><p class="rv">Interviews with college students broke my assumption that there was one cause to fix. Three patterns kept repeating, and each needed a different response. That became the main design principle: diagnose before you prescribe.</p></div>
+  <div class="pers"><div class="pc rv" style="--d:0s"><div class="pav" style="background:linear-gradient(135deg,#9be8c0,#2fd08a)">S</div><div class="pn">Sarah</div><div class="pr">The perfectionist</div><p>Rewrites the same paragraph endlessly and compares her drafts to published work. She needs a real-time nudge when she starts spiraling, and permission to let a first draft be rough.</p><div class="pwin"><span>What Focus Mode gives them</span>The perfectionism blocker notices a revision loop and redirects her to drafting, with permission for a rough first draft.</div></div><div class="pc rv" style="--d:0.08s"><div class="pav" style="background:linear-gradient(135deg,#d4f46a,#9be8c0)">M</div><div class="pn">Marcus</div><div class="pr">The overwhelmed</div><p>Works 25 hours a week on top of five courses and often doesn’t know where to start. He needs the assignment cut into smaller pieces, with progress he can actually see.</p><div class="pwin"><span>What Focus Mode gives them</span>A task breakdown of 10 to 12 micro-steps with time estimates, and progress he can see.</div></div><div class="pc rv" style="--d:0.16s"><div class="pav" style="background:linear-gradient(135deg,#ffb36b,#d4f46a)">P</div><div class="pn">Priya</div><div class="pr">The optimizer</div><p>Will spend two hours color-coding a plan before writing a sentence. More structure makes her worse. She needs something simple that gets her moving.</p><div class="pwin"><span>What Focus Mode gives them</span>A simple five-minute first action that gets her moving, with no extra structure to optimize.</div></div></div>
+  <div class="emp rv"><div class="k">Empathy map · Sarah, the perfectionist · synthesized from the interview patterns</div>
+    <div class="egrid">
+      <div class="eq q1"><b>Says</b><ul><li>The draft is not ready to share yet.</li><li>She will really start once the intro sounds right.</li><li>Other people’s writing is simply better.</li></ul></div>
+      <div class="eq q2"><b>Thinks</b><ul><li>A rough draft shows I am not good enough.</li><li>Published work is the bar to meet.</li><li>If I cannot do it well, starting can wait.</li></ul></div>
+      <div class="ecore"><div class="ec"><span>Sarah</span><small>The perfectionist</small></div></div>
+      <div class="eq q3"><b>Does</b><ul><li>Rewrites the same paragraph again and again.</li><li>Compares her drafts to published work.</li><li>Keeps revising instead of moving on.</li></ul></div>
+      <div class="eq q4"><b>Feels</b><ul><li>Anxious in front of a blank or half-finished page.</li><li>Stuck in a loop she can see but cannot leave.</li><li>Relieved when a rough draft is allowed.</li></ul></div>
+    </div>
+    <div class="egp"><div class="pain"><b>Pains</b>Endless revision loops. Comparing her work to published writing. No permission to be rough.</div><div class="gain"><b>Gains</b>A real-time nudge when she starts spiraling. “Your goal is to write something, not something perfect.” A first step small enough to take today.</div></div>
+  </div>
+</div></section>
+
+<section data-label="Journey"><div class="w">
+  <div class="sh"><div class="k rv"><b>05</b>Journey map</div><h2 class="rv">Finding <em>the dip.</em></h2><p class="rv">I mapped a typical assignment from the day it is posted to the night it is due. The emotional line was remarkably consistent: confidence at the start, a slide into anxiety once the blank page sets in, a low point of avoidance, and a rushed scramble at the end.</p></div>
+  <div class="fig rv"><img src="../../assets/img/canvas/journey.webp" alt="Journey map"></div><figcaption>Journey map for a 20-page research paper. Each phase pairs what the student does with what they feel.</figcaption>
+  <div style="margin-top:36px"><p class="prose rv">The most useful thing the map gave me was a target. Instead of trying to help across the whole timeline, I designed the intervention to catch students in that mid-journey dip, before avoidance hardens into a deadline panic.</p></div>
+  <div class="fig dk rv"><img src="../../assets/img/canvas/low-points.webp" alt="Intervention points"></div><figcaption>Turning the map into intervention points: early scaffolding, an avoidance interrupt, and panic mitigation.</figcaption>
+</div></section>
+
+<section data-label="Ideation"><div class="w">
+  <div class="sh"><div class="k rv"><b>06</b>Ideation</div><h2 class="rv">Five ways to make <em>starting easier.</em></h2><p class="rv">I translated the research into five design pillars, each tied to a specific behavior I wanted to change. Every feature in the product had to trace back to one of them.</p></div>
+  <div class="fig dk rv"><img src="../../assets/img/canvas/pillars.webp" alt="Five design pillars"></div><figcaption>Micro-tasking, backward planning, low-stakes starts, metacognition, and focus & recovery, combined into one integrated flow.</figcaption>
+  <div class="rows"><div class="rv"><i>01</i><h3>Check-in</h3><p>“What’s blocking you?” comes before any suggestion. Diagnosis before prescription.</p></div><div class="rv"><i>02</i><h3>Five-minute first action</h3><p>“Brain-dump three things you already know” instead of “write a 10-page paper.”</p></div><div class="rv"><i>03</i><h3>Task breakdown</h3><p>10 to 12 micro-steps with time estimates, so progress becomes visible.</p></div><div class="rv"><i>04</i><h3>Perfectionism blocker</h3><p>Notices revision loops as they happen and redirects the student back to drafting.</p></div><div class="rv"><i>05</i><h3>Canvas context</h3><p>Uses deadlines and grade history to make nudges specific instead of generic.</p></div></div>
+  <div style="margin-top:40px"><p class="prose rv">Early sketches focused on the check-in. The hardest part was asking “what’s blocking you?” without it reading like a therapy intake form or a guilt trip. I explored tone as carefully as layout.</p></div>
+</div></section>
+
+<section data-label="Design"><div class="w">
+  <div class="sh"><div class="k rv"><b>07</b>Design</div><h2 class="rv">From wireframes to a dashboard <em>students would trust.</em></h2><p class="rv">I wireframed the check-in, the task breakdown, and the perfectionism interruption in Figma before moving to high fidelity. The visual language borrows from Canvas so the feature feels native, with a calm, low-alarm palette and plain, friendly copy. It should feel like a nudge from a study partner, not another notification.</p></div>
+  <div class="scrolly">
+    <div class="steps"><div class="st"><div class="n">01 · Dashboard</div><h3>A way in from where students already are.</h3><p>Focus Mode lives inside Canvas, so there is no second app to open at the moment a student is looking for an exit.</p><ol><li><i>1</i><div><b>Focus in the sidebar</b><span>A permanent entry sits in the UNT Canvas navigation, one click from any page.</span></div></li><li><i>2</i><div><b>A direct invitation</b><span>“Ready for Deep Work?” turns the dashboard into a starting point instead of a list of dues.</span></div></li><li><i>3</i><div><b>Progress in context</b><span>Course cards keep their own progress, so the student sees where help would matter most.</span></div></li></ol></div><div class="st"><div class="n">02 · Focus home</div><h3>What is due, cut into small pieces.</h3><p>The home screen replaces a wall of assignments with today’s next few steps.</p><ol><li><i>1</i><div><b>Today’s micro-steps</b><span>A short checklist makes the day look doable and shows progress as it ticks off.</span></div></li><li><i>2</i><div><b>Active assignments</b><span>Each assignment carries a progress bar and a clear way to start.</span></div></li><li><i>3</i><div><b>A suggestion from real feedback</b><span>The AI reads professor comments from the last assignment and turns one into a specific next step.</span></div></li></ol></div><div class="st"><div class="n">03 · Focus plan</div><h3>Ask how it feels before suggesting anything.</h3><p>Diagnosis comes first. The same assignment needs a different first step for a different kind of stuck.</p><ol><li><i>1</i><div><b>Pick the work</b><span>Class and assignment are chosen from what Canvas already knows, with the due date in view.</span></div></li><li><i>2</i><div><b>Name the feeling</b><span>Stuck, not sure where to start, wanting it perfect, or overwhelmed. Each one routes to a different intervention.</span></div></li><li><i>3</i><div><b>A tip that matches</b><span>A small note beside the form sets expectations, like the three-minute rule.</span></div></li></ol></div><div class="st"><div class="n">04 · Roadmap and timer</div><h3>One step at a time, with a clock you can trust.</h3><p>The plan becomes a short roadmap with a timer, so starting never means facing the whole paper.</p><ol><li><i>1</i><div><b>A visible timer</b><span>A countdown ring keeps the session short and finite.</span></div></li><li><i>2</i><div><b>AI-curated micro-steps</b><span>Ten to twelve steps, each with a time estimate, so progress is visible.</span></div></li><li><i>3</i><div><b>Pause or finish early</b><span>Controls stay in the student’s hands, so the tool never feels like surveillance.</span></div></li></ol></div><div class="st"><div class="n">05 · Insights</div><h3>Help that follows the draft.</h3><p>When a student moves into their writing, a small panel comes with them.</p><ol><li><i>1</i><div><b>Beside the document</b><span>Insights sit next to the draft in Google Docs, so the student does not switch tabs.</span></div></li><li><i>2</i><div><b>Based on the draft</b><span>Suggestions point at the actual writing, such as where an argument needs more evidence.</span></div></li><li><i>3</i><div><b>Honest, optional nudges</b><span>Notifications are optional and privacy-first, a result of testing.</span></div></li></ol></div></div>
+    <div class="stage"><div class="glow"></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><div class="layer"><img src="../../assets/img/canvas/v2-1.webp" alt=""></div><div class="layer"><img src="../../assets/img/canvas/v2-2.webp" alt=""></div><div class="layer"><img src="../../assets/img/canvas/v2-3.webp" alt=""></div><div class="layer"><img src="../../assets/img/canvas/v2-4.webp" alt=""></div><div class="layer"><img src="../../assets/img/canvas/v2-5.webp" alt=""></div></div></div><div class="ctr"></div></div>
+  </div>
+  <div class="k" style="margin-top:110px"><b>↳</b>First iterations, in Canvas orange</div>
+  <div class="prose rv" style="margin-top:14px">Screens in orange are my first iterations. They borrow Canvas’s own red so the feature felt native, and they are where I worked out the check-in, the task breakdown, and the focus timer.</div>
+  <div class="marq"><div class="row"><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-1.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-2.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-3.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-4.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-5.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-1.webp" alt=""></div></div><div class="dev"><div class="bar"><i></i><i></i><i></i><span>canvas.unt.edu / focus</span></div><div class="scr"><img src="../../assets/img/canvas/v1-2.webp" alt=""></div></div></div></div>
+  <div class="prose rv itnote">The final screens, with the green sidebar, move the same flow into UNT’s Canvas theme. The layout stayed the same. Color, navigation, and spacing were tuned so Focus Mode looks like part of the school’s own Canvas.</div>
+</div></section>
+
+<section data-label="Testing"><div class="w">
+  <div class="sh"><div class="k rv"><b>08</b>Testing</div><h2 class="rv">Six students, <em>one big copy change.</em></h2><p class="rv">Before testing, I ran a heuristic evaluation focused on visibility of system status and user control. The biggest risk was that the tool would feel naggy or controlling. Then I put the clickable prototype in front of six college students.</p></div>
+  <div class="bento"><div class="bc stat rv" style="--d:0s;--v:0.83"><div class="n">5 / 6</div><div><p>said they would use it</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.08s;--v:0.82"><div class="n">82</div><div><p>System Usability Scale score</p><div class="meter"><u></u></div></div></div><div class="bc stat rv" style="--d:0.16s;--v:1"><div class="n">2</div><div><p>favorite features: first actions & progress tracking</p></div></div></div>
+  <div class="qs"><div class="panel rv"><div class="quote">“The 5-minute thing actually got me to open my essay instead of avoiding it for another day.”<b>Usability test participant</b></div></div>
+  <div style="margin:30px 0"><p class="prose rv">The first version of the perfectionism blocker read like a warning, close to “stop revising.” Participants found it scolding. I rewrote it as “Your goal is to write something, not something perfect,” and softened the visual treatment from an alert to an inline card. I also added privacy-first data handling and made every notification optional.</p></div>
+  <div class="panel rv"><div class="quote">“I didn’t realize how much time I was losing just staring at a blank doc until this called it out.”<b>Usability test participant</b></div></div></div>
+</div></section>
+
+<section data-label="Reflection"><div class="w">
+  <div class="sh"><div class="k rv"><b>09</b>Reflection</div><h2 class="rv">Good UX can solve <em>emotional problems.</em></h2></div>
+  <div class="two"><div><p class="prose rv">This project changed how I scope problems. Procrastination isn’t fixed with a better calendar. It’s eased by lowering the emotional cost of starting, then building momentum with small, concrete wins the student can see.</p></div><div><p class="prose rv">Next, I would run a longer diary study to see whether students keep using Focus Mode after the novelty fades, and test whether instructors would want an opt-in view of anonymized class-wide sticking points.</p></div></div>
+</div></section>
+
+<footer class="pf-foot"><div class="pf-card"><span class="pf-blobs" aria-hidden="true"><b></b><b></b><b></b></span><div class="pf-glass"><p>Big ideas, made useful.</p><a class="pf-mail" href="mailto:roslytav@gmail.com">roslytav@gmail.com</a></div></div><nav class="pf-fnav"><a href="../../">Home</a><a href="../../play/">Play</a><a href="../../about/">About me</a><a href="../../files/RoslyTavarez_Resume.pdf">Resume</a><a href="mailto:roslytav@gmail.com">Contact</a></nav><div class="pf-base"><span>© 2026 Rosly Tavarez</span><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Back to top ↑</a></div></footer><script>(function () {
+  var q = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var STATIC = location.search.indexOf('static') > -1; if (STATIC) document.documentElement.classList.add('static');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+  q('.rv').forEach(function (el) { io.observe(el); });
+  q('.wdwrap').forEach(function (el) { el.innerHTML = el.textContent.trim().split(/\s+/).map(function (w) { return '<span class="wd">' + w + '</span>'; }).join(' '); });
+  var A = [51, 67, 59], B = [238, 246, 241];
+  function mix(t) { return 'rgb(' + A.map(function (a, i) { return Math.round(a + (B[i] - a) * t); }).join(',') + ')'; }
+  var steps = q('.st'), layers = q('.layer'), ctr = q('.ctr')[0];
+  var setStep = function (i) { steps.forEach(function (s, k) { s.classList.toggle('on', k === i); }); layers.forEach(function (l, k) { l.classList.toggle('on', k === i); }); if (ctr) ctr.textContent = 'Screen ' + (i + 1) + ' of ' + layers.length; };
+  setStep(0);
+  var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) setStep(steps.indexOf(e.target)); }); }, { rootMargin: '-48% 0px -48% 0px' });
+  steps.forEach(function (s) { sio.observe(s); });
+  if (STATIC) steps.forEach(function (s) { s.classList.add('on'); });
+  var chap = q('#chapters')[0], secs = q('[data-label]'), groups = [];
+  secs.forEach(function (s) { var l = s.dataset.label, g = groups[groups.length - 1]; if (g && g.label === l) g.els.push(s); else groups.push({ label: l, els: [s] }); });
+  groups.forEach(function (g) { var d = document.createElement('a'); d.href = '#'; d.className = 'cs'; d.title = g.label; d.innerHTML = '<em>' + g.label + '</em><i><u></u></i>'; g.cs = d; d.onclick = function (ev) { ev.preventDefault(); window.scrollTo({ top: g.els[0].getBoundingClientRect().top + scrollY, behavior: 'smooth' }); }; chap.appendChild(d); g.seg = d.querySelector('u'); });
+  var words = q('.wdwrap'), marq = q('.marq'), hf = q('.hframe .dev')[0];
+  function frame() {
+    var vh = innerHeight, sy = scrollY, H = document.documentElement.scrollHeight, max = H - vh;
+    var cur = groups[0]; groups.forEach(function (g) { if (g.els[0].getBoundingClientRect().top < vh * 0.5) cur = g; });
+    groups.forEach(function (g, gi) { var a = g.els[0].getBoundingClientRect().top + sy, nx = groups[gi + 1], b = nx ? nx.els[0].getBoundingClientRect().top + sy : H; var p = Math.max(0, Math.min(1, (sy + vh * 0.5 - a) / Math.max(1, b - a))); if (sy >= max - 2) p = 1; g.seg.style.transform = 'scaleX(' + p + ')'; g.cs.classList.toggle('on', g === cur); });
+    if (!reduce) {
+      if (hf) { var t = Math.min(1, sy / (vh * 0.7)); hf.style.setProperty('--rx', (16 * (1 - t)) + 'deg'); hf.style.setProperty('--sc', (0.96 + 0.04 * t)); }
+      marq.forEach(function (m) { var r = m.getBoundingClientRect(), row = m.firstElementChild, p = (vh - r.top) / (vh + r.height), span = row.scrollWidth - m.clientWidth; row.style.transform = 'translate3d(' + (-Math.max(0, Math.min(1, p)) * span) + 'px,0,0)'; });
+    }
+    words.forEach(function (el) { var r = el.getBoundingClientRect(), p = Math.min(1, Math.max(0, (vh * 0.86 - r.top) / (vh * 0.45 + r.height * 0.7))); if (STATIC) p = 1; var ws = q('.wd', el), n = ws.length; ws.forEach(function (w, i) { w.style.color = mix(Math.min(1, Math.max(0, p * (n + 8) - i) / 8)); }); });
+  }
+  var tick = false;
+  addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(function () { frame(); tick = false; }); } }, { passive: true });
+  addEventListener('resize', frame); frame();
+})();
+</script></body></html>
