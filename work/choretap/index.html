@@ -317,6 +317,46 @@ html{scroll-padding-top:90px}
 .pf-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 24px;font-size:13px;color:#9a998f}
 .pf-base a{color:inherit;text-decoration:none}
 .ghost{color:#e0e4e9!important}
+/* mobile */
+@media(max-width:700px){
+.w{padding:0 18px}
+.top{padding:14px 16px}
+.hero{height:auto;min-height:0;padding:96px 0 40px;display:block}
+.hero>.w{height:auto!important;display:flex;flex-direction:column;gap:26px}
+.hmeta,.hl,.hr{position:static;max-width:none;text-align:left}
+.hmeta{grid-template-columns:1fr 1fr;gap:14px 16px}
+.hphone{position:static;transform:none!important;margin:0 auto;order:2}
+.hl{order:1}.hr{order:3}
+.hl h1{font-size:40px}
+.toast,.disc,.rings{display:none!important}
+.ghost{font-size:34vw}
+.state{padding:80px 0 70px}
+.mrows,.stackwrap,.scrolly,.pers,.egrid,.egp,.mvp,.proto .g{grid-template-columns:1fr!important;gap:28px}
+.stackwrap{padding:20px 0 70px}
+.stackwrap .l{position:static}
+.sc{position:relative!important;top:auto!important;height:auto;grid-template-columns:1fr;margin-bottom:20px}
+h2,.sh h2{font-size:clamp(32px,9.6vw,44px)}
+.band h2{font-size:clamp(38px,11vw,54px)}
+.bento>*{grid-column:span 12!important}
+.dec,.nx{grid-template-columns:40px 1fr!important;gap:10px 14px}
+.dec>*:nth-child(n+3),.nx>*:nth-child(n+3){grid-column:2}
+.fgrid,.audit{grid-template-columns:170px!important;grid-auto-flow:column;grid-auto-columns:98px;overflow-x:auto}
+.gr{grid-template-columns:150px repeat(6,60px)!important;min-width:520px}
+.stage{order:-1;top:68px!important;height:430px!important;z-index:4;background:var(--bg);align-self:start}
+.stage{display:block!important;overflow:hidden}.stage .phone{position:absolute!important;left:50%;top:46px;margin-left:-150px;transform:scale(.58)!important;transform-origin:top center!important}.srail{width:calc(100% - 20px)!important}
+.stage .tagcap{display:none}
+.steps .st,.st{min-height:60vh}
+.st h3{font-size:clamp(28px,8vw,36px)}
+.ec{width:150px;height:150px}
+.pf-head{height:50px;padding:0 5px 0 16px;gap:8px}
+.pf-nav{display:flex;padding:3px}.pf-nav a{display:none}.pf-nav a:first-child{display:inline-flex}
+.pf-glass{flex-direction:column;align-items:flex-start;gap:20px}
+.pf-fnav a{padding:10px 16px;font-size:14px}
+.plan{height:auto;min-height:560px}
+.ecore,.q1,.q2,.q3,.q4{grid-column:auto!important;grid-row:auto!important}
+.eq{padding:20px}
+.flow{grid-template-columns:1fr 1fr!important;gap:18px 14px}.flow::before,.flow::after{display:none}
+}
 
 /* ---------- phones ---------- */
 .phone{width:300px;height:640px;border-radius:46px;background:#fff;border:9px solid var(--ink);position:relative;overflow:hidden;box-shadow:0 40px 70px -20px rgba(60,30,90,.35),0 12px 24px -8px rgba(60,30,90,.25);flex:none}
